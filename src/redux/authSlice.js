@@ -18,11 +18,11 @@ const authSlice = createSlice({
       state.user = action.payload;
     },
     logout: (state, action) => {
-      removeAccessToken()
-      state.user = null
+      removeAccessToken();
+      state.user = null;
     },
     getMe: (state, action) => {
-      state.user = action.payload
+      state.user = action.payload;
     },
   },
 });
@@ -33,20 +33,20 @@ export default authSlice.reducer;
 
 export const loginAPI = (email, password) => async (dispatch) => {
   try {
-    const res = await authApi.login({ email, password})
-    setAccessToken(res.data.accessToken)
-    const user = jwtDecode(res.data.accessToken)
-    dispatch(login(user))
+    const res = await authApi.login({ email, password });
+    setAccessToken(res.data.accessToken);
+    const user = jwtDecode(res.data.accessToken);
+    dispatch(login(user));
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 export const fetchAuthUser = () => async (dispatch) => {
   try {
-    const res = await authApi.getMe()
-    dispatch(getMe(res.data.user))
+    const res = await authApi.getMe();
+    dispatch(getMe(res.data.user));
   } catch (err) {
-    removeAccessToken()
+    removeAccessToken();
   }
-}
+};
