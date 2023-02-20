@@ -4,18 +4,56 @@ export default function RegisterPackage() {
   return (
     <div className="bg-white">
       <div className="justify-center">
-        <div className="justi">
-          <div className="flex justify-center">
-            <div className="w-10 h-10 fill-red-500 mb-2.5">
-              <CheckCircleIcon />
+        <div className="ml-48 mt-14">
+          <div className="flex-col">
+            <div className="flex justify-start">
+              <a className="text-gray-500 uppercase flex justify-center ">
+                Step 2 of 3
+              </a>
             </div>
+            <div className="flex justify-start">
+              <h1 className="text-black text-2xl font-semibold flex justify-center">
+                Choose the plan that's right to you.
+              </h1>
+            </div>
+          </div>
+          <div className="flex my-4">
+            <div>
+              <div className="w-4 h-4 fill-red-500 ">
+                <CheckIcon />
+              </div>
+            </div>
+            <a className="text-gray-500 text-sm ml-2">
+              Watch all you want. Ad-free.
+            </a>
+          </div>
+          <div className="flex my-4">
+            <div>
+              <div className="w-4 h-4 fill-red-500 ">
+                <CheckIcon />
+              </div>
+            </div>
+            <a className="text-gray-500 text-sm ml-2">
+              Recommendations just for you.
+            </a>
+          </div>
+          <div className="flex my-4">
+            <div>
+              <div className="w-4 h-4 fill-red-500 ">
+                <CheckIcon />
+              </div>
+            </div>
+            <a className="text-gray-500 text-sm ml-2">
+              Change or cancel your plan anytime.
+            </a>
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="block p-6 rounded-lg  bg-white max-w-sm mt-48">
+          <div className="block p-6 rounded-lg shadow-lg border-gray-600/80 bg-white max-w-sm mt-30">
             <form>
               <div className="flex justify-center flex-col">
                 <div className="flex justify-center">
+                  <img src="" />
                   <div className="w-10 h-10 fill-red-500 mb-2.5">
                     <CheckCircleIcon />
                   </div>

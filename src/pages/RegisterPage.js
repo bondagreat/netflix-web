@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 export default function RegisterPage() {
   return (
     <div className="bg-white ">
@@ -73,9 +74,10 @@ export default function RegisterPage() {
                 </label>
               </div>
             </div>
-            <button
-              type="submit"
-              className="
+            <Link to={{ pathname: '/registerstep' }}>
+              <button
+                type="submit"
+                className="
       w-full
       px-6
       py-2.5
@@ -85,9 +87,10 @@ export default function RegisterPage() {
       text-xl
       rounded
       shadow-md"
-            >
-              Next
-            </button>
+              >
+                Next
+              </button>
+            </Link>
           </form>
         </div>
       </div>
