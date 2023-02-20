@@ -6,14 +6,14 @@ export default function LoginAdminPage() {
           <form>
             <div className="form-group mb-6">
               <label
-                for="exampleInputEmail2"
+                htmlFor="exampleInputEmail2"
                 className="form-label inline-block mb-2 text-white text-3xl font-bold ml-20"
               >
                 Admin
               </label>
               <br />
               <label
-                for="exampleInputEmail2"
+                htmlFor="exampleInputEmail2"
                 className="form-label inline-block mb-2 text-white text-2xl font-semibold"
               >
                 Sign In
@@ -87,7 +87,7 @@ export default function LoginAdminPage() {
                 />
                 <label
                   className="form-check-label inline-block text-gray-500 mr-5"
-                  for="exampleCheck2"
+                  htmlFor="exampleCheck2"
                 >
                   Remember me
                 </label>

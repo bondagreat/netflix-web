@@ -68,7 +68,7 @@ export default function RegisterPage() {
                 />
                 <label
                   className="form-check-label inline-block text-gray-600 text-xs"
-                  for="exampleCheck2"
+                  htmlFor="exampleCheck2"
                 >
                   Please do not email me Netflix special offers.
                 </label>

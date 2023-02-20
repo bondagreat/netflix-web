@@ -5,11 +5,13 @@ export default function LoginForm() {
       <form>
         <div className="form-group mb-6">
           <label
-            for="exampleInputEmail2"
-            className="form-label inline-block mb-6 text-white text-2xl font-bold"
+            htmlFor="exampleInputEmail2"
+            className="form-label inline-block mb-6 text-white text-3xl font-bold"
           >
             Sign In
           </label>
+        </div>
+        <div className="form-group mb-6">
           <input
             type="email"
             className="form-control
@@ -23,16 +25,14 @@ export default function LoginForm() {
         text-gray-300
         bg-[#444444]  
         rounded
-         m-0"
+         m-0 mb-3.5"
             id="exampleInputEmail2"
             aria-describedby="emailHelp"
             placeholder="Email or phone number"
           />
-        </div>
-        <div className="form-group mb-6">
           <input
             type="password"
-            className="form-control block
+            className="
         w-full
         pl-3
         pr-24
@@ -42,7 +42,8 @@ export default function LoginForm() {
         text-gray-300
         bg-[#444444] 
         rounded
-        m-0"
+        m-0
+        border-transparent focus:border-transparent focus:ring-0"
             id="exampleInputPassword2"
             placeholder="Password"
           />
@@ -64,7 +65,7 @@ export default function LoginForm() {
       shadow-md
       transition
       duration-150
-      ease-in-out"
+      ease-in-out mt-4"
             >
               Sign in
             </button>
@@ -79,7 +80,7 @@ export default function LoginForm() {
             />
             <label
               className="form-check-label inline-block text-gray-400 mr-5 text-xs"
-              for="exampleCheck2"
+              htmlFor="exampleCheck2"
             >
               Remember me
             </label>
@@ -97,7 +98,7 @@ export default function LoginForm() {
           New to Netflix?{' '}
           <a
             href="#!"
-            className="text-gray-300 underline underline-hover:underline-offset-4 text-sm font-medium transition duration-200 ease-in-out"
+            className="text-gray-300 no-underline hover:underline text-sm font-medium transition duration-200 ease-in-out"
           >
             Sign Up now.
           </a>

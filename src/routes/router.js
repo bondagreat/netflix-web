@@ -5,6 +5,8 @@ import GetStartPage from '../pages/GetStartPage';
 import LoginAdminPage from '../pages/LoginAdminPage';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
+import RegisterPay from '../features/Auth/RegisterPay';
+import RegisterInputPay from '../features/Auth/RegisterInputPay';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
   {
     path: '/registerpackage',
     element: <RegisterPackage />,
+  },
+  {
+    path: '/registerpay',
+    element: <RegisterPay />,
+  },
+  {
+    path: '/registerinputpay',
+    element: <RegisterInputPay />,
   },
   {
     path: '/getstart',
