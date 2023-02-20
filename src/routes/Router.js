@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import ManageProfile from '../components/profile/ManageProfile';
 import ProtectedRoute from '../features/auth/ProtectedRoute';
 import RedirectIfAuthenticate from '../features/auth/RedirectIfAuthenticate';
 import AuthLayout from '../layouts/AuthLayout';
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/ManageProfile',
-        element: <ProtectedRoute></ProtectedRoute>
+        element: <ManageProfile />
     },
     {
         element: (
