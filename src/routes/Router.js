@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import EditProfile from '../components/profile/EditProfile';
 import ManageProfile from '../components/profile/ManageProfile';
 import ProtectedRoute from '../features/auth/ProtectedRoute';
 import RedirectIfAuthenticate from '../features/auth/RedirectIfAuthenticate';
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     {
         path: '/ManageProfile',
         element: <ManageProfile />
+    },
+    {
+        path: '/EditProfile',
+        element: <EditProfile />
     },
     {
         element: (
