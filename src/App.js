@@ -6,7 +6,7 @@ import useLoading from "./hooks/useLoading";
 import Router from "./routes/Router";
 import Spinner from "./components/Spinner";
 import { getAccessToken } from "./utils/local-storage";
-import Header from "./layouts/Header";
+// import Header from "./layouts/Header";
 
 function App() {
   const { loading } = useLoading();
@@ -22,9 +22,9 @@ function App() {
 
   return (
     <>
-      <div>
+      {/* <div>
         <Header />
-      </div>
+      </div> */}
       {loading && <Spinner />}
       <Router />
     </>
