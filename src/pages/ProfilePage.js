@@ -5,7 +5,7 @@ export default function ProfilePage() {
                 <div className="flex justify-center mt-10">
                     <h1 className="text-white">Who's watching?</h1>
                 </div>
-                <div className="flex justify-center gap-3 mt-3">
+                <div className="flex justify-center gap-3  mt-3">
                     <div>
                         <img
                             className="w-[100px]"
