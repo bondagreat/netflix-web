@@ -7,10 +7,15 @@ import AuthLayout from '../layouts/AuthLayout';
 import LoginPage from '../pages/LoginPage';
 import ProfilePage from '../pages/ProfilePage';
 import RegisterPage from '../pages/RegisterPage';
+import LandingPage from '../pages/LandingPage';
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: '/',
+    element: <LandingPage />,
+  },
+  {
+    path: '/login',
     element: (
       <RedirectIfAuthenticate>
         <LoginPage />

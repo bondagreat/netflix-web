@@ -10,11 +10,9 @@ specifiers:
   joi: ^17.7.1
   jwt-decode: ^3.1.2
   react: ^18.2.0
+  react-accessible-accordion: ^5.0.0
   react-dom: ^18.2.0
-<<<<<<< HEAD
-=======
   react-redux: ^8.0.5
->>>>>>> dev
   react-router-dom: ^6.8.1
   react-scripts: 5.0.1
   react-spinners: ^0.13.8
@@ -32,17 +30,13 @@ dependencies:
   joi: 17.7.1
   jwt-decode: 3.1.2
   react: 18.2.0
+  react-accessible-accordion: 5.0.0_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
-<<<<<<< HEAD
-  react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
-  react-scripts: 5.0.1_react@18.2.0
-  tw-elements: 1.0.0-alpha13
-=======
   react-redux: 8.0.5_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_react@18.2.0
   react-spinners: 0.13.8_biqbaboplfbrettd7655fr4n2y
->>>>>>> dev
+  tw-elements: 1.0.0-alpha13
   web-vitals: 2.1.4
 
 devDependencies:
@@ -2030,10 +2024,8 @@ packages:
       webpack-dev-server: 4.11.1_webpack@5.75.0
     dev: false
 
-<<<<<<< HEAD
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
-=======
   /@reduxjs/toolkit/1.9.2_k4ae6lp43ej6mezo3ztvx6pykq:
     resolution: {integrity: sha512-5ZAZ7hwAKWSii5T6NTPmgIBUqyVdlDs+6JjThz6J6dmHLDm6zCzv2OjHIFAi3Vvs1qjmXU0bm6eBojukYXjVMQ==}
     peerDependencies:
@@ -2051,7 +2043,6 @@ packages:
       redux: 4.2.1
       redux-thunk: 2.4.2_redux@4.2.1
       reselect: 4.1.7
->>>>>>> dev
     dev: false
 
   /@remix-run/router/1.3.2:
@@ -8368,6 +8359,16 @@ packages:
       http-errors: 2.0.0
       iconv-lite: 0.4.24
       unpipe: 1.0.0
+    dev: false
+
+  /react-accessible-accordion/5.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-MT2obYpTgLIIfPr9d7hEyvPB5rg8uJcHpgA83JSRlEUHvzH48+8HJPvzSs+nM+XprTugDgLfhozO5qyJpBvYRQ==}
+    peerDependencies:
+      react: ^16.3.2 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.3.3 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-app-polyfill/3.0.0:
