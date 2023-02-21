@@ -12,6 +12,7 @@ import LandingPage from '../pages/LandingPage';
 import RegisterPay from '../features/auth/RegisterPay';
 import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
+import HomePage from '../pages/HomePage';
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: '/EditProfile',
         element: <EditProfile />,
+      },
+      {
+        path: '/homepage',
+        element: <HomePage />,
       },
     ],
   },
