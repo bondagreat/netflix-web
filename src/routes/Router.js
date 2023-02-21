@@ -1,12 +1,12 @@
-import {
-  RouterProvider,
-  createBrowserRouter
-} from "react-router-dom";
-import ProtectedRoute from "../features/auth/ProtectedRoute";
-import RedirectIfAuthenticate from "../features/auth/RedirectIfAuthenticate";
-import AuthLayout from "../layouts/AuthLayout";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import EditProfile from '../components/profile/EditProfile';
+import ManageProfile from '../components/profile/ManageProfile';
+import ProtectedRoute from '../features/auth/ProtectedRoute';
+import RedirectIfAuthenticate from '../features/auth/RedirectIfAuthenticate';
+import AuthLayout from '../layouts/AuthLayout';
+import LoginPage from '../pages/LoginPage';
+import ProfilePage from '../pages/ProfilePage';
+import RegisterPage from '../pages/RegisterPage';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,18 @@ const router = createBrowserRouter([
         <RegisterPage />
       </RedirectIfAuthenticate>
     )
+  },
+  {
+    path: '/profile',
+    element: <ProfilePage />,
+  },
+  {
+    path: '/ManageProfile',
+    element: <ManageProfile />,
+  },
+  {
+    path: '/EditProfile',
+    element: <EditProfile />,
   },
   {
     element: (

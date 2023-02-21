@@ -1,5 +1,5 @@
-import ClipLoader from "react-spinners/ClipLoader";
-import useLoading from "../hooks/useLoading";
+import ClipLoader from 'react-spinners/ClipLoader';
+import useLoading from '../hooks/useLoading';
 
 export default function Spinner() {
   const { loading } = useLoading();
