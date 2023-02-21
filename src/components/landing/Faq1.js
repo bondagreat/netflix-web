@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PlusIcon } from '../../images';
+import { PlusLandingPageIcon } from '../../images';
 import {
   AccordionItem,
   AccordionItemHeading,
@@ -26,7 +26,7 @@ export default function Faq1({ head, body }) {
                 open ? 'rotate-45' : ''
               }`}
             >
-              <PlusIcon />
+              <PlusLandingPageIcon />
             </div>
           </AccordionItemButton>
         </AccordionItemHeading>
