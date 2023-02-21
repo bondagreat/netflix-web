@@ -78,6 +78,14 @@ export default function RegisterPackage() {
             <div className="w-[350px]  rounded-md">
               <img src={CardThreeMPic} />
             </div>
+            <Link to={{ pathname: '/registerpay' }}>
+              <button
+                type="submit"
+                className="w-full  px-6 py-2.5  bg-red-600    text-white font-xl   text-xl rounded  shadow-md my-2"
+              >
+                Next
+              </button>
+            </Link>
           </div>
         </div>
       </div>

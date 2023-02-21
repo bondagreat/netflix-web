@@ -47,6 +47,7 @@ internet connection. Take Netflix with you anywhere.`,
 ];
 
 export default function LandingPage() {
+  const [active, setActive] = useState('');
   return (
     <>
       {/* div 1 */}
@@ -116,7 +117,7 @@ export default function LandingPage() {
         />
       </div>
       <hr className="border-4 border-[#303030] my-0" />
-      {/* div 2 */}
+      {/* div 2 */}[]
       {/* div 3 */}
       <div className="h-[30vh] bg-black flex justify-center flex-col">
         <h1 className="ml-14 mb-8 font-bold text-white text-5xl w-1/2">
@@ -135,9 +136,34 @@ export default function LandingPage() {
           Frequently Asked Questions
         </h1>
 
-        <Accordion allowZeroExpanded={true} className="w-7/12 self-center">
+        <Accordion
+          allowZeroExpanded={true}
+          className="w-7/12 self-center"
+          onChange={(inp) => {
+            switch (inp[0]) {
+              case ':r1:':
+                return setActive(0);
+              case ':r3:':
+                return setActive(1);
+              case ':r5:':
+                return setActive(2);
+              case ':r7:':
+                return setActive(3);
+              case ':r9:':
+                return setActive(4);
+            }
+            setActive('');
+          }}
+        >
           {faq.map((el, index) => {
-            return <Faq1 key={index} head={el.head} body={el.body} />;
+            return (
+              <Faq1
+                key={index}
+                head={el.head}
+                body={el.body}
+                active={active === index}
+              />
+            );
           })}
         </Accordion>
 

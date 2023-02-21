@@ -54,13 +54,12 @@ export default function RegisterInputPay() {
               />
             </div>
             <div className="flex justify-between items-center mb-6">
-              <a
+              <button
                 type="submit"
-                className=" no-underline hover:underline w-full text-center  px-6  py-2.5  bg-gray-300  text-blue-500  font-xl   text-md  rounded   shadow-md"
+                className=" no-underline hover:underline w-full text-center  px-6  py-2.5  bg-gray-100  text-blue-500  font-medium   text-md  rounded   shadow-sm"
               >
-                {' '}
-                change
-              </a>
+                Change
+              </button>
             </div>
             <button
               type="submit"

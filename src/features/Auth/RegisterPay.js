@@ -72,25 +72,6 @@ export default function RegisterPay() {
               </div>
             </button>
           </Link>
-          <Link to={{ pathname: '/registerinputpay' }}>
-            <button
-              type="submit"
-              className="w-full px-6 py-2.5 bg-white border-gray-500 text-black font-xl text-xl rounded shadow-md my-2"
-            >
-              <div className="flex">
-                <a>Omise</a>
-                <img
-                  src={OmiseIconPic}
-                  className=" w-[100px] h-[30px] ml-3 mr-24"
-                />
-                <div className="ml-5 mt-2">
-                  <div className="fill-gray-500 w-[10px] h-[10px]">
-                    <ChevronRight />
-                  </div>
-                </div>
-              </div>
-            </button>
-          </Link>
         </div>
       </div>
     </div>
