@@ -1,7 +1,9 @@
+import NavBar from './NavBar';
+
 export default function Header() {
   return (
-    <nav>
-      <span>Header</span>
-    </nav>
-  )
+    <>
+      <NavBar />
+    </>
+  );
 }
