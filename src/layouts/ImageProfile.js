@@ -1,4 +1,4 @@
-import blankImage from "../assets/blank.png";
+import blankImage from '../assets/blank.png';
 
 export default function ImageProfile({ src, size }) {
   return (

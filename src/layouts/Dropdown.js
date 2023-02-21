@@ -1,4 +1,4 @@
-import ImageProfile from "./ImageProfile";
+import ImageProfile from './ImageProfile';
 
 export default function Dropdown() {
   return (

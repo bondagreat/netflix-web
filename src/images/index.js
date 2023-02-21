@@ -224,3 +224,7 @@ export function YoutubeLogo() {
     </svg>
   );
 }
+
+export function NetflixTitleLogo() {
+  return;
+}

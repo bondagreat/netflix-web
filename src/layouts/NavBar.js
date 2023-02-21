@@ -1,6 +1,6 @@
-import Brand from "./Brand";
-import Menu from "./Menu";
-import MenuRight from "./MenuRight";
+import Brand from './Brand';
+import Menu from './Menu';
+import MenuRight from './MenuRight';
 
 export default function NavBar() {
   return (

@@ -1,5 +1,5 @@
 // import { useLocation } from "react-router-dom";
-import MenuItem from "./MenuItem";
+import MenuItem from './MenuItem';
 
 export default function Menu() {
   // const location = useLocation()
