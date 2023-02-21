@@ -1,7 +1,9 @@
+import NavBarFooter from "./NavBarFooter";
+
 export default function Footer() {
   return (
     <footer>
-      <span>Footer</span>
+      <NavBarFooter />
     </footer>
   );
 }
