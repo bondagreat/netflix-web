@@ -1,4 +1,4 @@
-import Input from "../Input";
+import Input from '../Input';
 
 export default function LoginForm() {
   return (
@@ -7,5 +7,5 @@ export default function LoginForm() {
         <span>Login</span>
       </div>
     </>
-  )
+  );
 }
