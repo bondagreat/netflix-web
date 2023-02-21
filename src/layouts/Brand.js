@@ -1,4 +1,4 @@
-import { NetflixLogo } from "../icons";
+import { NetflixLogo } from '../images';
 
 export default function Brand() {
   return (

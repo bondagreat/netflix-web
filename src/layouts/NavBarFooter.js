@@ -2,9 +2,9 @@ import {
   FacebookLogo,
   InstagramLogo,
   TwitterLogo,
-  YoutubeLogo
-} from "../icons";
-import MenuFooter from "./MenuFooter";
+  YoutubeLogo,
+} from '../images';
+import MenuFooter from './MenuFooter';
 
 export default function NavBarFooter() {
   return (

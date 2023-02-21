@@ -1,7 +1,7 @@
-import { NotificationIcon, SearchIcon } from "../icons";
-import Dropdown from "./Dropdown";
-import ImageProfile from "./ImageProfile";
-import MenuItemRight from "./MenuItemRight";
+import { NotificationIcon, SearchIcon } from '../images';
+import Dropdown from './Dropdown';
+import ImageProfile from './ImageProfile';
+import MenuItemRight from './MenuItemRight';
 
 export default function MenuRight() {
   return (
