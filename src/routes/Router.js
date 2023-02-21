@@ -5,14 +5,12 @@ import ProtectedRoute from '../features/auth/ProtectedRoute';
 import RedirectIfAuthenticate from '../features/auth/RedirectIfAuthenticate';
 import AuthLayout from '../layouts/AuthLayout';
 import LoginPage from '../pages/LoginPage';
-import RegisterPackage from '../features/Auth/RegisterPackage';
+import RegisterPackage from '../features/auth/RegisterPackage';
 import RegisterPage from '../pages/RegisterPage';
-import RegisterStepForm from '../features/Auth/RegisterStepForm';
+import RegisterStepForm from '../features/auth/RegisterStepForm';
 import LandingPage from '../pages/LandingPage';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
-import RegisterPay from '../features/Auth/RegisterPay';
-import RegisterInputPay from '../features/Auth/RegisterInputPay';
+import RegisterPay from '../features/auth/RegisterPay';
+import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 
 const router = createBrowserRouter([
