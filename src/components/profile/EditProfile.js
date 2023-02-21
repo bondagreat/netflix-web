@@ -1,4 +1,4 @@
-import { EditIcon } from '../../images/EditIcon';
+import { EditIcon } from '../../images';
 export default function EditProfile() {
     return (
         <>
