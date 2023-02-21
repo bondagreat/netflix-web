@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Accordion } from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
+import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Faq1 from '../components/landing/Faq1';
 import { NetFlixLogo } from '../images';
 
@@ -61,13 +63,14 @@ export default function LandingPage() {
       </div>
       <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
         <NetFlixLogo />
-
-        <button
-          type="button"
-          className="text-lg text-white bg-[#E50914] px-2 font-medium my-5 rounded-sm "
-        >
-          Sign In
-        </button>
+        <Link to={'/login'}>
+          <button
+            type="button"
+            className="text-base text-white py-1 bg-[#E50914] px-4 font-normal my-5 rounded-sm "
+          >
+            Sign In
+          </button>
+        </Link>
       </div>
       <div className="flex justify-center w-7/12 mx-auto flex-col h-[90vh]">
         <h1 className="font-bold text-center text-white text-5xl mx-20">
@@ -89,6 +92,7 @@ export default function LandingPage() {
             placeholder="Email address"
           ></input>
           <button
+            onClick={Navigate}
             type="submit"
             className="rounded-r-sm p-2 px-16 bg-[#E50914] text-white font-medium active:bg-red-700 text-2xl"
           >
@@ -109,11 +113,21 @@ export default function LandingPage() {
             players, and more.
           </p>
         </div>
-        <img
-          alt=""
-          className="w-1/2 mr-14 my-8"
-          src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
-        />
+        <div className="relative">
+          <img
+            alt=""
+            className="absolute z-10 "
+            src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+          />
+          <div className="scale-x-[73%] scale-y-[82%] translate-y-10 -z-30">
+            <video autoPlay playsInline muted loop>
+              <source
+                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+        </div>
       </div>
       <hr className="border-4 border-[#303030] my-0" />
       {/* div 2 */}
