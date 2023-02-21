@@ -7,5 +7,5 @@ export default function LoginForm() {
         <span>Login</span>
       </div>
     </>
-  )
+  );
 }

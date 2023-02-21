@@ -3,5 +3,5 @@ export default function Footer() {
     <footer>
       <span>Footer</span>
     </footer>
-  )
+  );
 }
