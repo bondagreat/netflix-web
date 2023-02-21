@@ -94,7 +94,5 @@ export default function RegisterPay() {
         </div>
       </div>
     </div>
-    //   </div>
-    // </div>
   );
 }
