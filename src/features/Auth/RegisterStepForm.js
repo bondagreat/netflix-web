@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { CheckCircleIcon, CheckIcon } from '../../images';
 
 export default function RegisterStepForm() {
@@ -53,22 +54,14 @@ export default function RegisterStepForm() {
                 No ads and no extra fees. Ever.
               </a>
             </div>
-
-            <button
-              type="submit"
-              className="
-        w-full
-        px-6
-        py-2.5
-        bg-red-600
-        text-white
-        font-xl
-        text-xl
-        rounded
-        shadow-md my-2"
-            >
-              Next
-            </button>
+            <Link to={{ pathname: '/registerpackage' }}>
+              <button
+                type="submit"
+                className="w-full  px-6  py-2.5  bg-red-600  text-white  font-xl  text-xl  rounded shadow-md my-2"
+              >
+                Next
+              </button>
+            </Link>
           </form>
         </div>
       </div>

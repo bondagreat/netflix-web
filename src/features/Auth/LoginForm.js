@@ -14,36 +14,14 @@ export default function LoginForm() {
         <div className="form-group mb-6">
           <input
             type="email"
-            className="form-control
-        block
-        w-full
-        pl-3
-        pr-24
-        py-3
-        text-sm
-        font-normal
-        text-gray-300
-        bg-[#444444]  
-        rounded
-         m-0 mb-3.5"
+            className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-300  bg-[#444444]    rounded   m-0 mb-3.5"
             id="exampleInputEmail2"
             aria-describedby="emailHelp"
             placeholder="Email or phone number"
           />
           <input
             type="password"
-            className="
-        w-full
-        pl-3
-        pr-24
-        py-3
-        text-sm
-        font-normal
-        text-gray-300
-        bg-[#444444] 
-        rounded
-        m-0
-        border-transparent focus:border-transparent focus:ring-0"
+            className="w-full  pl-3  pr-24 py-3  text-sm font-normal  text-gray-300 bg-[#444444]  rounded m-0 border-transparent focus:border-transparent focus:ring-0"
             id="exampleInputPassword2"
             placeholder="Password"
           />
@@ -52,20 +30,7 @@ export default function LoginForm() {
           <div className="flex justify-between items-center mb-1">
             <button
               type="submit"
-              className="
-      w-full
-      px-6
-      py-2.5
-      bg-red-600
-      text-white
-      font-medium
-      text-lg
-      leading-tight
-      rounded
-      shadow-md
-      transition
-      duration-150
-      ease-in-out mt-4"
+              className="w-full  px-6  py-2.5  bg-red-600  text-white  font-medium  text-lg  leading-tight  rounded  shadow-md  transition  duration-150  ease-in-out mt-4"
             >
               Sign in
             </button>

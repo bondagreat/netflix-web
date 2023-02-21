@@ -25,18 +25,7 @@ export default function RegisterPage() {
             <div className="form-group mb-6">
               <input
                 type="email"
-                className="form-control
-        block
-        mt-2.5
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="form-control  block  mt-2.5  w-full  px-3  py-1.5  text-base  font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="exampleInputEmail2"
                 aria-describedby="emailHelp"
                 placeholder="Email"
@@ -45,16 +34,7 @@ export default function RegisterPage() {
             <div className="form-group mb-6">
               <input
                 type="password"
-                className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="form-control block  w-full  px-3  py-1.5  text-base  font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="exampleInputPassword2"
                 placeholder="Add a password"
               />
@@ -77,16 +57,7 @@ export default function RegisterPage() {
             <Link to={{ pathname: '/registerstep' }}>
               <button
                 type="submit"
-                className="
-      w-full
-      px-6
-      py-2.5
-      bg-red-600
-      text-white
-      font-xl
-      text-xl
-      rounded
-      shadow-md"
+                className="  w-full  px-6  py-2.5  bg-red-600  text-white  font-xl  text-xl  rounded  shadow-md"
               >
                 Next
               </button>

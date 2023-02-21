@@ -3,6 +3,7 @@ import PkMonthlyPic from '../../assets/images/pkmonthly.png';
 import CardMonthlyPic from '../../assets/images/cardmonthly.png';
 import CardThreeMPic from '../../assets/images/cardthreem.png';
 import PkThreeMPic from '../../assets/images/pkthreem.png';
+import { Link } from 'react-router-dom';
 
 export default function RegisterPackage() {
   return (
@@ -28,7 +29,7 @@ export default function RegisterPackage() {
               </div>
             </div>
             <a className="text-gray-500 text-sm ml-2">
-              Watch all you want. Ad-free.
+              Watch all you want. Ad-fr
             </a>
           </div>
           <div className="flex my-4">
@@ -61,21 +62,14 @@ export default function RegisterPackage() {
             <div className="w-[350px]  rounded-md">
               <img src={CardMonthlyPic} />
             </div>
-            <button
-              type="submit"
-              className="
-        w-full
-        px-6
-        py-2.5
-        bg-red-600
-        text-white
-        font-xl
-        text-xl
-        rounded
-        shadow-md my-2"
-            >
-              Next
-            </button>
+            <Link to={{ pathname: '/registerpay' }}>
+              <button
+                type="submit"
+                className="w-full  px-6 py-2.5  bg-red-600    text-white font-xl   text-xl rounded  shadow-md my-2"
+              >
+                Next
+              </button>
+            </Link>
           </div>
           <div className="block p-6 rounded-lg shadow-lg border-gray-600/80 bg-white max-w-sm mt-30 ml-5">
             <div className="w-[100px] h-[100px]  rounded-md ml-32  mb-5">

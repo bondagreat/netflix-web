@@ -20,18 +20,7 @@ export default function LoginAdminPage() {
               </label>
               <input
                 type="email"
-                className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-300
-        bg-gray-700 bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-         m-0"
+                className="form-control  block   w-full  px-3   py-1.5   text-base   font-normal   text-gray-300   bg-gray-700 bg-clip-padding  border border-solid border-gray-300  rounded   m-0"
                 id="exampleInputEmail2"
                 aria-describedby="emailHelp"
                 placeholder="Email or phone number"
@@ -40,17 +29,7 @@ export default function LoginAdminPage() {
             <div className="form-group mb-6">
               <input
                 type="password"
-                className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-300
-        bg-gray-700 bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        m-0"
+                className="form-control block   w-full   px-3    py-1.5  text-b  font-normal  text-gray-300   bg-gray-700 bg-clip-padding   border border-solid border-gray-300  rounded   m-0"
                 id="exampleInputPassword2"
                 placeholder="Password"
               />
@@ -58,20 +37,7 @@ export default function LoginAdminPage() {
             <div className="flex justify-between items-center mb-6">
               <button
                 type="submit"
-                className="
-      w-full
-      px-6
-      py-2.5
-      bg-red-600
-      text-white
-      font-medium
-      text-lg
-      leading-tight
-      rounded
-      shadow-md
-      transition
-      duration-150
-      ease-in-out"
+                className="w-full  px-6   py-2.5  bg-red-600   text-white   font-medium   text-lg   leading-tight   rounded   shadow-md   transition   duration-150   ease-in-out"
               >
                 Sign in
               </button>

@@ -23,18 +23,7 @@ export default function RegisterInputPay() {
             <div className="form-group mb-6">
               <input
                 type="text"
-                className="form-control rounded-sm
-        block
-        mt-2.5
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="form-control rounded-sm block mt-2.5 w-full px-3 py-1.5 text-base font-normal text-gray-700  bg-white bg-clip-padding border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="exampleInputEmail2"
                 aria-describedby="emailHelp"
                 placeholder="Firstname and Lastname"
@@ -43,16 +32,7 @@ export default function RegisterInputPay() {
             <div className="form-group mb-6">
               <input
                 type="text"
-                className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="form-control block w-full px-3 py-1.5 text-base font-normal  text-gray-700  bg-white bg-clip-padding border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="exampleInputPassword2"
                 placeholder="Card Number"
               />
@@ -60,16 +40,7 @@ export default function RegisterInputPay() {
             <div className="form-group mb-6">
               <input
                 type="text"
-                className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="form-control block  w-full px-3  py-1.5   text-base   font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="exampleInputPassword2"
                 placeholder="Expiration date (MM/YY)"
               />
@@ -77,16 +48,7 @@ export default function RegisterInputPay() {
             <div className="form-group mb-6">
               <input
                 type="text"
-                className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="form-control block  w-full  px-3  py-1.5  text-base  font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="exampleInputPassword2"
                 placeholder="Security Code CVC"
               />
@@ -94,15 +56,7 @@ export default function RegisterInputPay() {
             <div className="flex justify-between items-center mb-6">
               <a
                 type="submit"
-                className=" no-underline hover:underline w-full text-center
-      px-6
-      py-2.5
-      bg-gray-300
-      text-blue-500
-      font-xl
-      text-md
-      rounded
-      shadow-md"
+                className=" no-underline hover:underline w-full text-center  px-6  py-2.5  bg-gray-300  text-blue-500  font-xl   text-md  rounded   shadow-md"
               >
                 {' '}
                 change
@@ -110,15 +64,7 @@ export default function RegisterInputPay() {
             </div>
             <button
               type="submit"
-              className="
-      w-full
-      px-6
-      py-2.5
-      bg-red-600
-      text-white
-      font-xl
-      text-xl
-      rounded
+              className="  w-full  px-6   py-2.5  bg-red-600  text-white  font-xl  text-xl  rounded
       shadow-md"
             >
               Start Membership
