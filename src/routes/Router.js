@@ -14,6 +14,8 @@ import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
+import AdminUploadMoviesPage from '../pages/AdminUploadMoviesPage';
+import LoginAdminPage from '../pages/LoginAdminPage';
 
 const router = createBrowserRouter([
   {
@@ -69,8 +71,20 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/loginAdmin',
+    element: (
+      <RedirectIfAuthenticate>
+        <LoginAdminPage />,
+      </RedirectIfAuthenticate>
+    ),
+  },
+  {
     path: '/adminManageAccount',
     element: <AdminManageAccountPage />,
+  },
+  {
+    path: '/adminUploadMovies',
+    element: <AdminUploadMoviesPage />,
   },
 
   {
