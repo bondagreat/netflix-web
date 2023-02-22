@@ -14,6 +14,7 @@ import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminSeeTransactionPage from '../pages/AdminSeeTransactionPage';
+import AdminManageAccountPage from '../pages/AdminManageAccountPage';
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,10 @@ const router = createBrowserRouter([
     path: '/adminSeeTransaction',
     element: <AdminSeeTransactionPage />,
   },
-
+  {
+    path: '/adminManageAccount',
+    element: <AdminManageAccountPage />,
+  },
   {
     element: (
       // <ProtectedRoute>
