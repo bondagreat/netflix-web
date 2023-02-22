@@ -13,7 +13,7 @@ import RegisterPay from '../features/auth/RegisterPay';
 import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
-import AdminManageAccountPage from '../pages/AdminManageAccountPage';
+import AdminSeeTransactionPage from '../pages/AdminSeeTransactionPage';
 
 const router = createBrowserRouter([
   {
@@ -69,8 +69,8 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/adminManageAccount',
-    element: <AdminManageAccountPage />,
+    path: '/adminSeeTransaction',
+    element: <AdminSeeTransactionPage />,
   },
 
   {
