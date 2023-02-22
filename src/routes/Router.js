@@ -13,6 +13,7 @@ import RegisterPay from '../features/auth/RegisterPay';
 import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
+import AdminManageAccountPage from '../pages/AdminManageAccountPage';
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         <RegisterInputPay />,
       </RedirectIfAuthenticate>
     ),
+  },
+  {
+    path: '/adminManageAccount',
+    element: <AdminManageAccountPage />,
   },
 
   {
