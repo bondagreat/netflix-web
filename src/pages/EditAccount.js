@@ -31,23 +31,24 @@ export default function EditAccount() {
             </p>
           </div>
         </div>
-        <div className="h-full w-full text-right">
-          <a class=" text-blue-600 no-underline hover:underline">
+
+        <div className="h-full w-full text-right ">
+          <a className="text-blue-600 no-underline hover:underline">
             Change Account Email
           </a>
           <br />
-          <a class=" text-blue-600 no-underline hover:underline ">
+          <a className="block mt-2 text-blue-600 no-underline hover:underline ">
             Change Password
           </a>
           <br />
-          <a class=" text-blue-600 no-underline hover:underline">
+          <a className="block mt-[-15px] text-blue-600 no-underline hover:underline">
             Change Phone Number
           </a>
           <br />
           <br />
           <br />
-          <br />
-          <a class=" text-blue-600 no-underline hover:underline">
+
+          <a className=" text-blue-600 no-underline hover:underline">
             Manage Payment info
           </a>
         </div>
