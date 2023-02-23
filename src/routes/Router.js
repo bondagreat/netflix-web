@@ -10,7 +10,6 @@ import RegisterPage from '../pages/RegisterPage';
 import RegisterStepForm from '../features/auth/RegisterStepForm';
 import LandingPage from '../pages/LandingPage';
 import RegisterPay from '../features/auth/RegisterPay';
-import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
@@ -60,14 +59,7 @@ const router = createBrowserRouter([
       </RedirectIfAuthenticate>
     ),
   },
-  {
-    path: '/registerInputPay',
-    element: (
-      <RedirectIfAuthenticate>
-        <RegisterInputPay />,
-      </RedirectIfAuthenticate>
-    ),
-  },
+
   {
     path: '/adminManageAccount',
     element: <AdminManageAccountPage />,
