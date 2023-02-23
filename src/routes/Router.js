@@ -15,6 +15,7 @@ import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminSeeTransactionPage from '../pages/AdminSeeTransactionPage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
+import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
   {
     path: '/adminManageAccount',
     element: <AdminManageAccountPage />,
+  },
+  {
+    path: '/adminManageMovies',
+    element: <AdminManageMoviesPage />,
   },
   {
     element: (
