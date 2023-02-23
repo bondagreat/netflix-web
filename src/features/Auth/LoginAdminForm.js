@@ -67,11 +67,11 @@ export default function LoginAdminForm() {
             </div>
           </div>
 
-          <p className="text-gray-500 mt-6 text-center">
+          <p className="text-gray-500 text-sm mt-6 text-center">
             New to Netflix?{' '}
             <a
               href="#!"
-              className="text-gray-500 hover:text-gray-300 transition duration-200 ease-in-out"
+              className="text-gray-300 no-underline hover:underline text-sm font-medium transition duration-200 ease-in-out"
             >
               Sign Up now.
             </a>

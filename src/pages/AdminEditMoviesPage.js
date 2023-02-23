@@ -8,6 +8,7 @@ import {
 } from '../images';
 import Brand from '../layouts/Brand';
 import MenuItemRight from '../layouts/MenuItemRight';
+import ModalEditPicture from '../components/global/ModalEditPicture';
 
 export default function AdminManageMovies() {
   return (
@@ -48,6 +49,7 @@ export default function AdminManageMovies() {
           <div className="bg-neutral-500 flex flex-grow flex-col">
             <p className="text-white mt-2 ml-2">Movies</p>
           </div>
+          <ModalEditPicture />
         </div>
       </div>
     </>

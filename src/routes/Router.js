@@ -14,8 +14,10 @@ import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
-import AdminUploadMoviesPage from '../pages/AdminUploadMoviesPage';
+import AdminEditMoviesPage from '../pages/AdminEditMoviesPage';
 import LoginAdminPage from '../pages/LoginAdminPage';
+import ModalEditVideo from '../components/global/ModalEditVideo';
+import ModalEditTrailer from '../components/global/ModalEditTrailer';
 
 const router = createBrowserRouter([
   {
@@ -83,8 +85,16 @@ const router = createBrowserRouter([
     element: <AdminManageAccountPage />,
   },
   {
-    path: '/adminUploadMovies',
-    element: <AdminUploadMoviesPage />,
+    path: '/adminEditMovies',
+    element: <AdminEditMoviesPage />,
+  },
+  {
+    path: '/modalEditVideo',
+    element: <ModalEditVideo />,
+  },
+  {
+    path: '/modalEditTrailer',
+    element: <ModalEditTrailer />,
   },
 
   {
