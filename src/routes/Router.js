@@ -10,7 +10,6 @@ import RegisterPage from '../pages/RegisterPage';
 import RegisterStepForm from '../features/auth/RegisterStepForm';
 import LandingPage from '../pages/LandingPage';
 import RegisterPay from '../features/auth/RegisterPay';
-import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 
 const router = createBrowserRouter([
@@ -58,15 +57,6 @@ const router = createBrowserRouter([
       </RedirectIfAuthenticate>
     ),
   },
-  {
-    path: '/registerInputPay',
-    element: (
-      <RedirectIfAuthenticate>
-        <RegisterInputPay />,
-      </RedirectIfAuthenticate>
-    ),
-  },
-
   {
     element: (
       // <ProtectedRoute>
