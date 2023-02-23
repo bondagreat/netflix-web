@@ -11,6 +11,8 @@ import RegisterStepForm from '../features/auth/RegisterStepForm';
 import LandingPage from '../pages/LandingPage';
 import RegisterPay from '../features/auth/RegisterPay';
 import ProfilePage from '../pages/ProfilePage';
+import HomePage from '../pages/HomePage';
+import AdminManageAccountPage from '../pages/AdminManageAccountPage';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +59,12 @@ const router = createBrowserRouter([
       </RedirectIfAuthenticate>
     ),
   },
+
+  {
+    path: '/adminManageAccount',
+    element: <AdminManageAccountPage />,
+  },
+
   {
     element: (
       // <ProtectedRoute>
@@ -92,6 +100,10 @@ const router = createBrowserRouter([
       {
         path: '/EditProfile',
         element: <EditProfile />,
+      },
+      {
+        path: '/homepage',
+        element: <HomePage />,
       },
     ],
   },

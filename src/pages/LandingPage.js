@@ -117,7 +117,7 @@ export default function LandingPage() {
         />
       </div>
       <hr className="border-4 border-[#303030] my-0" />
-      {/* div 2 */}[]
+      {/* div 2 */}
       {/* div 3 */}
       <div className="h-[30vh] bg-black flex justify-center flex-col">
         <h1 className="ml-14 mb-8 font-bold text-white text-5xl w-1/2">

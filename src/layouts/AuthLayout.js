@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+import { Outlet } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 
 export default function AuthLayout() {
   return (
@@ -9,6 +9,7 @@ export default function AuthLayout() {
       <div>
         <Outlet />
       </div>
+
       <Footer />
     </>
   );
