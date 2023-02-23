@@ -1,16 +1,9 @@
-import {
-  FilePen,
-  FilmIcon,
-  HomeLogo,
-  SearchIcon,
-  TrashCan,
-  VideoIcon,
-} from '../images';
+import { HomeLogo, SearchIcon } from '../images';
 import Brand from '../layouts/Brand';
 import MenuItemRight from '../layouts/MenuItemRight';
-import ModalEditPicture from '../components/global/ModalEditPicture';
+import CreatePictureForm from '../components/global/CreatePictureForm';
 
-export default function AdminManageMovies() {
+export default function AdminCreateMovieFirstPage() {
   return (
     <>
       <div>
@@ -49,7 +42,7 @@ export default function AdminManageMovies() {
           <div className="bg-neutral-500 flex flex-grow flex-col">
             <p className="text-white mt-2 ml-2">Movies</p>
           </div>
-          <ModalEditPicture />
+          <CreatePictureForm />
         </div>
       </div>
     </>

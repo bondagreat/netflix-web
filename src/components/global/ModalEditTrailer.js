@@ -4,7 +4,13 @@ export default function ModalEditTrailer() {
       <div className="w-screen h-screen fixed top-0 left-0 bg-black/50 ">
         <div className="w-full h-full flex justify-center items-center">
           <div className="block p-6 rounded-lg shadow-lg bg-white w-[700] h-[511] ">
-            <form>
+            <form className="flex-col">
+              <label
+                htmlFor="formFile"
+                className="form-label inline-block mb-2 text-gray-700"
+              >
+                Trailer
+              </label>
               <div className="flex items-center justify-center w-full">
                 <label
                   for="dropzone-file"
@@ -38,27 +44,27 @@ export default function ModalEditTrailer() {
                 </label>
               </div>
 
-              <label
-                htmlFor="formFile"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Video
-              </label>
               <input
-                className="form-control  block   w-full  px-3   py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-0   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                className="form-control  block   w-full  px-3   py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                 type="file"
                 id="formFile"
               />
+              <label className="flex flex-row">
+                <input
+                  className="w-full px-2 py-1 rounded-md border border-slate-400 my-3"
+                  type="name"
+                />
+              </label>
               <div className="flex justify-between ">
                 <button
                   type="submit"
-                  className=" rounded-sm px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
+                  className=" rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
                 >
                   Prev
                 </button>
                 <button
                   type="submit"
-                  className=" rounded-sm px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
+                  className=" rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
                 >
                   Submit
                 </button>

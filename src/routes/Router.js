@@ -14,10 +14,13 @@ import RegisterInputPay from '../features/auth/RegisterInputPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
-import AdminEditMoviesPage from '../pages/AdminEditMoviesPage';
+import AdminEditMoviePage from '../pages/AdminEditMoviePage';
+import AdminCreateMovieFirstPage from '../pages/AdminCreateMovieFirstPage';
 import LoginAdminPage from '../pages/LoginAdminPage';
 import ModalEditVideo from '../components/global/ModalEditVideo';
 import ModalEditTrailer from '../components/global/ModalEditTrailer';
+import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
+import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 
 const router = createBrowserRouter([
   {
@@ -86,7 +89,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/adminEditMovies',
-    element: <AdminEditMoviesPage />,
+    element: <AdminEditMoviePage />,
   },
   {
     path: '/modalEditVideo',
@@ -95,6 +98,18 @@ const router = createBrowserRouter([
   {
     path: '/modalEditTrailer',
     element: <ModalEditTrailer />,
+  },
+  {
+    path: '/adminCreateMovieFirstPage',
+    element: <AdminCreateMovieFirstPage />,
+  },
+  {
+    path: '/adminCreateMovieSecondPage',
+    element: <AdminCreateMovieSecondPage />,
+  },
+  {
+    path: '/adminCreateMovieThirdPage',
+    element: <AdminCreateMovieThirdPage />,
   },
 
   {

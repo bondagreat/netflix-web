@@ -1,4 +1,4 @@
-export default function ModalEditPicture() {
+export default function CreatePictureForm() {
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)]">
@@ -149,7 +149,7 @@ export default function ModalEditPicture() {
                   </label>
                   <div
                     className="flex flex-row
-                  "
+                    "
                   >
                     <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5">
                       Rate:
@@ -191,7 +191,7 @@ export default function ModalEditPicture() {
                     <div className="mb-3 xl:w-96">
                       <div
                         className="flex flex-row
-                  "
+                    "
                       >
                         <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5">
                           Genres:

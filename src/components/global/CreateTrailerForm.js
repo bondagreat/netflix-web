@@ -1,15 +1,15 @@
-export default function ModalEditVideo() {
+export default function CreateTrailerForm() {
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 bg-black/50 ">
         <div className="w-full h-full flex justify-center items-center">
-          <div className="block p-10 rounded-lg shadow-lg bg-white w-[700] h-[511]  ">
+          <div className="block p-6 rounded-lg shadow-lg bg-white w-[700] h-[511] ">
             <form className="flex-col">
               <label
                 htmlFor="formFile"
                 className="form-label inline-block mb-2 text-gray-700"
               >
-                Video
+                Trailer
               </label>
               <div className="flex items-center justify-center w-full">
                 <label
@@ -43,12 +43,19 @@ export default function ModalEditVideo() {
                   <input id="dropzone-file" type="file" className="hidden" />
                 </label>
               </div>
+
               <input
-                className="form-control  block   w-full  px-1   py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                className="form-control  block   w-full  px-3   py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                 type="file"
                 id="formFile"
               />
-              <div className="flex justify-between">
+              <label className="flex flex-row">
+                <input
+                  className="w-full px-2 py-1 rounded-md border border-slate-400 my-3"
+                  type="name"
+                />
+              </label>
+              <div className="flex justify-between ">
                 <button
                   type="submit"
                   className=" rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
@@ -59,7 +66,7 @@ export default function ModalEditVideo() {
                   type="submit"
                   className=" rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
                 >
-                  Next
+                  Submit
                 </button>
               </div>
             </form>
