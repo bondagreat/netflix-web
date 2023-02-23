@@ -1,13 +1,15 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import ProtectedRoute from '../features/auth/ProtectedRoute';
-import RedirectIfAuthenticate from '../features/auth/RedirectIfAuthenticate';
-import AuthLayout from '../layouts/AuthLayout';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ProtectedRoute from "../features/auth/ProtectedRoute";
+import RedirectIfAuthenticate from "../features/auth/RedirectIfAuthenticate";
+import AuthLayout from "../layouts/AuthLayout";
+import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
+import EditAccount from "../pages/EditAccount";
+import ChangeEmail from "../components/editAccount/changeEmail";
 
 const router = createBrowserRouter([
   {
-    path: '/login',
+    path: "/login",
     element: (
       <RedirectIfAuthenticate>
         <LoginPage />
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/register',
+    path: "/register",
     element: (
       <RedirectIfAuthenticate>
         <RegisterPage />
@@ -24,26 +26,34 @@ const router = createBrowserRouter([
   },
   {
     element: (
-      <ProtectedRoute>
-        <AuthLayout />
-      </ProtectedRoute>
+      <AuthLayout />
+      // <ProtectedRoute>
+      // </ProtectedRoute>
     ),
     children: [
       {
-        path: '/browse',
+        path: "/browse",
         element: <h1>Profile + home</h1>,
       },
       {
-        path: '/browse/latest',
+        path: "/browse/latest",
         element: <h1>New & Popular</h1>,
       },
       {
-        path: '/browse/my-list',
+        path: "/browse/my-list",
         element: <h1>My List</h1>,
       },
       {
-        path: '/browse/original-audio',
+        path: "/browse/original-audio",
         element: <h1>Browse by Languages</h1>,
+      },
+      {
+        path: "/editAccount",
+        element: <EditAccount />,
+      },
+      {
+        path: "/changeEmail",
+        element: <ChangeEmail />,
       },
     ],
   },
