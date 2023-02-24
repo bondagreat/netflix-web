@@ -7,7 +7,7 @@ export default function ModalEditTrailer() {
             <form className="flex-col">
               <label
                 htmlFor="formFile"
-                className="form-label inline-block mb-2 text-gray-700"
+                className="form-label inline-block mb-2 text-gray-700 font-semibold text-xl"
               >
                 Trailer
               </label>
@@ -50,6 +50,9 @@ export default function ModalEditTrailer() {
                 id="formFile"
               />
               <label className="flex flex-row">
+                <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5 ">
+                  Trailer:
+                </span>
                 <input
                   className="w-full px-2 py-1 rounded-md border border-slate-400 my-3"
                   type="name"

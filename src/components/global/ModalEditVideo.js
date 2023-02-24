@@ -1,4 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function ModalEditVideo() {
+  const navigate = useNavigate();
+  const handleOnClick = () => {
+    navigate('/modalEditTrailer');
+  };
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 bg-black/50 ">
@@ -7,7 +13,7 @@ export default function ModalEditVideo() {
             <form className="flex-col">
               <label
                 htmlFor="formFile"
-                className="form-label inline-block mb-2 text-gray-700"
+                className="form-label inline-block mb-2 text-gray-700 text-md"
               >
                 Video
               </label>
@@ -57,6 +63,7 @@ export default function ModalEditVideo() {
                 </button>
                 <button
                   type="submit"
+                  onClick={handleOnClick}
                   className=" rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
                 >
                   Next

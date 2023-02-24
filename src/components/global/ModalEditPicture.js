@@ -1,4 +1,48 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 export default function ModalEditPicture() {
+  const optionsEditMood = [
+    { value: '1', label: 'Adventure' },
+    { value: '2', label: 'Comedies' },
+    { value: '3', label: 'Drama' },
+    { value: '4', label: 'Exiciting' },
+    { value: '5', label: 'Horror' },
+    { value: '6', label: 'Quirky' },
+    { value: '7', label: 'Romantic' },
+    { value: '8', label: 'Swoonworthy' },
+  ];
+  const optionsEditGenres = [
+    { value: '1', label: 'Action' },
+    { value: '2', label: 'Adventure' },
+    { value: '3', label: 'Comedies' },
+    { value: '4', label: 'Horror' },
+    { value: '5', label: 'Hollywood' },
+    { value: '6', label: 'QuiKids&Familyrky' },
+    { value: '7', label: 'K-Dramas' },
+    { value: '8', label: 'Romance' },
+    { value: '9', label: 'Variety' },
+  ];
+  const optionsEditCasts = [
+    { value: '1', label: 'Jack' },
+    { value: '2', label: 'Jill' },
+    { value: '3', label: 'jimmy' },
+    { value: '4', label: 'John' },
+  ];
+  const optionsEditRate = [
+    { value: '1', label: '7+' },
+    { value: '2', label: '13+' },
+    { value: '3', label: '16+' },
+    { value: '4', label: '18+' },
+  ];
+  const optionsEditLanguage = [{ value: '1', label: 'English' }];
+  const handleOnChange = (value) => {
+    console.log(value);
+  };
+  const navigate = useNavigate();
+  const handleOnClick = () => {
+    navigate('/modalEditVideo');
+  };
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)]">
@@ -149,101 +193,83 @@ export default function ModalEditPicture() {
                   </label>
                   <div
                     className="flex flex-row
-                  "
+                    "
                   >
-                    <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5">
+                    <span className="block text-sm font-medium mb-2 text-gray-900 pt-6 pr-2.5">
                       Rate:
                     </span>
-                    <select
+                    <Select
                       id="multiSelection"
                       placeholder="Age"
-                      className="w-full px-3 py-1 rounded-md border border-slate-400 my-3"
-                    >
-                      <option value="1">7+</option>
-                      <option value="2">13+</option>
-                      <option value="3">16+</option>
-                      <option value="4">18+</option>
-                    </select>
+                      onChange={handleOnChange}
+                      options={optionsEditRate}
+                      className="w-full px-3 py-1 rounded-md  my-2"
+                    />
                   </div>
                   <label className="flex flex-row">
-                    <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5">
+                    <span className="block text-sm font-medium mb-2 text-gray-900 pt-6 pr-2.5">
                       Language:
                     </span>
-                    <select
+                    <Select
                       id="multiSelection"
-                      placeholder="Age"
-                      className="w-full px-3 py-1 rounded-md border border-slate-400 my-3"
-                    >
-                      <option value="1">English</option>
-                    </select>
-                  </label>
-                  <label className="flex flex-row">
-                    <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5">
-                      Casts:
-                    </span>
-                    <input
-                      className="w-full px-3 py-1 rounded-md border border-slate-400 my-3"
-                      type="name"
+                      placeholder="language"
+                      onChange={handleOnChange}
+                      options={optionsEditLanguage}
+                      className="w-full px-3 py-1 rounded-md  my-2"
+                      // className="w-full px-3 py-1 rounded-md border border-slate-400 my-3"
                     />
                   </label>
 
-                  <div className="relative my-0">
-                    <div className="mb-3 xl:w-96">
-                      <div
-                        className="flex flex-row
-                  "
-                      >
-                        <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5">
-                          Genres:
-                        </span>
-                        <select
-                          id="multiSelection"
-                          data-te-select-init
-                          multiple
-                          className="w-full px-3 py-1 rounded-md border border-slate-400 my-3"
-                        >
-                          <option value="1">Action</option>
-                          <option value="2">Adventure</option>
-                          <option value="3">Comedies</option>
-                          <option value="4">Horror</option>
-                          <option value="5">Hollywood</option>
-                          <option value="6">Kids&Family</option>
-                          <option value="7">K-Dramas</option>
-                          <option value="8">Romance</option>
-                          <option value="9">Variety Entertainment</option>
-                        </select>
-                      </div>
+                  <div className="mb-3 xl:w-96">
+                    <div className="flex flex-row">
+                      <span className="block text-sm font-medium mb-2 text-gray-900 pt-6  pr-2.5">
+                        Casts:
+                      </span>
+                      <Select
+                        isMulti
+                        onChange={handleOnChange}
+                        name="colors"
+                        className="basic-multi-select w-full px-3 py-1 rounded-md  my-2"
+                        classNamePrefix="select"
+                        options={optionsEditCasts}
+                      />
+                    </div>
+                  </div>
+                  <div className="mb-3 xl:w-96">
+                    <div className="flex flex-row">
+                      <span className="block text-sm font-medium mb-2 text-gray-900 pt-6  pr-2.5">
+                        Genres:
+                      </span>
+                      <Select
+                        isMulti
+                        onChange={handleOnChange}
+                        name="colors"
+                        className="basic-multi-select w-full px-3 py-1 rounded-md  my-2"
+                        classNamePrefix="select"
+                        options={optionsEditGenres}
+                      />
                     </div>
                   </div>
 
-                  <div className="flex justify-center">
-                    <div className="mb-3 xl:w-96">
-                      <div className="flex flex-row">
-                        <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5">
-                          Mood:
-                        </span>
-                        <select
-                          id="multiSelection"
-                          className="w-full px-3 py-1 rounded-md border border-slate-400 my-3 "
-                          data-te-select-init
-                          multiple
-                        >
-                          <option value="1">Drama</option>
-                          <option value="2">Romantic</option>
-                          <option value="3">Quirky</option>
-                          <option value="4">Aventure</option>
-                          <option value="5">Comedies</option>
-                          <option value="6">Exiciting</option>
-                          <option value="7">Swoonworthy</option>
-                          <option value="8">Horror</option>
-                        </select>
-                      </div>
-                      <label data-te-select-label-ref>Types</label>
+                  <div className="mb-3 xl:w-96">
+                    <div className="flex flex-row">
+                      <span className="block text-sm font-medium mb-2 text-gray-900 pt-6  pr-2.5">
+                        Mood:
+                      </span>
+                      <Select
+                        isMulti
+                        onChange={handleOnChange}
+                        name="colors"
+                        className="basic-multi-select w-full px-3 py-1 rounded-md  my-2"
+                        classNamePrefix="select"
+                        options={optionsEditMood}
+                      />
                     </div>
                   </div>
 
                   <button
                     type="submit"
+                    onClick={handleOnClick}
                     className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl ml-72"
                   >
                     Next
