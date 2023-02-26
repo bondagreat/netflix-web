@@ -1,11 +1,43 @@
 import LockCirclePic from '../../assets/images/lockcircle.png';
 import VisaIconPic from '../../assets/images/visaicon.png';
-import OmiseIconPic from '../../assets/images/omiseicon.png';
 import MasterIconPic from '../../assets/images/mastericon.png';
 import { ChevronRight, Lock, NetFlixLogo } from '../../images';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { ChevronRight, Lock } from '../../images';
+import { useState } from 'react';
+import * as paymentApi from '../../apis/payment-api';
+
+const myPayment = {
+  publicKey: process.env.REACT_APP_OMISE_PUBLIC_KEY,
+  secretKey: process.env.REACT_APP_OMISE_SECRET_KEY,
+  outher: process.env.REACT_APP_ENDPOINT_URL,
+};
 
 export default function RegisterPay() {
+  const [souce, setSouce] = useState();
+
+  const handleClickPay = () => {
+    window.OmiseCard.open({
+      amount: 12345446,
+      currency: 'THB',
+      image:
+        'https://logos-world.net/wp-content/uploads/2020/04/Netflix-Emblem-700x394.jpg',
+      frameLabel: 'NETFLIX',
+      defaultPaymentMethod: 'credit_card',
+      onCreateTokenSuccess: async (noti) => {
+        if (noti.startsWith('tokn_')) {
+          const token = { token: noti };
+          await paymentApi.sendToken(token);
+        } else {
+          setSouce = window.form.omiseSource.value = noti;
+          console.log(noti);
+        }
+        window.form.submit();
+        console.log(souce);
+      },
+    });
+  };
+
   return (
     <div className="bg-white">
       <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
@@ -65,42 +97,23 @@ export default function RegisterPay() {
               </div>
             </div>
           </div>
-          <Link to={{ pathname: '/registerInputPay' }}>
-            <button
-              type="submit"
-              className="w-full px-6 py-2.5 bg-white  text-black font-xl text-xl rounded border-gray-500 shadow-md my-2"
-            >
-              <div className="flex">
-                <a claasname="mr-2">Credit</a>
-                <img src={VisaIconPic} className=" w-[50px] h-[30px] ml-4" />
-                <img src={MasterIconPic} className=" w-[50px] h-[30px] mr-24" />
-                <div className="ml-5 mt-2">
-                  <div className="fill-gray-500 w-[10px] h-[10px]">
-                    <ChevronRight />
-                  </div>
+          {/* <Link to={{ pathname: '/registerinputpay' }}> */}
+          <button
+            onClick={handleClickPay}
+            className="w-full px-6 py-2.5 bg-white  text-black font-xl text-xl rounded border-gray-500 shadow-md my-2"
+          >
+            <div className="flex">
+              <a claasname="mr-2">Credit</a>
+              <img src={VisaIconPic} className=" w-[50px] h-[30px] ml-4" />
+              <img src={MasterIconPic} className=" w-[50px] h-[30px] mr-24" />
+              <div className="ml-5 mt-2">
+                <div className="fill-gray-500 w-[10px] h-[10px]">
+                  <ChevronRight />
                 </div>
               </div>
-            </button>
-          </Link>
-          <Link to={{ pathname: '/registerinputpay' }}>
-            <button
-              type="submit"
-              className="w-full px-6 py-2.5 bg-white border-gray-500 text-black font-xl text-xl rounded shadow-md my-2"
-            >
-              <div className="flex">
-                <a>Omise</a>
-                <img
-                  src={OmiseIconPic}
-                  className=" w-[100px] h-[30px] ml-3 mr-24"
-                />
-                <div className="ml-5 mt-2">
-                  <div className="fill-gray-500 w-[10px] h-[10px]">
-                    <ChevronRight />
-                  </div>
-                </div>
-              </div>
-            </button>
-          </Link>
+            </div>
+          </button>
+          {/* </Link> */}
         </div>
       </div>
     </div>

@@ -4,8 +4,11 @@ import CardMonthlyPic from '../../assets/images/cardmonthly.png';
 import CardThreeMPic from '../../assets/images/cardthreem.png';
 import PkThreeMPic from '../../assets/images/pkthreem.png';
 import { Link } from 'react-router-dom';
+import { usePayment } from '../../hooks/usePayment';
 
 export default function RegisterPackage() {
+  // const planType = usePayment();
+
   return (
     <div className="bg-white">
       <div className="justify-center">
@@ -66,6 +69,7 @@ export default function RegisterPackage() {
               <button
                 type="submit"
                 className="w-full  px-6 py-2.5  bg-red-600    text-white font-xl   text-xl rounded  shadow-md my-2"
+                // onClick={handleClickPackage1}
               >
                 Next
               </button>
@@ -78,6 +82,14 @@ export default function RegisterPackage() {
             <div className="w-[350px]  rounded-md">
               <img src={CardThreeMPic} />
             </div>
+            <Link to={{ pathname: '/registerpay' }}>
+              <button
+                type="submit"
+                className="w-full  px-6 py-2.5  bg-red-600    text-white font-xl   text-xl rounded  shadow-md my-2"
+              >
+                Next
+              </button>
+            </Link>
           </div>
         </div>
       </div>
