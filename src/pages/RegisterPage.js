@@ -1,9 +1,21 @@
 import { Link } from 'react-router-dom';
+import { NetFlixLogo } from '../images';
+import Brand from '../layouts/Brand';
 export default function RegisterPage() {
   return (
     <div className="bg-white ">
+      <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
+        <NetFlixLogo />
+
+        <button
+          type="button"
+          className="text-lg text-black no-underline hover:underline px-2 font-medium my-5 rounded-sm "
+        >
+          Sign In
+        </button>
+      </div>
       <div className="flex justify-center">
-        <div className="block p-6 rounded-lg  bg-white max-w-sm mt-48">
+        <div className="block p-6 rounded-lg  bg-white max-w-sm mt-24">
           <form>
             <div>
               <a className="text-gray-500 uppercase">Step 1 of 3</a>
@@ -54,7 +66,7 @@ export default function RegisterPage() {
                 </label>
               </div>
             </div>
-            <Link to={{ pathname: '/registerstep' }}>
+            <Link to={{ pathname: '/registerStep' }}>
               <button
                 type="submit"
                 className="  w-full  px-6  py-2.5  bg-red-600  text-white  font-xl  text-xl  rounded  shadow-md"

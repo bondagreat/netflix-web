@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 export default function LoginForm() {
   return (
-    <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-28 mb-10 w-[350px} p-[60px]">
+    <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-18 mb-10 w-[350px} p-[60px]">
       <form>
         <div className="form-group mb-6">
           <label
@@ -60,7 +60,7 @@ export default function LoginForm() {
           </div>
         </div>
         <p className="text-gray-500 text-sm  mt-15 text-center">
-          New to Netflix?
+          New to Netflix?{' '}
           <a
             href="#!"
             className="text-gray-300 no-underline hover:underline text-sm font-medium transition duration-200 ease-in-out"

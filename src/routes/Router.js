@@ -13,6 +13,13 @@ import RegisterPay from '../components/register/RegisterPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
+import AdminEditMoviePage from '../pages/AdminEditMoviePage';
+import AdminCreateMovieFirstPage from '../pages/AdminCreateMovieFirstPage';
+import LoginAdminPage from '../pages/LoginAdminPage';
+import ModalEditVideo from '../components/global/ModalEditVideo';
+import ModalEditTrailer from '../components/global/ModalEditTrailer';
+import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
+import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +46,7 @@ const router = createBrowserRouter([
     path: '/registerStep',
     element: (
       <RedirectIfAuthenticate>
-        <RegisterStepForm />,
+        <RegisterStepForm />
       </RedirectIfAuthenticate>
     ),
   },
@@ -47,7 +54,7 @@ const router = createBrowserRouter([
     path: '/registerPackage',
     element: (
       <RedirectIfAuthenticate>
-        <RegisterPackage />,
+        <RegisterPackage />
       </RedirectIfAuthenticate>
     ),
   },
@@ -55,14 +62,46 @@ const router = createBrowserRouter([
     path: '/registerPay',
     element: (
       <RedirectIfAuthenticate>
-        <RegisterPay />,
+        <RegisterPay />
       </RedirectIfAuthenticate>
     ),
   },
 
   {
+    path: '/loginAdmin',
+    element: (
+      <RedirectIfAuthenticate>
+        <LoginAdminPage />
+      </RedirectIfAuthenticate>
+    ),
+  },
+  {
     path: '/adminManageAccount',
     element: <AdminManageAccountPage />,
+  },
+  {
+    path: '/adminEditMovies',
+    element: <AdminEditMoviePage />,
+  },
+  {
+    path: '/modalEditVideo',
+    element: <ModalEditVideo />,
+  },
+  {
+    path: '/modalEditTrailer',
+    element: <ModalEditTrailer />,
+  },
+  {
+    path: '/adminCreateMovieFirstPage',
+    element: <AdminCreateMovieFirstPage />,
+  },
+  {
+    path: '/adminCreateMovieSecondPage',
+    element: <AdminCreateMovieSecondPage />,
+  },
+  {
+    path: '/adminCreateMovieThirdPage',
+    element: <AdminCreateMovieThirdPage />,
   },
 
   {
