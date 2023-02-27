@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Accordion } from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Faq1 from '../components/landing/Faq1';
 import { NetFlixLogo } from '../images';
+import vlidateStartEmail from '../validators/validate-start-email';
+import * as AuthApi from '../apis/auth-api';
 
 const faq = [
   {
@@ -50,6 +52,34 @@ internet connection. Take Netflix with you anywhere.`,
 
 export default function LandingPage() {
   const [active, setActive] = useState('');
+  const [input, setInput] = useState({ email: '' });
+  const [error, setError] = useState('');
+
+  const handleClickGetStart = async (e) => {
+    try {
+      e.preventDefault();
+      const result = vlidateStartEmail(input);
+      if (result) {
+        setError(result[0].message);
+        // console.log(result[0].message);
+        // console.log(result[0].message.response.data.message);
+      } else {
+        setError('');
+        // startLoading()
+        const res = await AuthApi.startEmail(input);
+
+        // console.log('sdsd', res.data.message);
+        /// user with auth-api ==> option send all res with no err (statusCode<500 pass)
+
+        // stopLoading()
+        // navigate
+      }
+    } catch (err) {
+      // console.log(err);
+      setError(err.response.data.message);
+    }
+  };
+
   return (
     <>
       {/* div 1 */}
@@ -88,18 +118,25 @@ export default function LandingPage() {
         <br />
         <form className="flex justify-center">
           <input
-            className="p-4 w-7/12 rounded-l-sm"
+            className={`p-4 w-7/12 rounded-l-sm ${
+              error ? 'border-b-[3px] border-yellow-600' : ''
+            }`}
             type="text"
             placeholder="Email address"
+            value={input.email}
+            onChange={(e) => setInput({ email: e.target.value })}
           ></input>
           <button
-            onClick={Navigate}
+            onClick={handleClickGetStart}
             type="submit"
             className="rounded-r-sm p-2 px-16 bg-[#E50914] text-white font-medium active:bg-red-700 text-2xl"
           >
             Get Started
           </button>
         </form>
+        <p className="text-base font-medium text-yellow-600 ml-[3vw] mt-1">
+          {error}
+        </p>
       </div>
       <hr className="border-4 border-[#303030] my-0" />
       {/* div 1 */}
@@ -188,20 +225,26 @@ export default function LandingPage() {
           Ready to Watch? Enter your email to create or restart your membership.
         </p>
         <br />
-        <div>
+        <div className="flex justify-center w-7/12 mx-auto flex-col h-[15vh]">
           <form className="flex justify-center">
             <input
-              className="p-4 w-5/12 rounded-l-sm"
+              className="p-4 w-7/12 rounded-l-sm"
               type="text"
               placeholder="Email address"
+              value={input.email}
+              onChange={(e) => setInput({ email: e.target.value })}
             ></input>
             <button
               type="submit"
               className="rounded-r-sm p-2 px-16 bg-[#E50914] text-white font-medium active:bg-red-700 text-2xl"
+              onClick={handleClickGetStart}
             >
               Get Started
             </button>
           </form>
+          <p className=" w-7/12 ml-[3vw] text-base font-medium text-yellow-600  mt-2">
+            {error}
+          </p>
         </div>
       </div>
       <hr className="border-4 border-[#303030] my-0" />
