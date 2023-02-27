@@ -65,7 +65,7 @@ export default function RegisterPackage() {
             <div className="w-[350px]  rounded-md">
               <img src={CardMonthlyPic} alt="1" />
             </div>
-            <Link to={{ pathname: '/registerpay' }}>
+            <Link to={{ pathname: '/signup/payment' }}>
               <button
                 type="submit"
                 className="w-full  px-6 py-2.5  bg-red-600    text-white font-xl   text-xl rounded  shadow-md my-2"
@@ -82,7 +82,7 @@ export default function RegisterPackage() {
             <div className="w-[350px]  rounded-md">
               <img src={CardThreeMPic} alt="1" />
             </div>
-            <Link to={{ pathname: '/registerpay' }}>
+            <Link to={{ pathname: '/signup/payment' }}>
               <button
                 type="submit"
                 className="w-full  px-6 py-2.5  bg-red-600    text-white font-xl   text-xl rounded  shadow-md my-2"

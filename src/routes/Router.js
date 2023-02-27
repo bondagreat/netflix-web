@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/register',
+    path: '/signup/regform',
     element: (
       <RedirectIfAuthenticate>
         <RegisterPage />
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/registerStep',
+    path: '/signup/step',
     element: (
       <RedirectIfAuthenticate>
         <RegisterStepForm />,
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/registerPackage',
+    path: '/signup/package',
     element: (
       <RedirectIfAuthenticate>
         <RegisterPackage />,
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/registerPay',
+    path: '/signup/payment',
     element: (
       <RedirectIfAuthenticate>
         <RegisterPay />,
