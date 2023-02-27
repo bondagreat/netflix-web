@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     path: '/registerStep',
     element: (
       <RedirectIfAuthenticate>
-        <RegisterStepForm />,
+        <RegisterStepForm />
       </RedirectIfAuthenticate>
     ),
   },
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
     path: '/registerPackage',
     element: (
       <RedirectIfAuthenticate>
-        <RegisterPackage />,
+        <RegisterPackage />
       </RedirectIfAuthenticate>
     ),
   },
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     path: '/registerPay',
     element: (
       <RedirectIfAuthenticate>
-        <RegisterPay />,
+        <RegisterPay />
       </RedirectIfAuthenticate>
     ),
   },
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
     path: '/loginAdmin',
     element: (
       <RedirectIfAuthenticate>
-        <LoginAdminPage />,
+        <LoginAdminPage />
       </RedirectIfAuthenticate>
     ),
   },

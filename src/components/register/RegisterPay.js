@@ -89,7 +89,7 @@ export default function RegisterPay() {
           </div>
           <div className="flex ml-48 my-4 ">
             <div>
-              <a className="text-gray-600 text-xs">End-to-end encripted</a>
+              <a className="text-gray-600 text-xs">End-to-end encrypted</a>
             </div>
             <div className="mt-2 ml-1.5">
               <div className="w-[10px] h-[10px] fill-yellow-400">

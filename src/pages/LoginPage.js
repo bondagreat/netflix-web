@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import netflixBgPic from '../assets/images/netflixBg.jpeg';
-import LoginForm from '../features/auth/LoginForm';
 import { NetFlixLogo } from '../images';
-import Brand from '../layouts/Brand';
 import NavBarFooter from '../layouts/NavBarFooter';
-=======
 import LoginForm from '../components/login/LoginForm';
->>>>>>> origin/dev
 
 export default function LoginPage() {
   return (
@@ -17,7 +11,7 @@ export default function LoginPage() {
           <NetFlixLogo />
         </div>
       </div>
-      <div className="bg-black/50 h-90 w-screen flex justify-center">
+      <div className="bg-black/50  w-full flex justify-center">
         <LoginForm />
       </div>
       <NavBarFooter />
