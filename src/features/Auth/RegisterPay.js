@@ -3,7 +3,7 @@ import VisaIconPic from '../../assets/images/visaicon.png';
 import MasterIconPic from '../../assets/images/mastericon.png';
 import { ChevronRight, Lock, NetFlixLogo } from '../../images';
 // import { Link } from 'react-router-dom';
-import { ChevronRight, Lock } from '../../images';
+
 import { useState } from 'react';
 import * as paymentApi from '../../apis/payment-api';
 
