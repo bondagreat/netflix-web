@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 import netflixBgPic from '../assets/images/netflixBg.jpeg';
 import LoginForm from '../features/auth/LoginForm';
 import { NetFlixLogo } from '../images';
 import Brand from '../layouts/Brand';
 import NavBarFooter from '../layouts/NavBarFooter';
+=======
+import LoginForm from '../components/login/LoginForm';
+>>>>>>> origin/dev
 
 export default function LoginPage() {
   return (

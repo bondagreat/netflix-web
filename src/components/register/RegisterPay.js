@@ -55,7 +55,7 @@ export default function RegisterPay() {
           <div className="flex justify-center ">
             <div className="flex-col">
               <div className="w-[40px] h-[40px] ml-24 mb-7">
-                <img src={LockCirclePic} />
+                <img src={LockCirclePic} alt="1" />
               </div>
               <div>
                 <a className="text-gray-500 uppercase flex justify-center ">
@@ -104,8 +104,16 @@ export default function RegisterPay() {
           >
             <div className="flex">
               <a claasname="mr-2">Credit</a>
-              <img src={VisaIconPic} className=" w-[50px] h-[30px] ml-4" />
-              <img src={MasterIconPic} className=" w-[50px] h-[30px] mr-24" />
+              <img
+                src={VisaIconPic}
+                alt="1"
+                className=" w-[50px] h-[30px] ml-4"
+              />
+              <img
+                src={MasterIconPic}
+                alt="1"
+                className=" w-[50px] h-[30px] mr-24"
+              />
               <div className="ml-5 mt-2">
                 <div className="fill-gray-500 w-[10px] h-[10px]">
                   <ChevronRight />
