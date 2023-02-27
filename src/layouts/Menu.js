@@ -5,16 +5,16 @@ export default function Menu() {
   // const location = useLocation()
   return (
     <div className="flex items-center gap-5 mt-3">
-      <MenuItem active>
+      <MenuItem to="/homepage" active>
         <p>Home</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem to="/movies">
         <p>Movies</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem to="/mylist">
         <p>My List</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem to="/browse">
         <p>Browse by Languages</p>
       </MenuItem>
     </div>

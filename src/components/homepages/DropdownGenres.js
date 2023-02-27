@@ -1,6 +1,6 @@
 export function DropdownGenres() {
   return (
-    <div className="fixed inline-block top-24 left-52">
+    <div className="fixed inline-block top-[11%] left-52 z-20">
       <div className="flex justify-center">
         <div>
           <div className="dropdown relative">
@@ -10,7 +10,7 @@ export function DropdownGenres() {
     px-3
     py-1
     bg-black
-    opacity-70
+    bg-opacity-70
     border-white
     border-2
     text-white
