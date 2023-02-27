@@ -8,7 +8,7 @@ import MenuFooter from './MenuFooter';
 
 export default function NavBarFooter() {
   return (
-    <div className="bg-black h-300px]  p-2">
+    <div className="bg-black h-[300px]  p-2">
       <div className="w-3/4 m-auto">
         <div className="flex gap-5 pt-3 px-5">
           <button>
