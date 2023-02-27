@@ -5,14 +5,14 @@ import ProtectedRoute from '../features/auth/ProtectedRoute';
 import RedirectIfAuthenticate from '../features/auth/RedirectIfAuthenticate';
 import AuthLayout from '../layouts/AuthLayout';
 import LoginPage from '../pages/LoginPage';
-import RegisterPackage from '../features/auth/RegisterPackage';
+import RegisterPackage from '../components/register/RegisterPackage';
 import RegisterPage from '../pages/RegisterPage';
-import RegisterStepForm from '../features/auth/RegisterStepForm';
+import RegisterStepForm from '../components/register/RegisterStepForm';
 import LandingPage from '../pages/LandingPage';
-import RegisterPay from '../features/auth/RegisterPay';
-import RegisterInputPay from '../features/auth/RegisterInputPay';
+import RegisterPay from '../components/register/RegisterPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
+import AdminManageAccountPage from '../pages/AdminManageAccountPage';
 
 const router = createBrowserRouter([
   {
@@ -59,13 +59,10 @@ const router = createBrowserRouter([
       </RedirectIfAuthenticate>
     ),
   },
+
   {
-    path: '/registerInputPay',
-    element: (
-      <RedirectIfAuthenticate>
-        <RegisterInputPay />,
-      </RedirectIfAuthenticate>
-    ),
+    path: '/adminManageAccount',
+    element: <AdminManageAccountPage />,
   },
 
   {

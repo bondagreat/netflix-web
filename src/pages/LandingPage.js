@@ -47,6 +47,7 @@ internet connection. Take Netflix with you anywhere.`,
 ];
 
 export default function LandingPage() {
+  const [active, setActive] = useState('');
   return (
     <>
       {/* div 1 */}
@@ -56,7 +57,7 @@ export default function LandingPage() {
           className=" -z-40 absolute h-[100vh] w-screen "
           src="https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/e251261f-cc87-497a-8672-194e306e76bc/TH-en-20230213-popsignuptwoweeks-perspective_alpha_website_small.jpg"
           srcSet="https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/e251261f-cc87-497a-8672-194e306e76bc/TH-en-20230213-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/e251261f-cc87-497a-8672-194e306e76bc/TH-en-20230213-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/e251261f-cc87-497a-8672-194e306e76bc/TH-en-20230213-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w"
-          alt=""
+          alt="1"
         ></img>
       </div>
       <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
@@ -110,7 +111,7 @@ export default function LandingPage() {
           </p>
         </div>
         <img
-          alt=""
+          alt="1"
           className="w-1/2 mr-14 my-8"
           src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
         />
@@ -135,9 +136,34 @@ export default function LandingPage() {
           Frequently Asked Questions
         </h1>
 
-        <Accordion allowZeroExpanded={true} className="w-7/12 self-center">
+        <Accordion
+          allowZeroExpanded={true}
+          className="w-7/12 self-center"
+          onChange={(inp) => {
+            switch (inp[0]) {
+              case ':r1:':
+                return setActive(0);
+              case ':r3:':
+                return setActive(1);
+              case ':r5:':
+                return setActive(2);
+              case ':r7:':
+                return setActive(3);
+              case ':r9:':
+                return setActive(4);
+            }
+            setActive('');
+          }}
+        >
           {faq.map((el, index) => {
-            return <Faq1 key={index} head={el.head} body={el.body} />;
+            return (
+              <Faq1
+                key={index}
+                head={el.head}
+                body={el.body}
+                active={active === index}
+              />
+            );
           })}
         </Accordion>
 

@@ -1,11 +1,14 @@
-import { CheckCircleIcon, CheckIcon } from '../../images';
+import { CheckIcon } from '../../images';
 import PkMonthlyPic from '../../assets/images/pkmonthly.png';
 import CardMonthlyPic from '../../assets/images/cardmonthly.png';
 import CardThreeMPic from '../../assets/images/cardthreem.png';
 import PkThreeMPic from '../../assets/images/pkthreem.png';
 import { Link } from 'react-router-dom';
+import { usePayment } from '../../hooks/usePayment';
 
 export default function RegisterPackage() {
+  // const planType = usePayment();
+
   return (
     <div className="bg-white">
       <div className="justify-center">
@@ -57,10 +60,27 @@ export default function RegisterPackage() {
         <div className="flex justify-center">
           <div className="block p-6 rounded-lg shadow-lg border-gray-600/80 bg-white max-w-sm mt-30 mr-5">
             <div className="w-[100px] h-[100px]  rounded-md ml-32 mb-5">
-              <img src={PkMonthlyPic} />
+              <img src={PkMonthlyPic} alt="1" />
             </div>
             <div className="w-[350px]  rounded-md">
-              <img src={CardMonthlyPic} />
+              <img src={CardMonthlyPic} alt="1" />
+            </div>
+            <Link to={{ pathname: '/registerpay' }}>
+              <button
+                type="submit"
+                className="w-full  px-6 py-2.5  bg-red-600    text-white font-xl   text-xl rounded  shadow-md my-2"
+                // onClick={handleClickPackage1}
+              >
+                Next
+              </button>
+            </Link>
+          </div>
+          <div className="block p-6 rounded-lg shadow-lg border-gray-600/80 bg-white max-w-sm mt-30 ml-5">
+            <div className="w-[100px] h-[100px]  rounded-md ml-32  mb-5">
+              <img src={PkThreeMPic} alt="1" />
+            </div>
+            <div className="w-[350px]  rounded-md">
+              <img src={CardThreeMPic} alt="1" />
             </div>
             <Link to={{ pathname: '/registerpay' }}>
               <button
@@ -70,14 +90,6 @@ export default function RegisterPackage() {
                 Next
               </button>
             </Link>
-          </div>
-          <div className="block p-6 rounded-lg shadow-lg border-gray-600/80 bg-white max-w-sm mt-30 ml-5">
-            <div className="w-[100px] h-[100px]  rounded-md ml-32  mb-5">
-              <img src={PkThreeMPic} />
-            </div>
-            <div className="w-[350px]  rounded-md">
-              <img src={CardThreeMPic} />
-            </div>
           </div>
         </div>
       </div>
