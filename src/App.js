@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuthUser } from './redux/authSlice';
-
+import 'flowbite';
 import useLoading from './hooks/useLoading';
 import Router from './routes/Router';
 import Spinner from './components/Spinner';

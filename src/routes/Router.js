@@ -12,6 +12,7 @@ import LandingPage from '../pages/LandingPage';
 import RegisterPay from '../components/register/RegisterPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
+import AdminSeeTransactionPage from '../pages/AdminSeeTransactionPage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
 import AdminEditMoviePage from '../pages/AdminEditMoviePage';
 import AdminCreateMovieFirstPage from '../pages/AdminCreateMovieFirstPage';
@@ -20,6 +21,7 @@ import ModalEditVideo from '../components/global/ModalEditVideo';
 import ModalEditTrailer from '../components/global/ModalEditTrailer';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
+import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
   {
@@ -76,6 +78,10 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/adminSeeTransaction',
+    element: <AdminSeeTransactionPage />,
+  },
+  {
     path: '/adminManageAccount',
     element: <AdminManageAccountPage />,
   },
@@ -103,7 +109,10 @@ const router = createBrowserRouter([
     path: '/adminCreateMovieThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
-
+  {
+    path: '/adminManageMovies',
+    element: <AdminManageMoviesPage />,
+  },
   {
     element: (
       // <ProtectedRoute>
