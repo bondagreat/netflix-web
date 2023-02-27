@@ -1,5 +1,4 @@
-import netflixBgPic from '../assets/images/netflixBg.jpeg';
-import LoginForm from '../features/auth/LoginForm';
+import LoginForm from '../components/login/LoginForm';
 
 export default function LoginPage() {
   return (

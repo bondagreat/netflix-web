@@ -1,9 +1,7 @@
 import { EditIcon } from '../../images';
-// import Modal from '../modals/Modal';
-import { useState } from 'react';
+import ProfileLockContainer from './ProfileLockContainer';
 
 export default function EditProfile() {
-  // const [open, setOpen] = useState(false);
   return (
     <>
       <div className="h-screen bg-black flex justify-center">
@@ -23,14 +21,15 @@ export default function EditProfile() {
                 <EditIcon />
               </div>
             </div>
-            <div className="mt-11">
+            <div className="">
               <div className="flex flex-col">
                 <p className="text-white text-xs">Name:</p>
                 <input className="bg-gray-500 w-72 h-8" />
               </div>
-              <hr className="mt-5" />
+              <hr className="mt-12" />
               <div className="flex justify-center flex-col mt-7">
                 <p className="text-white text-xs">Profile Lock</p>
+                <ProfileLockContainer />
               </div>
 
               <div className="mt-10"></div>
@@ -39,7 +38,7 @@ export default function EditProfile() {
           <hr />
           <div className="mt-7 flex justify-around ">
             <button className="text-black bg-white  px-6 ">Save</button>
-            <button className="border-2 border-white px-4 text-white  ">
+            <button className="border-2 border-white px-4 text-white py-1  ">
               Cancel
             </button>
             <button className="border-2 border-white  text-white px-4">
