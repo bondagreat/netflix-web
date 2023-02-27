@@ -8,7 +8,7 @@ import { NetflixTitleLogo } from '../images';
 export default function HomePage() {
   return (
     <>
-      <Modal />
+      {/* <Modal /> */}
       <div className="absolute top-[770px]  left-0 right-0 bg-gradient-to-t from-black h-[130px] "></div>
       <div className="bg-black ">
         <div className="bg-gray-500  w-full h-[900px] overflow-hidden ">
@@ -18,25 +18,13 @@ export default function HomePage() {
               type="video/mp4"
             />
           </video>
-          {/* <video
-            className="w-full h-full shadow-lg object-cover"
-            loop={true}
-            autoPlay="autoplay"
-            controls
-            muted
-          >
-            <source
-              src="https://cdn.akamai.steamstatic.com/steam/apps/256930504/movie480_vp9.webm?t=1676412591"
-              type="video/mp4"
-            />
-          </video> */}
           {/* <img src={bg} className="w-full h-full object-cover" alt="" /> */}
         </div>
 
-        <div className="absolute top-40 left-10 ">
+        <div className="absolute top-60 left-10 ">
           <div className="flex flex-col ">
             {/* logoMovie */}
-            <div className="w-4/12 h-96">
+            <div className="w-2/6 h-[360px]">
               <img src={logo} alt="" />
             </div>
 
@@ -71,7 +59,7 @@ export default function HomePage() {
           <MovieList />
         </div>
 
-        <div>
+        <div className="relative ">
           <div className="absolute top-[26%] left-8 ">
             <NetflixTitleLogo />
           </div>

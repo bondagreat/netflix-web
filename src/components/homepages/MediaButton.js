@@ -14,11 +14,7 @@ export function MediaButton() {
           <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
             <AddButton />
           </button>
-
-          <button
-            className="stroke-white opacity-70 hover:opacity-100 active:opacity-50"
-            onClick={() => setOpen(true)}
-          >
+          <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
             <MoreInfoButton />
           </button>
         </div>
