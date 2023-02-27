@@ -1,4 +1,5 @@
 import logo from '../assets/logo.png';
+import { useState } from 'react';
 import { ButtonHomepage } from '../components/homepages/ButtonHomepage';
 import { DropdownGenres } from '../components/homepages/DropdownGenres';
 import { Modal } from '../components/homepages/Modal';
@@ -6,9 +7,18 @@ import { MovieList } from '../components/homepages/MovieList';
 import { NetflixTitleLogo } from '../images';
 
 export default function HomePage() {
+  const [currentMovie, setCurrentMovie] = useState(false);
+
+  const changeCurrentMovie = () => {
+    setCurrentMovie(true);
+  };
+  const closeModal = () => {
+    setCurrentMovie(false);
+  };
+
   return (
     <>
-      {/* <Modal /> */}
+      {currentMovie && <Modal closeModal={closeModal} />}
       <div className="absolute top-[770px]  left-0 right-0 bg-gradient-to-t from-black h-[130px] "></div>
       <div className="bg-black ">
         <div className="bg-gray-500  w-full h-[900px] overflow-hidden ">
@@ -18,7 +28,6 @@ export default function HomePage() {
               type="video/mp4"
             />
           </video>
-          {/* <img src={bg} className="w-full h-full object-cover" alt="" /> */}
         </div>
 
         <div className="absolute top-60 left-10 ">
@@ -55,15 +64,18 @@ export default function HomePage() {
         <DropdownGenres />
 
         {/* MovieList */}
-        <div className="relative    bottom-[150px] z-10  ml-10 w-[1650px]">
-          <MovieList />
+        <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
+          <MovieList
+            changeCurrentMovie={changeCurrentMovie}
+            closeModal={closeModal}
+          />
         </div>
 
-        <div className="relative ">
-          <div className="absolute top-[26%] left-8 ">
+        <div className="relative bottom-[800px]">
+          <div className="absolute top-[26%] left-10 ">
             <NetflixTitleLogo />
           </div>
-          <p className="absolute  top-[28%] left-20 text-gray-300">Movies</p>
+          <p className="absolute  mt-5 left-20 text-gray-300">Movies</p>
         </div>
       </div>
     </>

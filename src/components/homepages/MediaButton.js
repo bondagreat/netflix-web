@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
 import { AddButton, Dot, MoreInfoButton, PlayButton } from '../../images';
+import { Modal } from './Modal';
 
-export function MediaButton() {
+export function MediaButton({ changeCurrentMovie }) {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="absolute  bg-gradient-to-t from-gray-500 w-[275px] bottom-0 rounded-b-md px-3 pb-1 flex flex-col justify-center ">
+      <div className="absolute  bg-gradient-to-t from-zinc-600 w-[275px] bottom-0 rounded-b-md px-3 pb-1 flex flex-col justify-center ">
         <div className="flex justify-end pt-1">
           <button className="opacity-70 hover:opacity-100 active:opacity-50">
             <PlayButton />
@@ -14,7 +15,10 @@ export function MediaButton() {
           <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
             <AddButton />
           </button>
-          <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
+          <button
+            className="stroke-white opacity-70 hover:opacity-100 active:opacity-50"
+            onClick={changeCurrentMovie}
+          >
             <MoreInfoButton />
           </button>
         </div>
