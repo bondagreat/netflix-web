@@ -68,6 +68,22 @@ const router = createBrowserRouter([
       </RedirectIfAuthenticate>
     ),
   },
+  {
+    path: '/profile',
+    element: (
+      // <ProtectedRoute>
+      <ProfilePage />
+      // </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/ManageProfiles',
+    element: (
+      // <ProtectedRoute>
+      <ManageProfile />
+      // </ProtectedRoute>
+    ),
+  },
 
   {
     path: '/loginAdmin',
@@ -137,14 +153,6 @@ const router = createBrowserRouter([
         element: <h1>Browse by Languages</h1>,
       },
 
-      {
-        path: '/profile',
-        element: <ProfilePage />,
-      },
-      {
-        path: '/ManageProfile',
-        element: <ManageProfile />,
-      },
       {
         path: '/EditProfile',
         element: <EditProfile />,
