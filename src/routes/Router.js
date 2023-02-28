@@ -26,7 +26,11 @@ import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <LandingPage />,
+    element: (
+      // <RedirectIfAuthenticate>
+      <LandingPage />
+      // </RedirectIfAuthenticate>
+    ),
   },
   {
     path: '/login',
@@ -81,6 +85,14 @@ const router = createBrowserRouter([
     element: (
       // <ProtectedRoute>
       <ManageProfile />
+      // </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/browse',
+    element: (
+      // <ProtectedRoute>
+      <HomePage />
       // </ProtectedRoute>
     ),
   },
@@ -156,10 +168,6 @@ const router = createBrowserRouter([
       {
         path: '/EditProfile',
         element: <EditProfile />,
-      },
-      {
-        path: '/homepage',
-        element: <HomePage />,
       },
     ],
   },
