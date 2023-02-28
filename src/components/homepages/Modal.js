@@ -7,13 +7,17 @@ import {
 } from '../../images';
 import img2 from '../../assets/img2.png';
 import logo from '../../assets/logo.png';
+import { useState } from 'react';
 
 export function Modal({ closeModal }) {
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 z-30">
+    <div
+      className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 z-30"
+      onMouseDown={closeModal}
+    >
       <div
-        className="relative mt-10 w-[55%] h-full bg-zinc-900 rounded-lg shadow-lg overflow-auto  m-auto  pb-10"
-        // onMouseDown={(e) => e.stopPropagation()}
+        className="relative mt-10 w-[55%] h-full bg-zinc-900 rounded-lg shadow-lg overflow-auto  m-auto  pb-10 "
+        onMouseDown={(e) => e.stopPropagation()}
       >
         <button className="absolute mt-3 right-3 z-30" onClick={closeModal}>
           <CloseButton />
