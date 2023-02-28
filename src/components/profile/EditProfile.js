@@ -1,6 +1,6 @@
 import { EditIcon } from '../../images';
 import ProfileLockContainer from './ProfileLockContainer';
-
+import CancelProfileLock from './CancelProfileLock';
 export default function EditProfile() {
   return (
     <>
@@ -29,7 +29,7 @@ export default function EditProfile() {
               <hr className="mt-12" />
               <div className="flex justify-center flex-col mt-7">
                 <p className="text-white text-xs">Profile Lock</p>
-                <ProfileLockContainer />
+                {true ? <ProfileLockContainer /> : <CancelProfileLock />}
               </div>
 
               <div className="mt-10"></div>

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Modal } from 'flowbite-react';
 import { Button, Label, TextInput } from 'flowbite-react';
-export default function ProfileLockContainer({ onClick, onClose }) {
+
+export default function CancelProfileLock() {
   const [open, setOpen] = useState(false);
   console.log(open);
   const handleClickChange = () => {
@@ -26,7 +27,13 @@ export default function ProfileLockContainer({ onClick, onClose }) {
             </h3>
             <div>
               <div className="mb-2 block">
-                <Label value="Change your PIN:" />
+                <Label value="Old PIN:" />
+              </div>
+              <TextInput type="text" required={true} />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label value="New PIN:" />
               </div>
               <TextInput type="text" required={true} />
             </div>
@@ -37,8 +44,13 @@ export default function ProfileLockContainer({ onClick, onClose }) {
               <TextInput type="text" required={true} />
             </div>
 
-            <div className="w-full">
-              <Button>Submit</Button>
+            <div className="flex justify-center px-12">
+              <div className="w-full">
+                <Button>Edit</Button>
+              </div>
+              <div className="w-full">
+                <Button>Delete</Button>
+              </div>
             </div>
           </div>
         </Modal.Body>
