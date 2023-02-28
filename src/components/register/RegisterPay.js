@@ -9,14 +9,16 @@ import * as paymentApi from '../../apis/payment-api';
 
 const myPayment = {
   publicKey: process.env.REACT_APP_OMISE_PUBLIC_KEY,
-  secretKey: process.env.REACT_APP_OMISE_SECRET_KEY,
   outher: process.env.REACT_APP_ENDPOINT_URL,
 };
 
 export default function RegisterPay() {
   const [souce, setSouce] = useState();
 
-  const handleClickPay = () => {
+  const handleClickPay = async () => {
+    window.OmiseCard.configure({
+      PublicKey: myPayment.publicKey,
+    });
     window.OmiseCard.open({
       amount: 12345446,
       currency: 'THB',
@@ -25,17 +27,23 @@ export default function RegisterPay() {
       frameLabel: 'NETFLIX',
       defaultPaymentMethod: 'credit_card',
       onCreateTokenSuccess: async (noti) => {
-        if (noti.startsWith('tokn_')) {
-          const token = { token: noti };
-          await paymentApi.sendToken(token);
-        } else {
-          setSouce = window.form.omiseSource.value = noti;
-          console.log(noti);
+        try {
+          if (noti.startsWith('tokn_')) {
+            const token = { token: noti };
+            await paymentApi.sendToken(token);
+          } else {
+            setSouce = window.form.omiseSource.value = noti;
+            console.log(noti);
+          }
+          // window.form.submit();
+          console.log(souce);
+          // link to signin
+        } catch (err) {
+          console.log(err);
         }
-        window.form.submit();
-        console.log(souce);
       },
     });
+    console.log('sdsd');
   };
 
   return (

@@ -60,13 +60,13 @@ export default function LoginForm() {
           </div>
         </div>
         <p className="text-gray-500 text-sm  mt-15 text-center">
-          New to Netflix?{' '}
-          <a
-            href="#!"
+          New to Netflix?
+          <Link
+            to={'/signup/regform'}
             className="text-gray-300 no-underline hover:underline text-sm font-medium transition duration-200 ease-in-out"
           >
             Sign Up now.
-          </a>
+          </Link>
         </p>
       </form>
     </div>
