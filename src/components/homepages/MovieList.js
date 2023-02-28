@@ -79,7 +79,7 @@ export function MovieList({ changeCurrentMovie }) {
               onMouseLeave={() => setShowButton(false)}
               className=" flex w-1/6 hover:translate-x-20 hover:scale-150 ease-in duration-200 hover:shadow-xl"
             >
-              <img src={img2} className="rounded-lg" />
+              <img src={img1} className="rounded-lg" />
               {showButton && <MediaButton />}
             </div>
             <div

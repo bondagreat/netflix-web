@@ -1,49 +1,42 @@
+// import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import AddProfileCard from '../components/profile/AddProfileCard';
+import ManageProfileButton from '../components/profile/ManageProfileButton';
+import ProfileCard from '../components/profile/ProfileCard';
+import { fetchAuthUser } from '../redux/authSlice';
+// import { getAccessToken } from '../utils/local-storage';
+
 export default function ProfilePage() {
+  // const dispatch = useDispatch();
+  const userProfiles = useSelector((state) => state.user.profile?.Profiles);
+
+  // useEffect(() => {
+  //   if (getAccessToken()) {
+  //     dispatch(fetchAuthUser());
+  //   }
+  // }, []);
+
   return (
     <>
-      <div className=" h-screen flex justify-center flex-col bg-black">
+      <div className="h-screen flex justify-center flex-col bg-black">
         <div className="flex justify-center mt-10">
           <h1 className="text-white text-5xl">Who's watching?</h1>
         </div>
         <div className="flex justify-center gap-5 mt-6">
-          <div>
-            <img
-              className="w-[100px]"
-              src="http://occ-0-2339-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ_JEhgVlFamty5bFR0ofXrH6YH0NJ868l21auwAbp78Qx2jeEuB088_MY2tepK6ppRoDQ7Fet7t8c4CI7t1xn_zbkLj0QtJU8Ot.png?r=749"
-              alt="1"
-            />
-            <span className="flex justify-center text-white">Aommei</span>
-          </div>
-          <div>
-            <img
-              className="w-[100px]"
-              src="http://occ-0-2339-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ_JEhgVlFamty5bFR0ofXrH6YH0NJ868l21auwAbp78Qx2jeEuB088_MY2tepK6ppRoDQ7Fet7t8c4CI7t1xn_zbkLj0QtJU8Ot.png?r=749"
-              alt="1"
-            />
-            <span className="flex justify-center  text-white">Soffy</span>
-          </div>
-          <div>
-            <img
-              className="w-[100px]"
-              src="http://occ-0-2339-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ_JEhgVlFamty5bFR0ofXrH6YH0NJ868l21auwAbp78Qx2jeEuB088_MY2tepK6ppRoDQ7Fet7t8c4CI7t1xn_zbkLj0QtJU8Ot.png?r=749"
-              alt="1"
-            />
-            <span className="flex justify-center  text-white">Mint</span>
-          </div>
-          <div>
-            <img
-              className="w-[100px]"
-              src="http://occ-0-2339-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ_JEhgVlFamty5bFR0ofXrH6YH0NJ868l21auwAbp78Qx2jeEuB088_MY2tepK6ppRoDQ7Fet7t8c4CI7t1xn_zbkLj0QtJU8Ot.png?r=749"
-              alt="1"
-            />
-            <span className="flex justify-center  text-white">Tum</span>
-          </div>
+          {userProfiles?.map((el) => {
+            return (
+              <ProfileCard
+                key={el.id}
+                id={el.id}
+                name={el.name}
+                profileImg={el.profileImg}
+                pin={el.pin}
+              />
+            );
+          })}
+          {userProfiles?.length < 4 && <AddProfileCard />}
         </div>
-        <div className="flex justify-center mt-16">
-          <button className="border-2 border-white  text-white py-1 px-3">
-            Manage Profiles
-          </button>
-        </div>
+        <ManageProfileButton />
       </div>
     </>
   );
