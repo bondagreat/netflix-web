@@ -16,8 +16,8 @@ import AdminManageAccountPage from '../pages/AdminManageAccountPage';
 import AdminEditMoviePage from '../pages/AdminEditMoviePage';
 import AdminCreateMovieFirstPage from '../pages/AdminCreateMovieFirstPage';
 import LoginAdminPage from '../pages/LoginAdminPage';
-import ModalEditVideo from '../components/global/ModalEditVideo';
-import ModalEditTrailer from '../components/global/ModalEditTrailer';
+import AdminEditVideoPage from '../pages/AdminEditVideoPage';
+import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 
@@ -84,12 +84,12 @@ const router = createBrowserRouter([
     element: <AdminEditMoviePage />,
   },
   {
-    path: '/modalEditVideo',
-    element: <ModalEditVideo />,
+    path: '/adminEditVideo',
+    element: <AdminEditVideoPage />,
   },
   {
-    path: '/modalEditTrailer',
-    element: <ModalEditTrailer />,
+    path: '/adminEditTrailer',
+    element: <AdminEditTrailerPage />,
   },
   {
     path: '/adminCreateMovieFirstPage',
