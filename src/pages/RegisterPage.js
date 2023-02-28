@@ -66,7 +66,7 @@ export default function RegisterPage() {
                 </label>
               </div>
             </div>
-            <Link to={{ pathname: '/registerStep' }}>
+            <Link to={{ pathname: '/signup/step' }}>
               <button
                 type="submit"
                 className="  w-full  px-6  py-2.5  bg-red-600  text-white  font-xl  text-xl  rounded  shadow-md"
