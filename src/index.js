@@ -7,17 +7,17 @@ import store from './redux/store';
 import './index.css';
 import LoadingContextProvider from './contexts/LoadingContext';
 import 'tw-elements';
-import PaymentContextProvider from './contexts/PaymentContext';
+import RegisterContextProvider from './contexts/RegisterContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  <Provider store={store}>
-    <LoadingContextProvider>
-      <PaymentContextProvider>
-        <App />
-      </PaymentContextProvider>
-    </LoadingContextProvider>
-  </Provider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <LoadingContextProvider>
+        <RegisterContextProvider>
+          <App />
+        </RegisterContextProvider>
+      </LoadingContextProvider>
+    </Provider>
+  </React.StrictMode>
 );
