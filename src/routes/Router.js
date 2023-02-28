@@ -13,6 +13,7 @@ import RegisterPay from '../components/register/RegisterPay';
 import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
+import AdminManageMoviePage from '../pages/AdminManageMoviePage';
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: '/adminManageAccount',
     element: <AdminManageAccountPage />,
+  },
+  {
+    path: '/adminManageMovie',
+    element: <AdminManageMoviePage />,
   },
 
   {
