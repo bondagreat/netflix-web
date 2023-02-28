@@ -1,11 +1,22 @@
 import { Link } from 'react-router-dom';
-import { CheckCircleIcon, CheckIcon } from '../../images';
+import { CheckCircleIcon, CheckIcon, NetFlixLogo } from '../../images';
+import Brand from '../../layouts/Brand';
 
 export default function RegisterStepForm() {
   return (
     <div className="bg-white">
+      <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
+        <NetFlixLogo />
+
+        <button
+          type="button"
+          className="text-lg text-black no-underline hover:underline px-2 font-medium my-5 rounded-sm "
+        >
+          Sign Out
+        </button>
+      </div>
       <div className="flex justify-center">
-        <div className="block p-6 rounded-lg  bg-white max-w-sm mt-48">
+        <div className="block p-6 rounded-lg  bg-white max-w-sm mt-24">
           <form>
             <div className="flex justify-center flex-col">
               <div className="flex justify-center">
@@ -54,7 +65,7 @@ export default function RegisterStepForm() {
                 No ads and no extra fees. Ever.
               </a>
             </div>
-            <Link to={{ pathname: '/registerpackage' }}>
+            <Link to={'/signup/package'}>
               <button
                 type="submit"
                 className="w-full  px-6  py-2.5  bg-red-600  text-white  font-xl  text-xl  rounded shadow-md my-2"

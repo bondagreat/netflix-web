@@ -1,20 +1,24 @@
 import LockCirclePic from '../../assets/images/lockcircle.png';
 import VisaIconPic from '../../assets/images/visaicon.png';
 import MasterIconPic from '../../assets/images/mastericon.png';
-import { ChevronRight, Lock } from '../../images';
+import { ChevronRight, Lock, NetFlixLogo } from '../../images';
+// import { Link } from 'react-router-dom';
+
 import { useState } from 'react';
 import * as paymentApi from '../../apis/payment-api';
 
 const myPayment = {
   publicKey: process.env.REACT_APP_OMISE_PUBLIC_KEY,
-  secretKey: process.env.REACT_APP_OMISE_SECRET_KEY,
   outher: process.env.REACT_APP_ENDPOINT_URL,
 };
 
 export default function RegisterPay() {
   const [souce, setSouce] = useState();
 
-  const handleClickPay = () => {
+  const handleClickPay = async () => {
+    window.OmiseCard.configure({
+      PublicKey: myPayment.publicKey,
+    });
     window.OmiseCard.open({
       amount: 12345446,
       currency: 'THB',
@@ -23,23 +27,39 @@ export default function RegisterPay() {
       frameLabel: 'NETFLIX',
       defaultPaymentMethod: 'credit_card',
       onCreateTokenSuccess: async (noti) => {
-        if (noti.startsWith('tokn_')) {
-          const token = { token: noti };
-          await paymentApi.sendToken(token);
-        } else {
-          setSouce = window.form.omiseSource.value = noti;
-          console.log(noti);
+        try {
+          if (noti.startsWith('tokn_')) {
+            const token = { token: noti };
+            await paymentApi.sendToken(token);
+          } else {
+            setSouce = window.form.omiseSource.value = noti;
+            console.log(noti);
+          }
+          // window.form.submit();
+          console.log(souce);
+          // link to signin
+        } catch (err) {
+          console.log(err);
         }
-        window.form.submit();
-        console.log(souce);
       },
     });
+    console.log('sdsd');
   };
 
   return (
     <div className="bg-white">
+      <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
+        <NetFlixLogo />
+
+        <button
+          type="button"
+          className="text-lg text-black no-underline hover:underline px-2 font-medium my-5 rounded-sm "
+        >
+          Sign Out
+        </button>
+      </div>
       <div className="flex justify-center">
-        <div className="block p-6  bg-white max-w-sm mr-5 mt-40 ">
+        <div className="block p-6  bg-white max-w-sm mr-5 mt-28 ">
           <div className="flex justify-center ">
             <div className="flex-col">
               <div className="w-[40px] h-[40px] ml-24 mb-7">
@@ -77,7 +97,7 @@ export default function RegisterPay() {
           </div>
           <div className="flex ml-48 my-4 ">
             <div>
-              <a className="text-gray-600 text-xs">End-to-end encripted</a>
+              <a className="text-gray-600 text-xs">End-to-end encrypted</a>
             </div>
             <div className="mt-2 ml-1.5">
               <div className="w-[10px] h-[10px] fill-yellow-400">

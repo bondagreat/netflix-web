@@ -21,13 +21,10 @@ const authSlice = createSlice({
       removeAccessToken();
       state.user = null;
     },
-    getMe: (state, action) => {
-      state.user = action.payload;
-    },
   },
 });
 
-export const { login, logout, getMe } = authSlice.actions;
+export const { login, logout } = authSlice.actions;
 
 export default authSlice.reducer;
 
@@ -39,14 +36,5 @@ export const loginAPI = (email, password) => async (dispatch) => {
     dispatch(login(user));
   } catch (err) {
     console.log(err);
-  }
-};
-
-export const fetchAuthUser = () => async (dispatch) => {
-  try {
-    const res = await authApi.getMe();
-    dispatch(getMe(res.data.user));
-  } catch (err) {
-    removeAccessToken();
   }
 };
