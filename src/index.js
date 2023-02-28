@@ -11,13 +11,13 @@ import PaymentContextProvider from './contexts/PaymentContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <LoadingContextProvider>
-        <PaymentContextProvider>
-          <App />
-        </PaymentContextProvider>
-      </LoadingContextProvider>
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <LoadingContextProvider>
+      <PaymentContextProvider>
+        <App />
+      </PaymentContextProvider>
+    </LoadingContextProvider>
+  </Provider>
+  // </React.StrictMode>
 );
