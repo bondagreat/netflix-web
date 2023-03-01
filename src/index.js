@@ -7,8 +7,9 @@ import store from './redux/store';
 import './index.css';
 import LoadingContextProvider from './contexts/LoadingContext';
 import 'tw-elements';
-import RegisterContextProvider from './contexts/RegisterContext';
+import PaymentContextProvider from './contexts/PaymentContext';
 import SearchContextProvider from './contexts/SearchUserContext';
+import RegisterContextProvider from './contexts/RegisterContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +17,11 @@ root.render(
     <Provider store={store}>
       <LoadingContextProvider>
         <PaymentContextProvider>
-          <App />
+          <SearchContextProvider>
+            <RegisterContextProvider>
+              <App />
+            </RegisterContextProvider>
+          </SearchContextProvider>
         </PaymentContextProvider>
       </LoadingContextProvider>
     </Provider>
