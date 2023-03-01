@@ -2,7 +2,13 @@ import { EditIcon } from '../../images';
 import CreateProfileLock from './CreateProfileLock';
 import EditProfileLock from './EditProfileLock';
 import DeleteProfileLock from './DeleteProfileLock';
+import { Link, useLocation } from 'react-router-dom';
+
 export default function EditProfile() {
+  const location = useLocation();
+  const id = location.state.id;
+  console.log(id);
+
   return (
     <>
       <div className="h-screen bg-black flex justify-center">
@@ -29,7 +35,10 @@ export default function EditProfile() {
               </div>
               <hr className="mt-12" />
               <div className="flex justify-center flex-col mt-7">
-                <p className="text-white text-xs">Profile Lock</p>
+                <div className="flex gap-2">
+                  <p className="text-white text-xs">Profile Lock</p>
+                  <span className="text-xs">{true ? 'On' : 'Off'}</span>
+                </div>
                 <div className="flex gap-4">
                   {true ? <EditProfileLock /> : <CreateProfileLock />}
                   {true && <DeleteProfileLock />}
@@ -41,11 +50,13 @@ export default function EditProfile() {
           </div>
           <hr />
           <div className="mt-7 flex justify-around ">
-            <button className="text-black bg-white  px-6 ">Save</button>
-            <button className="border-2 border-white px-4 text-white py-1  ">
-              Cancel
+            <button className="text-black bg-white px-6 hover:bg-red-600 hover:text-white">
+              Save
             </button>
-            <button className="border-2 border-white  text-white px-4">
+            <button className="border-2 border-gray-500 px-4 text-gray-500 py-1 hover:border-white hover:text-white">
+              <Link to={'/profiles/manage'}>Cancel</Link>
+            </button>
+            <button className="border-2 border-gray-500 text-gray-500 px-4 hover:border-white hover:text-white">
               Delete Profile
             </button>
           </div>

@@ -74,7 +74,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/profile',
+    path: '/profiles',
     element: (
       // <ProtectedRoute>
       <ProfilePage />
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/ManageProfiles',
+    path: '/profiles/manage',
     element: (
       // <ProtectedRoute>
       <ManageProfile />
@@ -90,8 +90,12 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/EditProfile',
-    element: <EditProfile />,
+    path: '/profiles/edit',
+    element: (
+      // <ProtectedRoute>
+      <EditProfile />
+      // </ProtectedRoute>
+    ),
   },
   {
     element: (
@@ -177,11 +181,6 @@ const router = createBrowserRouter([
       {
         path: '/browse/original-audio',
         element: <h1>Browse by Languages</h1>,
-      },
-
-      {
-        path: '/EditProfile',
-        element: <EditProfile />,
       },
     ],
   },
