@@ -1,18 +1,24 @@
+import { useState } from 'react';
 export default function ModalEditTrailer() {
+  const handleSubmitForm = () => {};
+  const handlePreviewImage = (e) => {
+    setFile(e.target.files[0]);
+  };
+  const [file, setFile] = useState(null);
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 bg-black/50 ">
         <div className="w-full h-full flex justify-center items-center">
-          <div className="block p-6 rounded-lg shadow-lg bg-white w-[700] h-[511] ">
+          <div className="block p-10 rounded-lg shadow-lg bg-white w-[700] h-[511] ">
             <form className="flex-col">
               <label
                 htmlFor="formFile"
-                className="form-label inline-block mb-2 text-gray-700 font-semibold text-xl"
+                className="form-label inline-block  text-gray-700 font-semibold text-xl mb-2.5"
               >
                 Trailer
               </label>
               <div className="flex items-center justify-center w-full">
-                <label
+                {/* <label
                   htmlFor="dropzone-file"
                   className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                 >
@@ -40,34 +46,50 @@ export default function ModalEditTrailer() {
                       SVG, PNG, JPG or GIF (MAX. 800x400px)
                     </p>
                   </div>
-                  <input id="dropzone-file" type="file" className="hidden" />
-                </label>
+                  <input
+                    id="dropzone-file"
+                    type="file"
+                    className="hidden w-full"
+                  />
+                </label> */}
+                <div className="bg-white w-[400px] h-[280px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center ">
+                  <img
+                    alt="Click to upload image"
+                    width={'400px'}
+                    height={'280px'}
+                    src={file ? URL.createObjectURL(file) : ''}
+                  />
+                </div>
               </div>
 
               <input
-                className="form-control  block   w-full  px-3   py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                className="form-control block  px-3 py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                 type="file"
                 id="formFile"
+                name="ImageStyle"
+                onClick={handlePreviewImage}
               />
-              <label className="flex flex-row">
-                <span className="block text-sm font-medium mb-2 text-gray-900 pt-4 pr-2.5 ">
+              {/* <label className="flex flex-row items-center space-x-2 px-5">
+                <span className="block text-sm font-medium mb-2 text-gray-900  ">
                   Trailer:
                 </span>
                 <input
                   className="w-full px-2 py-1 rounded-md border border-slate-400 my-3"
                   type="name"
                 />
-              </label>
-              <div className="flex justify-between ">
+              </label> */}
+              <div className="flex justify-end ">
                 <button
                   type="submit"
-                  className=" rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
+                  onClick={handleSubmitForm}
+                  className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#FFFFFF] hover:bg-[#E50914] hover:ring-[#E50914] text-[#FA0000] hover:text-white hover:ring-white  bold-2 shadow-xl  drop-shadow-xl  mt-1"
                 >
-                  Prev
+                  Cancel
                 </button>
                 <button
                   type="submit"
-                  className=" rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white  bold-2 shadow-xl  drop-shadow-xl"
+                  onClick={handleSubmitForm}
+                  className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl  mt-1"
                 >
                   Submit
                 </button>

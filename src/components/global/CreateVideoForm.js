@@ -1,11 +1,27 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function CreateVideoForm() {
+export default function CreateVideoForm(props) {
   const navigate = useNavigate();
   const handleOnClick = (value) => {
     navigate('/adminCreateMovieThirdPage');
     console.log(value);
   };
+  const { width, height } = props;
+
+  const inputRef = React.useRef();
+
+  const [source, setSource] = React.useState();
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    setSource(url);
+  };
+
+  // const handleChoose = (event) => {
+  //   inputRef.current.click();
+  // };
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 bg-black/50 ">
@@ -24,12 +40,12 @@ export default function CreateVideoForm() {
               <form className="flex-col">
                 <label
                   htmlFor="formFile"
-                  className="form-label inline-block mb-2 text-gray-700"
+                  className="form-label inline-block mb-2.5 text-gray-700 text-md font-semibold "
                 >
                   Video
                 </label>
                 <div className="flex items-center justify-center w-full">
-                  <label
+                  {/* <label
                     htmlFor="dropzone-file"
                     className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                   >
@@ -57,13 +73,39 @@ export default function CreateVideoForm() {
                         SVG, PNG, JPG or GIF (MAX. 800x400px)
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" className="hidden" />
-                  </label>
+                    <input
+                      id="dropzone-file"
+                      type="file"
+                      className="hidden w-full"
+                    />
+                  </label> */}
+                  <div className="bg-white w-[400px] h-[280px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center  flex-col ">
+                    {/* {!source && (
+                      <button onClick={handleChoose}>Upload to video</button>
+                    )} */}
+                    <svg
+                      className="animate-spin h-5 w-5 mr-3 ..."
+                      viewBox="0 0 24 24"
+                    />
+
+                    {source && (
+                      <video
+                        className="VideoInput_video"
+                        width="100%"
+                        height={height}
+                        controls
+                        src={source}
+                      />
+                    )}
+                  </div>
                 </div>
                 <input
-                  className="form-control  block   w-full  px-1   py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  className="form-control  block   px-1   py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  ref={inputRef}
                   type="file"
                   id="formFile"
+                  accept=".mov,.mp4"
+                  onClick={handleFileChange}
                 />
                 <div className="flex justify-between">
                   <button
