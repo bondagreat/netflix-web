@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
+import useRegister from '../../hooks/useRegister';
+
 export default function LoginForm() {
+  const { inputEmail, changeInputEmail } = useRegister();
+
   return (
     <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-18 mb-10 w-[350px} p-[60px]">
       <form>
@@ -14,14 +18,16 @@ export default function LoginForm() {
         <div className="form-group mb-6">
           <input
             type="email"
-            className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-300  bg-[#444444]    rounded   m-0 mb-3.5"
+            value={inputEmail.email}
+            className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-300  bg-[#444444]    rounded   m-0 mb-3.5 focus:border-transparent focus:ring-0"
             id="exampleInputEmail2"
             aria-describedby="emailHelp"
+            onChange={(e) => changeInputEmail(e.target.value)}
             placeholder="Email or phone number"
           />
           <input
             type="password"
-            className="w-full  pl-3  pr-24 py-3  text-sm font-normal  text-gray-300 bg-[#444444]  rounded m-0 border-transparent focus:border-transparent focus:ring-0"
+            className="w-full pl-3 py-3 text-sm font-normal text-gray-300 bg-[#444444]  rounded m-0 border-transparent focus:border-transparent focus:ring-0"
             id="exampleInputPassword2"
             placeholder="Password"
           />
@@ -60,13 +66,13 @@ export default function LoginForm() {
           </div>
         </div>
         <p className="text-gray-500 text-sm  mt-15 text-center">
-          New to Netflix?{' '}
-          <a
-            href="#!"
+          New to Netflix?
+          <Link
+            to={'/signup/regform'}
             className="text-gray-300 no-underline hover:underline text-sm font-medium transition duration-200 ease-in-out"
           >
             Sign Up now.
-          </a>
+          </Link>
         </p>
       </form>
     </div>

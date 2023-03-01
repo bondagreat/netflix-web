@@ -14,6 +14,7 @@ import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminSeeTransactionPage from '../pages/AdminSeeTransactionPage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
+import AdminManageMoviePage from '../pages/AdminManageMoviePage';
 import AdminEditMoviePage from '../pages/AdminEditMoviePage';
 import AdminCreateMovieFirstPage from '../pages/AdminCreateMovieFirstPage';
 import LoginAdminPage from '../pages/LoginAdminPage';
@@ -21,7 +22,7 @@ import ModalEditVideo from '../components/global/ModalEditVideo';
 import ModalEditTrailer from '../components/global/ModalEditTrailer';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
-import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
+// import AdminManageMoviePage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/register',
+    path: '/signup/regform',
     element: (
       <RedirectIfAuthenticate>
         <RegisterPage />
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/registerStep',
+    path: '/signup/step',
     element: (
       <RedirectIfAuthenticate>
         <RegisterStepForm />
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/registerPackage',
+    path: '/signup/package',
     element: (
       <RedirectIfAuthenticate>
         <RegisterPackage />
@@ -61,11 +62,27 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/registerPay',
+    path: '/signup/payment',
     element: (
       <RedirectIfAuthenticate>
         <RegisterPay />
       </RedirectIfAuthenticate>
+    ),
+  },
+  {
+    path: '/profile',
+    element: (
+      // <ProtectedRoute>
+      <ProfilePage />
+      // </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/ManageProfiles',
+    element: (
+      // <ProtectedRoute>
+      <ManageProfile />
+      // </ProtectedRoute>
     ),
   },
 
@@ -109,9 +126,13 @@ const router = createBrowserRouter([
     path: '/adminCreateMovieThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
+  // {
+  //   path: '/adminManageMovies',
+  //   element: <AdminManageMoviesPage />,
+  // },
   {
     path: '/adminManageMovies',
-    element: <AdminManageMoviesPage />,
+    element: <AdminManageMoviePage />,
   },
   {
     element: (
@@ -137,14 +158,6 @@ const router = createBrowserRouter([
         element: <h1>Browse by Languages</h1>,
       },
 
-      {
-        path: '/profile',
-        element: <ProfilePage />,
-      },
-      {
-        path: '/ManageProfile',
-        element: <ManageProfile />,
-      },
       {
         path: '/EditProfile',
         element: <EditProfile />,
