@@ -9,7 +9,7 @@ import { fetchAuthUser } from '../redux/authSlice';
 export default function ProfilePage() {
   // const dispatch = useDispatch();
   const userProfiles = useSelector((state) => state.user.profile?.Profiles);
-
+  console.log(userProfiles);
   // useEffect(() => {
   //   if (getAccessToken()) {
   //     dispatch(fetchAuthUser());

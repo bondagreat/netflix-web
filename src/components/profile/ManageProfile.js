@@ -27,7 +27,7 @@ export default function ManageProfile() {
           {userProfiles?.length < 4 && <AddProfileCard />}
         </div>
         <div className="flex justify-center mt-14">
-          <button className="border-2 border-white bg-white  text-black  px-3">
+          <button className=" bg-white hover:bg-red-700 hover:text-white text-black py-1 px-5">
             <Link to={'/profile'}>Done</Link>
           </button>
         </div>
