@@ -2,11 +2,16 @@ import Brand from '../layouts/Brand';
 import MenuItemRight from '../layouts/MenuItemRight';
 import { HomeLogo, SearchIcon, ArrowLeft, ArrowRight } from '../images';
 import { useState } from 'react';
+import UserList from '../components/admin/UserList';
 
 export default function AdminManageAccountPage() {
+  const [search, setSearch] = useState('');
   const [pageNum, setPageNum] = useState(5);
   console.log(pageNum);
 
+  const handleSearch = () => {
+    setSearch(search);
+  };
   const previousPage = () => {
     if (pageNum > 1) setPageNum(pageNum - 1);
   };
@@ -33,9 +38,13 @@ export default function AdminManageAccountPage() {
               <Brand />
             </div>
             <div className=" h-[100px]  w-full ">
-              <div className="flex items-center justify-end gap-3 mr-10 mt-8">
+              <div className="flex items-center flex-row justify-end gap-3 mr-10 mt-8">
                 <MenuItemRight>
                   <SearchIcon />
+                  <input
+                    className="border-2 border-white bg-black text-white"
+                    onChange={handleSearch}
+                  />
                 </MenuItemRight>
               </div>
             </div>
@@ -86,192 +95,7 @@ export default function AdminManageAccountPage() {
                           <th scope="col" className="px-6 py-4"></th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr className=" bg-neutral-400 ">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                            1
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            User01
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            user.01@gmail.com
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            Active
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
-                              Block
-                            </button>
-
-                            <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
-                              Transaction
-                            </button>
-                          </td>
-                        </tr>
-                        <tr className=" bg-neutral-500  ">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                            2
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            User02
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            user.02@gmail.com
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            Active
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
-                              Block
-                            </button>
-
-                            <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
-                              Transaction
-                            </button>
-                          </td>
-                        </tr>
-                        <tr className=" bg-neutral-400  ">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                            3
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            User03
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            user.03@gmail.com
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            Active
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
-                              Block
-                            </button>
-
-                            <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
-                              Transaction
-                            </button>
-                          </td>
-                        </tr>
-                        <tr className=" bg-neutral-500  ">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                            4
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            User04
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            user.04@gmail.com
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            Active
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
-                              Block
-                            </button>
-
-                            <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
-                              Transaction
-                            </button>
-                          </td>
-                        </tr>
-                        <tr className=" bg-neutral-400  ">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                            5
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            User05
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            user.05@gmail.com
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            Active
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
-                              Block
-                            </button>
-
-                            <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
-                              Transaction
-                            </button>
-                          </td>
-                        </tr>
-                        <tr className=" bg-neutral-500  ">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                            6
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            User06
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            user.06@gmail.com
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            Active
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
-                              Block
-                            </button>
-
-                            <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
-                              Transaction
-                            </button>
-                          </td>
-                        </tr>
-                        <tr className=" bg-neutral-400  ">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                            7
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            User07
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            user.07@gmail.com
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            Active
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
-                              Block
-                            </button>
-
-                            <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
-                              Transaction
-                            </button>
-                          </td>
-                        </tr>
-                        <tr className=" bg-neutral-500  ">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                            8
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            User08
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            user.08@gmail.com
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            Active
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-white ">
-                            <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
-                              Block
-                            </button>
-
-                            <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
-                              Transaction
-                            </button>
-                          </td>
-                        </tr>
-                      </tbody>
+                      <UserList />
                     </table>
                   </div>
                 </div>

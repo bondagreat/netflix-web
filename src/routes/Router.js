@@ -85,7 +85,10 @@ const router = createBrowserRouter([
       // </ProtectedRoute>
     ),
   },
-
+  {
+    path: '/EditProfile',
+    element: <EditProfile />,
+  },
   {
     path: '/loginAdmin',
     element: (
@@ -158,10 +161,6 @@ const router = createBrowserRouter([
         element: <h1>Browse by Languages</h1>,
       },
 
-      {
-        path: '/EditProfile',
-        element: <EditProfile />,
-      },
       {
         path: '/homepage',
         element: <HomePage />,
