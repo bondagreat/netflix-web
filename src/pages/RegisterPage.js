@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
 import { NetFlixLogo } from '../images';
 import useRegister from '../hooks/useRegister';
 import Brand from '../layouts/Brand';
 import { useState } from 'react';
 import validateRegister from '../validators/validateRegister';
+import * as AuthApi from '../apis/auth-api';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterPage() {
   const { inputEmail } = useRegister();
+  const navigate = useNavigate();
 
   const intInput = {
     email: inputEmail.email,
@@ -24,16 +26,24 @@ export default function RegisterPage() {
     try {
       e.preventDefault();
       const result = validateRegister(input);
-      console.log(result);
+      // console.log(result);
 
       if (result) {
         setError(result);
       } else {
+        // Loding ?
         setError({});
-        // await
-        console.log('sent to back');
+        await AuthApi.register(input);
+        //endLoading?
+        navigate('/signup/step');
       }
-    } catch (err) {}
+    } catch (err) {
+      // console.dir(err);
+      if (err.response.data.message == 'phone number is already in use') {
+        setError({ phone: err.response.data.message });
+      } else if (err.response.data.message == 'email is already in use')
+        setError({ email: err.response.data.message });
+    }
   };
   return (
     <div className="bg-white ">
@@ -68,15 +78,20 @@ export default function RegisterPage() {
               <br />
               <a className="text-gray-500 text-sm">We hate paperwork,too.</a>
             </div>
-            <div className="form-group mb-6">
+            <div className="form-group my-6 ">
               <input
                 type="email"
-                className="form-control  block  mt-2.5  w-full  px-3  py-1.5  text-base  font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className={`${
+                  error.email ? 'border-red-500' : ''
+                } form-control block w-full  px-3  py-1.5  text-base  font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}
                 placeholder="Email"
                 name="email"
-                value={inputEmail.email}
+                value={inputEmail.email ? inputEmail.email : input.email}
+                onChange={handleChangeInput}
               />
+              <p className="text-red-500">{error.email}</p>
             </div>
+
             <div className="form-group mb-6">
               <input
                 placeholder="Enter your password"
@@ -88,6 +103,7 @@ export default function RegisterPage() {
                 } form-control block w-full  px-3  py-1.5  text-base  font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}
                 onChange={handleChangeInput}
               />
+              <p className="text-red-500">{error.password}</p>
             </div>
             <div className="form-group mb-6">
               <input
@@ -100,6 +116,7 @@ export default function RegisterPage() {
                 } form-control block w-full  px-3  py-1.5  text-base  font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}
                 onChange={handleChangeInput}
               />
+              <p className="text-red-500">{error.confirmPassword}</p>
             </div>
             <div className="form-group mb-6">
               <input
@@ -112,6 +129,7 @@ export default function RegisterPage() {
                 } form-control block w-full  px-3  py-1.5  text-base  font-normal  text-gray-700  bg-white bg-clip-padding  border border-solid border-gray-300  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}
                 onChange={handleChangeInput}
               />
+              <p className="text-red-500">{error.phone}</p>
             </div>
             <div className="flex justify-between items-center mb-6">
               <div className="form-group form-check">
