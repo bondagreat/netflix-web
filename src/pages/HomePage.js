@@ -19,7 +19,9 @@ export default function HomePage() {
 
   return (
     <>
-      {currentMovie && <Modal closeModal={closeModal} />}
+      {currentMovie && (
+        <Modal closeModal={closeModal} setCurrentMovie={setCurrentMovie} />
+      )}
       <div className="absolute top-[770px]  left-0 right-0 bg-gradient-to-t from-black h-[130px] "></div>
       <div className="bg-black ">
         <MovieShowcase />
@@ -36,10 +38,7 @@ export default function HomePage() {
 
         {/* MovieList */}
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
-          <MovieList
-            changeCurrentMovie={changeCurrentMovie}
-            closeModal={closeModal}
-          />
+          <MovieList changeCurrentMovie={changeCurrentMovie} />
         </div>
 
         <div className="relative bottom-[800px]">
