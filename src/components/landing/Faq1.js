@@ -8,12 +8,10 @@ import {
 } from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
 
-export default function Faq1({ head, body, active }) {
-  const [open, setOpen] = useState(false);
-
+export default function Faq1({ head, body, active, uuid }) {
   return (
     <>
-      <AccordionItem className="mb-2">
+      <AccordionItem className="mb-2" uuid={uuid}>
         <AccordionItemHeading
           className="mb-[2px] "
           // onClick={() => setOpen(!open)}

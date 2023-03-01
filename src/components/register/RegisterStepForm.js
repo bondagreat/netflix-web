@@ -65,7 +65,7 @@ export default function RegisterStepForm() {
                 No ads and no extra fees. Ever.
               </a>
             </div>
-            <Link to={{ pathname: '/registerPackage' }}>
+            <Link to={'/signup/package'}>
               <button
                 type="submit"
                 className="w-full  px-6  py-2.5  bg-red-600  text-white  font-xl  text-xl  rounded shadow-md my-2"

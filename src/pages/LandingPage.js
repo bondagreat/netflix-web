@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { Accordion } from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
+import { Link } from 'react-router-dom';
 import Faq1 from '../components/landing/Faq1';
 import { NetFlixLogo } from '../images';
+import vlidateStartEmail from '../validators/validate-start-email';
+import * as AuthApi from '../apis/auth-api';
+import { useNavigate } from 'react-router-dom';
+import useRegister from '../hooks/useRegister';
 
 const faq = [
   {
@@ -10,7 +15,7 @@ const faq = [
     body: `Netflix is a streaming service that offers a wide variety of
 award-winning TV shows, movies, anime, documentaries, and more on
 thousands of internet-connected devices. You can watch as much as
-you want, whenever you want without a single commercial – all for
+you want, whenever you want without a single commercial - all for
 one low monthly price. There's always something new to discover and
 new TV shows and movies are added every week!`,
   },
@@ -35,7 +40,7 @@ internet connection. Take Netflix with you anywhere.`,
     head: `How do I cancle?`,
     body: `Netflix is flexible. There are no pesky contracts and no
   commitments. You can easily cancel your account online in two
-  clicks. There are no cancellation fees – start or stop your
+  clicks. There are no cancellation fees - start or stop your
   account anytime.`,
   },
   {
@@ -47,7 +52,34 @@ internet connection. Take Netflix with you anywhere.`,
 ];
 
 export default function LandingPage() {
+  const { changeInputEmail, inputEmail } = useRegister();
   const [active, setActive] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleClickGetStart = async (e) => {
+    try {
+      e.preventDefault();
+      const result = vlidateStartEmail(inputEmail);
+      if (result) {
+        setError(result[0].message);
+      } else {
+        setError('');
+        // startLoading()
+        const res = await AuthApi.startEmail(inputEmail);
+        console.log(res);
+        // stopLoading()
+        navigate('/signup/regform');
+      }
+    } catch (err) {
+      // console.log(err);
+      if (err.response.data.message == 'email is already in use') {
+        navigate('/login');
+      }
+      setError(err.response.data.message);
+    }
+  };
+
   return (
     <>
       {/* div 1 */}
@@ -62,13 +94,14 @@ export default function LandingPage() {
       </div>
       <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
         <NetFlixLogo />
-
-        <button
-          type="button"
-          className="text-lg text-white bg-[#E50914] px-2 font-medium my-5 rounded-sm "
-        >
-          Sign In
-        </button>
+        <Link to={'/login'}>
+          <button
+            type="button"
+            className="text-base text-white py-1 bg-[#E50914] px-4 font-normal my-5 rounded-sm "
+          >
+            Sign In
+          </button>
+        </Link>
       </div>
       <div className="flex justify-center w-7/12 mx-auto flex-col h-[90vh]">
         <h1 className="font-bold text-center text-white text-5xl mx-20">
@@ -85,17 +118,25 @@ export default function LandingPage() {
         <br />
         <form className="flex justify-center">
           <input
-            className="p-4 w-7/12 rounded-l-sm"
+            className={`p-4 w-7/12 rounded-l-sm text-black ${
+              error ? 'border-b-[3px] border-yellow-400' : ''
+            }`}
             type="text"
             placeholder="Email address"
+            value={inputEmail.email}
+            onChange={(e) => changeInputEmail({ email: e.target.value })}
           ></input>
           <button
+            onClick={handleClickGetStart}
             type="submit"
             className="rounded-r-sm p-2 px-16 bg-[#E50914] text-white font-medium active:bg-red-700 text-2xl"
           >
             Get Started
           </button>
         </form>
+        <p className="text-base font-medium text-yellow-400 ml-[3vw] mt-1">
+          {error}
+        </p>
       </div>
       <hr className="border-4 border-[#303030] my-0" />
       {/* div 1 */}
@@ -110,11 +151,21 @@ export default function LandingPage() {
             players, and more.
           </p>
         </div>
-        <img
-          alt="1"
-          className="w-1/2 mr-14 my-8"
-          src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
-        />
+        <div className="relative">
+          <img
+            alt=""
+            className="absolute z-10 "
+            src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+          />
+          <div className="scale-x-[73%] scale-y-[82%] translate-y-10 -z-30">
+            <video autoPlay playsInline muted loop>
+              <source
+                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+        </div>
       </div>
       <hr className="border-4 border-[#303030] my-0" />
       {/* div 2 */}
@@ -141,15 +192,15 @@ export default function LandingPage() {
           className="w-7/12 self-center"
           onChange={(inp) => {
             switch (inp[0]) {
-              case ':r1:':
+              case 0:
                 return setActive(0);
-              case ':r3:':
+              case 1:
                 return setActive(1);
-              case ':r5:':
+              case 2:
                 return setActive(2);
-              case ':r7:':
+              case 3:
                 return setActive(3);
-              case ':r9:':
+              case 4:
                 return setActive(4);
             }
             setActive('');
@@ -161,6 +212,7 @@ export default function LandingPage() {
                 key={index}
                 head={el.head}
                 body={el.body}
+                uuid={index}
                 active={active === index}
               />
             );
@@ -174,20 +226,28 @@ export default function LandingPage() {
           Ready to Watch? Enter your email to create or restart your membership.
         </p>
         <br />
-        <div>
+        <div className="flex justify-center w-7/12 mx-auto flex-col h-[15vh]">
           <form className="flex justify-center">
             <input
-              className="p-4 w-5/12 rounded-l-sm"
+              className={`p-4 w-7/12 rounded-l-sm text-black ${
+                error ? 'border-b-[3px] border-yellow-400' : ''
+              }`}
               type="text"
               placeholder="Email address"
+              value={inputEmail.email}
+              onChange={(e) => changeInputEmail({ email: e.target.value })}
             ></input>
             <button
               type="submit"
               className="rounded-r-sm p-2 px-16 bg-[#E50914] text-white font-medium active:bg-red-700 text-2xl"
+              onClick={handleClickGetStart}
             >
               Get Started
             </button>
           </form>
+          <p className=" w-7/12 ml-[3vw] text-base font-medium text-yellow-400  mt-2">
+            {error}
+          </p>
         </div>
       </div>
       <hr className="border-4 border-[#303030] my-0" />

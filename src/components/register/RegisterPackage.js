@@ -173,7 +173,7 @@ export default function RegisterPackage() {
           </div>
         </div>
         <div className="flex justify-center">
-          <Link to={{ pathname: '/registerPay' }}>
+          <Link to={{ pathname: '/signup/payment' }}>
             <button
               type="submit"
               className="w-[350px]  px-6 py-2.5  bg-red-600 mt-6 text-white font-xl text-xl rounded  shadow-md my-2 ml-3"
