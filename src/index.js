@@ -7,7 +7,6 @@ import store from './redux/store';
 import './index.css';
 import LoadingContextProvider from './contexts/LoadingContext';
 import 'tw-elements';
-import PaymentContextProvider from './contexts/PaymentContext';
 import SearchContextProvider from './contexts/SearchUserContext';
 import RegisterContextProvider from './contexts/RegisterContext';
 
@@ -16,13 +15,11 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <LoadingContextProvider>
-        <PaymentContextProvider>
-          <SearchContextProvider>
-            <RegisterContextProvider>
-              <App />
-            </RegisterContextProvider>
-          </SearchContextProvider>
-        </PaymentContextProvider>
+        <SearchContextProvider>
+          <RegisterContextProvider>
+            <App />
+          </RegisterContextProvider>
+        </SearchContextProvider>
       </LoadingContextProvider>
     </Provider>
   </React.StrictMode>
