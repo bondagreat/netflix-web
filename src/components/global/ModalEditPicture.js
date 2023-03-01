@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
+import { useState } from 'react';
 export default function ModalEditPicture() {
   const optionsEditMood = [
     { value: '1', label: 'Adventure' },
@@ -39,15 +40,18 @@ export default function ModalEditPicture() {
   const handleOnChange = (value) => {
     console.log(value);
   };
-  const navigate = useNavigate();
-  const handleOnClick = () => {
-    navigate('/modalEditVideo');
+
+  const handleSubmitForm = () => {};
+  const handlePreviewImage = (e) => {
+    setFile(e.target.files[0]);
   };
+  const [file, setFile] = useState(null);
+
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)]">
         <div className="flex justify-center items-center">
-          <div className="p-8 rounded-lg shadow-lg bg-white w-[750px]  h-[540px] my-10 ">
+          <div className="p-8 rounded-lg shadow-lg bg-white w-[770px]  h-[560px] my-10 ">
             <form>
               <div className="flex justify-start">
                 <div className="flex-col mr-8">
@@ -59,51 +63,24 @@ export default function ModalEditPicture() {
                       Movie Cover
                     </label>
                     <div className="flex items-center justify-center w-full">
-                      <label
-                        htmlFor="dropzone-file"
-                        className="flex flex-col items-center justify-center w-[200px] h-[150px] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                      >
-                        <br />
-                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                          <svg
-                            aria-hidden="true"
-                            className="w-5 h-5 mb-3 text-gray-400"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                            ></path>
-                          </svg>
-                          <p className="mb-2 text-xs text-gray-500 dark:text-gray-400">
-                            <span className="font-semibold">
-                              Click to upload
-                            </span>{' '}
-                            or drag and drop
-                          </p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
-                            SVG, PNG, JPG or GIF (MAX. 800x400px)
-                          </p>
-                        </div>
-                        <input
-                          id="dropzone-file"
-                          type="file"
-                          className="hidden"
+                      <div className="bg-white w-[200px] h-[140px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center ">
+                        <img
+                          alt="Click to upload image"
+                          width={'200px'}
+                          height={'140px'}
+                          src={file ? URL.createObjectURL(file) : ''}
                         />
-                      </label>
+                      </div>
                     </div>
                     <input
-                      className="form-controlblock w-full first-letter:px-3  text-base font-normal  text-blue-700  bg-white bg-clip-padding  border border-solid border-gray-300 rounded-lg  transition ease-in-out  m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                      className="form-control block  px-3 py-1.5   text-sm  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       type="file"
                       id="formFile"
+                      name="ImageStyle"
+                      onChange={handlePreviewImage}
                     />
                   </div>
-                  <br />
+
                   <div className="flex flex-col">
                     <label
                       htmlFor="formFile"
@@ -112,47 +89,20 @@ export default function ModalEditPicture() {
                       Movie Logo
                     </label>
                     <div className="flex items-center justify-center w-full">
-                      <label
-                        htmlFor="dropzone-file"
-                        className="flex flex-col items-center justify-center w-[200px] h-[150px] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                      >
-                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                          <svg
-                            aria-hidden="true"
-                            className="w-5 h-5 mb-3 text-gray-400"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                            ></path>
-                          </svg>
-                          <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                            <span className="font-semibold">
-                              Click to upload
-                            </span>{' '}
-                            or drag and drop
-                          </p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
-                            SVG, PNG, JPG or GIF (MAX. 800x400px)
-                          </p>
-                        </div>
-                        <input
-                          id="dropzone-file"
-                          type="file"
-                          className="hidden"
+                      <div className="bg-white w-[200px] h-[140px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center ">
+                        <img
+                          alt="Click to upload image"
+                          width={'200px'}
+                          height={'140px'}
+                          src={file ? URL.createObjectURL(file) : ''}
                         />
-                      </label>
+                      </div>
                     </div>
                     <input
-                      className="form-controlblock w-full first-letter:px-3  text-base font-normal  text-blue-700  bg-white bg-clip-padding  border border-solid border-gray-300 rounded-lg  transition ease-in-out  m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                      className="form-control block  px-3 py-1.5   text-sm  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       type="file"
                       id="formFile"
+                      onClick={handlePreviewImage}
                     />
                   </div>
                 </div>
@@ -217,7 +167,7 @@ export default function ModalEditPicture() {
                         placeholder="language"
                         onChange={handleOnChange}
                         options={optionsEditLanguage}
-                        className="w-full px-3  rounded-md  "
+                        className="w-full px-3  rounded-md "
                         styles={{
                           control: (styles) => ({
                             ...styles,
@@ -274,14 +224,22 @@ export default function ModalEditPicture() {
                       />
                     </div>
                   </div>
-
-                  <button
-                    type="submit"
-                    onClick={handleOnClick}
-                    className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl ml-72 mt-1"
-                  >
-                    Next
-                  </button>
+                  <div className="flex justify-end ">
+                    <button
+                      type="submit"
+                      onClick={handleSubmitForm}
+                      className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#FFFFFF] hover:bg-[#E50914] hover:ring-[#E50914] text-[#FA0000] hover:text-white hover:ring-white  bold-2 shadow-xl  drop-shadow-xl  mt-1"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      onClick={handleSubmitForm}
+                      className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl  mt-1"
+                    >
+                      Submit
+                    </button>
+                  </div>
                 </div>
               </div>
             </form>
