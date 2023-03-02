@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Accordion } from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
-// import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Faq1 from '../components/landing/Faq1';
 import { NetFlixLogo } from '../images';
 import vlidateStartEmail from '../validators/validate-start-email';
 import * as AuthApi from '../apis/auth-api';
+import { useNavigate } from 'react-router-dom';
+import useRegister from '../hooks/useRegister';
 
 const faq = [
   {
@@ -14,7 +15,7 @@ const faq = [
     body: `Netflix is a streaming service that offers a wide variety of
 award-winning TV shows, movies, anime, documentaries, and more on
 thousands of internet-connected devices. You can watch as much as
-you want, whenever you want without a single commercial – all for
+you want, whenever you want without a single commercial - all for
 one low monthly price. There's always something new to discover and
 new TV shows and movies are added every week!`,
   },
@@ -39,7 +40,7 @@ internet connection. Take Netflix with you anywhere.`,
     head: `How do I cancle?`,
     body: `Netflix is flexible. There are no pesky contracts and no
   commitments. You can easily cancel your account online in two
-  clicks. There are no cancellation fees – start or stop your
+  clicks. There are no cancellation fees - start or stop your
   account anytime.`,
   },
   {
@@ -51,31 +52,30 @@ internet connection. Take Netflix with you anywhere.`,
 ];
 
 export default function LandingPage() {
+  const { changeInputEmail, inputEmail } = useRegister();
   const [active, setActive] = useState('');
-  const [input, setInput] = useState({ email: '' });
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleClickGetStart = async (e) => {
     try {
       e.preventDefault();
-      const result = vlidateStartEmail(input);
+      const result = vlidateStartEmail(inputEmail);
       if (result) {
         setError(result[0].message);
-        // console.log(result[0].message);
-        // console.log(result[0].message.response.data.message);
       } else {
         setError('');
         // startLoading()
-        const res = await AuthApi.startEmail(input);
-
-        // console.log('sdsd', res.data.message);
-        /// user with auth-api ==> option send all res with no err (statusCode<500 pass)
-
+        const res = await AuthApi.startEmail(inputEmail);
+        console.log(res);
         // stopLoading()
-        // navigate
+        navigate('/signup/regform');
       }
     } catch (err) {
       // console.log(err);
+      if (err.response.data.message == 'email is already in use') {
+        navigate('/login');
+      }
       setError(err.response.data.message);
     }
   };
@@ -118,13 +118,13 @@ export default function LandingPage() {
         <br />
         <form className="flex justify-center">
           <input
-            className={`p-4 w-7/12 rounded-l-sm ${
-              error ? 'border-b-[3px] border-yellow-600' : ''
+            className={`p-4 w-7/12 rounded-l-sm text-black ${
+              error ? 'border-b-[3px] border-yellow-400' : ''
             }`}
             type="text"
             placeholder="Email address"
-            value={input.email}
-            onChange={(e) => setInput({ email: e.target.value })}
+            value={inputEmail.email}
+            onChange={(e) => changeInputEmail({ email: e.target.value })}
           ></input>
           <button
             onClick={handleClickGetStart}
@@ -134,7 +134,7 @@ export default function LandingPage() {
             Get Started
           </button>
         </form>
-        <p className="text-base font-medium text-yellow-600 ml-[3vw] mt-1">
+        <p className="text-base font-medium text-yellow-400 ml-[3vw] mt-1">
           {error}
         </p>
       </div>
@@ -192,15 +192,15 @@ export default function LandingPage() {
           className="w-7/12 self-center"
           onChange={(inp) => {
             switch (inp[0]) {
-              case ':r1:':
+              case 0:
                 return setActive(0);
-              case ':r3:':
+              case 1:
                 return setActive(1);
-              case ':r5:':
+              case 2:
                 return setActive(2);
-              case ':r7:':
+              case 3:
                 return setActive(3);
-              case ':r9:':
+              case 4:
                 return setActive(4);
             }
             setActive('');
@@ -212,6 +212,7 @@ export default function LandingPage() {
                 key={index}
                 head={el.head}
                 body={el.body}
+                uuid={index}
                 active={active === index}
               />
             );
@@ -228,11 +229,13 @@ export default function LandingPage() {
         <div className="flex justify-center w-7/12 mx-auto flex-col h-[15vh]">
           <form className="flex justify-center">
             <input
-              className="p-4 w-7/12 rounded-l-sm"
+              className={`p-4 w-7/12 rounded-l-sm text-black ${
+                error ? 'border-b-[3px] border-yellow-400' : ''
+              }`}
               type="text"
               placeholder="Email address"
-              value={input.email}
-              onChange={(e) => setInput({ email: e.target.value })}
+              value={inputEmail.email}
+              onChange={(e) => changeInputEmail({ email: e.target.value })}
             ></input>
             <button
               type="submit"
@@ -242,7 +245,7 @@ export default function LandingPage() {
               Get Started
             </button>
           </form>
-          <p className=" w-7/12 ml-[3vw] text-base font-medium text-yellow-600  mt-2">
+          <p className=" w-7/12 ml-[3vw] text-base font-medium text-yellow-400  mt-2">
             {error}
           </p>
         </div>
