@@ -22,6 +22,7 @@ import AdminEditVideoPage from '../pages/AdminEditVideoPage';
 import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
+import UserEditAccountPage from '../pages/UserEditAccountPage';
 // import AdminManageMoviePage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
@@ -136,6 +137,10 @@ const router = createBrowserRouter([
   {
     path: '/adminManageMovies',
     element: <AdminManageMoviePage />,
+  },
+  {
+    path: '/editaccountpage',
+    element: <UserEditAccountPage />,
   },
   {
     element: (
