@@ -1,21 +1,33 @@
 // import logo from '../assets/logo.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import { ButtonHomepage } from '../components/homepages/ButtonHomepage';
 import { DropdownGenres } from '../components/homepages/DropdownGenres';
 import { Modal } from '../components/homepages/Modal';
 import { MovieList } from '../components/homepages/MovieList';
 import { NetflixTitleLogo } from '../images';
 import MovieShowcase from '../components/homepages/MovieShowcase';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllMovie } from '../redux/movieSlice';
 
 export default function HomePage() {
   const [currentMovie, setCurrentMovie] = useState(false);
+  const allMovies = useSelector((state) => state.movie.movie);
+
+  const dispatch = useDispatch();
 
   const changeCurrentMovie = () => {
     setCurrentMovie(true);
   };
+
   const closeModal = () => {
     setCurrentMovie(false);
   };
+
+  useEffect(() => {
+    dispatch(fetchAllMovie());
+  }, []);
+
+  console.log(allMovies);
 
   return (
     <>
