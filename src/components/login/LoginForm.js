@@ -26,7 +26,7 @@ export default function LoginForm() {
             placeholder="Password"
           />
         </div>
-        <Link to={{ pathname: '/register' }}>
+        <Link to={{ pathname: '/profile' }}>
           <div className="flex justify-between items-center mb-1">
             <button
               type="submit"

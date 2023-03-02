@@ -9,12 +9,14 @@ export default function RegisterContextProvider({ children }) {
     setInputEmail(input);
   };
 
-  // const handleClickPackage = () => {
-
-  //   }
+  const handleClickPackage = (id, price, period) => {
+    setPlan({ id, price, period });
+  };
 
   return (
-    <RegisterContext.Provider value={{ plan, inputEmail, changeInputEmail }}>
+    <RegisterContext.Provider
+      value={{ plan, inputEmail, changeInputEmail, handleClickPackage }}
+    >
       {children}
     </RegisterContext.Provider>
   );

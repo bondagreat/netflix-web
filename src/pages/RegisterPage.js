@@ -1,14 +1,16 @@
 import { NetFlixLogo } from '../images';
 import useRegister from '../hooks/useRegister';
-import Brand from '../layouts/Brand';
 import { useState } from 'react';
 import validateRegister from '../validators/validateRegister';
 import * as AuthApi from '../apis/auth-api';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginAPI } from '../redux/authSlice';
 
 export default function RegisterPage() {
   const { inputEmail } = useRegister();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const intInput = {
     email: inputEmail.email,
@@ -35,6 +37,8 @@ export default function RegisterPage() {
         setError({});
         await AuthApi.register(input);
         //endLoading?
+        dispatch(loginAPI(input.email, input.password));
+
         navigate('/signup/step');
       }
     } catch (err) {
@@ -53,6 +57,9 @@ export default function RegisterPage() {
         <button
           type="button"
           className="text-lg text-black no-underline hover:underline px-2 font-medium my-5 rounded-sm "
+          onClick={() => {
+            navigate('/login');
+          }}
         >
           Sign In
         </button>
