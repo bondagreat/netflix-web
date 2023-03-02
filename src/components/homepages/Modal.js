@@ -12,7 +12,7 @@ import { useState } from 'react';
 export function Modal({ closeModal }) {
   return (
     <div
-      className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 z-30"
+      className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-30"
       onMouseDown={closeModal}
     >
       <div
@@ -65,8 +65,8 @@ export function Modal({ closeModal }) {
             </div>
           </div>
         </div>
-        <div className="absolute top-[370px]  left-0 right-0 bg-gradient-to-t from-zinc-900 h-[130px] "></div>
 
+        <div className="absolute top-[370px]  left-0 right-0 bg-gradient-to-t from-zinc-900 h-[130px] "></div>
         {/* video */}
         <div className="w-full h-[500px] overflow-hidden ">
           <video className="w-full shadow-lg" autoPlay loop controls muted>
@@ -122,7 +122,7 @@ export function Modal({ closeModal }) {
         <h1 className="text-white text-3xl ml-11 mt-10 ">More Like This</h1>
         <div className="flex flex-wrap justify-center gap-5 w-[900px] m-auto mt-4 mb-20">
           <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg dark:bg-neutral-700 hover:bg-opacity-60">
+            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
                 <img className="rounded-t-lg" src={img2} alt="" />
               </div>
@@ -152,7 +152,7 @@ export function Modal({ closeModal }) {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg dark:bg-neutral-700 hover:bg-opacity-60">
+            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
                 <img className="rounded-t-lg" src={img2} alt="" />
               </div>
@@ -182,7 +182,7 @@ export function Modal({ closeModal }) {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg dark:bg-neutral-700 hover:bg-opacity-60">
+            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
                 <img className="rounded-t-lg" src={img2} alt="" />
               </div>
@@ -212,7 +212,7 @@ export function Modal({ closeModal }) {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg dark:bg-neutral-700 hover:bg-opacity-60">
+            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
                 <img className="rounded-t-lg" src={img2} alt="" />
               </div>
@@ -242,7 +242,7 @@ export function Modal({ closeModal }) {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg dark:bg-neutral-700 hover:bg-opacity-60">
+            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
                 <img className="rounded-t-lg" src={img2} alt="" />
               </div>
@@ -272,7 +272,7 @@ export function Modal({ closeModal }) {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg dark:bg-neutral-700 hover:bg-opacity-60">
+            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
                 <img className="rounded-t-lg" src={img2} alt="" />
               </div>

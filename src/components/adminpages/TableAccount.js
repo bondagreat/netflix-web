@@ -1,39 +1,27 @@
 import { useState } from 'react';
-import img1 from '../../assets/img1.png';
-import { BinIcon, FilmIcon, MovieIcon, WriteEditIcon } from '../../images';
-
 import { Link } from 'react-router-dom';
 
 const mockData = [
-  { id: 1, name: 'movie1', length: '2h 10m', genres: 'comedies' },
-  { id: 2, name: 'movie2', length: '2h 10m', genres: 'comedies' },
-  { id: 3, name: 'movie3', length: '2h 10m', genres: 'comedies' },
-  { id: 4, name: 'movie4', length: '2h 10m', genres: 'comedies' },
-  { id: 5, name: 'movie5', length: '2h 10m', genres: 'comedies' },
-  { id: 6, name: 'movie6', length: '2h 10m', genres: 'comedies' },
-  { id: 7, name: 'movie7', length: '2h 10m', genres: 'comedies' },
-  { id: 8, name: 'movie8', length: '2h 10m', genres: 'comedies' },
-  { id: 9, name: 'movie9', length: '2h 10m', genres: 'comedies' },
-  { id: 10, name: 'movie10', length: '2h 10m', genres: 'comedies' },
-  { id: 11, name: 'movie11', length: '2h 10m', genres: 'comedies' },
-  { id: 12, name: 'movie12', length: '2h 10m', genres: 'comedies' },
-  { id: 13, name: 'movie13', length: '2h 10m', genres: 'comedies' },
-  { id: 14, name: 'movie14', length: '2h 10m', genres: 'comedies' },
-  { id: 15, name: 'movie15', length: '2h 10m', genres: 'comedies' },
-  { id: 16, name: 'movie16', length: '2h 10m', genres: 'comedies' },
-  { id: 17, name: 'movie17', length: '2h 10m', genres: 'comedies' },
-  { id: 18, name: 'movie18', length: '2h 10m', genres: 'comedies' },
-  { id: 19, name: 'movie19', length: '2h 10m', genres: 'comedies' },
-  { id: 20, name: 'movie20', length: '2h 10m', genres: 'comedies' },
+  { id: 1, name: 'user1', email: 'a@gmail.com', status: 'Active' },
+  { id: 2, name: 'user2', email: 'b@gmail.com', status: 'Active' },
+  { id: 3, name: 'user3', email: 'c@gmail.com', status: 'Active' },
+  { id: 4, name: 'user4', email: 'd@gmail.com', status: 'Active' },
+  { id: 5, name: 'user5', email: 'e@gmail.com', status: 'Active' },
+  { id: 6, name: 'user6', email: 'f@gmail.com', status: 'Active' },
+  { id: 7, name: 'user7', email: 'g@gmail.com', status: 'Active' },
+  { id: 8, name: 'user8', email: 'h@gmail.com', status: 'Active' },
+  { id: 9, name: 'user9', email: 'i@gmail.com', status: 'Active' },
+  { id: 10, name: 'user10', email: 'j@gmail.com', status: 'Active' },
+  { id: 11, name: 'user11', email: 'k@gmail.com', status: 'Active' },
 ];
 
-export function TableMovie() {
+export function TableAccount() {
   const [currentPage, setCurrentPage] = useState(1);
-  const movieListPerPage = 10;
-  const lastIndex = currentPage * movieListPerPage;
-  const firstIndex = lastIndex - movieListPerPage;
-  const ListMovie = mockData.slice(firstIndex, lastIndex);
-  const page = Math.ceil(mockData.length / movieListPerPage);
+  const accountListPerPage = 10;
+  const lastIndex = currentPage * accountListPerPage;
+  const firstIndex = lastIndex - accountListPerPage;
+  const ListAccount = mockData.slice(firstIndex, lastIndex);
+  const page = Math.ceil(mockData.length / accountListPerPage);
   const numbers = [...Array(page + 1).keys()].slice(1);
 
   return (
@@ -49,64 +37,52 @@ export function TableMovie() {
                   <th scope="col" className="px-6 py-4 w-20">
                     Id
                   </th>
-                  <th scope="col" className="px-6 py-4 w-36">
-                    Movie
+                  <th scope="col" className="px-6 py-4 w-52">
+                    Username
                   </th>
                   <th scope="col" className="px-6 py-4 w-96">
-                    Movie name
+                    E-mail
                   </th>
                   <th scope="col" className="px-6 py-4 w-40">
-                    Length
+                    Status
                   </th>
-                  <th scope="col" className="px-6 py-4 w-40">
-                    Genres
-                  </th>
-                  <th scope="col" className="px-6 py-4">
-                    <div className="flex justify-center space-x-2">
-                      <button
-                        type="button"
-                        className="inline-block rounded bg-green-500 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg"
-                      >
-                        Add movie
-                      </button>
-                    </div>
-                  </th>
+                  <th scope="col" className="px-6 py-4"></th>
                 </tr>
               </thead>
 
               {/* bodytable */}
               <tbody>
-                {ListMovie.map((item, name) => (
+                {ListAccount.map((item, b) => (
                   <tr
-                    key={name}
+                    key={b}
                     className="border-b transition duration-300 ease-in-out hover:bg-neutral-400 dark:border-neutral-500 dark:hover:bg-neutral-600 hover:bg-opacity-30 text-center text-white"
                   >
                     <td className="whitespace-nowrap px-6 py-4 ">{item.id}</td>
                     <td className="whitespace-nowrap px-6 py-1 w-40">
-                      <div>
-                        <img src={img1} className="rounded-lg" />
+                      {item.name}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4">
+                      {item.email}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4">
+                      {item.status}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4">
+                      <div className="flex justify-center space-x-2">
+                        <button
+                          type="button"
+                          className="inline-block rounded bg-red-700 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-red-800 hover:shadow-lg focus:bg-red-900 focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg"
+                        >
+                          Block
+                        </button>
+                        <Link
+                          to="/adminSeeTransaction"
+                          type="button"
+                          className="inline-block rounded bg-green-500 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg"
+                        >
+                          Transaction
+                        </Link>
                       </div>
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4">{item.name}</td>
-                    <td className="whitespace-nowrap px-6 py-4">
-                      {item.length}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4">
-                      {item.genres}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 mt-3 flex justify-center gap-2">
-                      <button className="opacity-60 hover:opacity-100">
-                        <BinIcon />
-                      </button>
-                      <button className="opacity-60 hover:opacity-100">
-                        <WriteEditIcon />
-                      </button>
-                      <button className="opacity-60 hover:opacity-100">
-                        <MovieIcon />
-                      </button>
-                      <button className="opacity-60 hover:opacity-100">
-                        <FilmIcon />
-                      </button>
                     </td>
                   </tr>
                 ))}

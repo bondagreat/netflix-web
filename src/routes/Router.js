@@ -22,7 +22,7 @@ import AdminEditVideoPage from '../pages/AdminEditVideoPage';
 import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
-// import AdminManageMoviePage from '../pages/AdminManageMoviesPage';
+import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
   {
@@ -129,12 +129,12 @@ const router = createBrowserRouter([
     path: '/adminCreateMovieThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
-  // {
-  //   path: '/adminManageMovies',
-  //   element: <AdminManageMoviesPage />,
-  // },
   {
     path: '/adminManageMovies',
+    element: <AdminManageMoviesPage />,
+  },
+  {
+    path: '/adminManageMovie',
     element: <AdminManageMoviePage />,
   },
   {
