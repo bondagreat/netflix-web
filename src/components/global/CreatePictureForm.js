@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
+// import { ChevronRight } from '../../images';
 
 export default function CreatePictureForm() {
   const optionsMood = [
@@ -45,6 +46,11 @@ export default function CreatePictureForm() {
     navigate('/adminCreateMovieSecondPage');
     console.log(value);
   };
+  const handlePreviewImage = (e) => {
+    setFile(e.target.files[0]);
+  };
+  const [file, setFile] = useState(null);
+
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)]">
@@ -53,13 +59,14 @@ export default function CreatePictureForm() {
             <button className="rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl">
               Step 1
             </button>
+
             <button className="rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10 bg-white text-black/60 bold-2 shadow-xl  drop-shadow-xl">
               Step 2
             </button>
             <button className="rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10 bg-white text-black/60 bold-2 shadow-xl  drop-shadow-xl">
               Step 3
             </button>
-            <div className="p-8 rounded-lg shadow-lg bg-white w-[750px]  h-[540px] my-10 ">
+            <div className="p-8 rounded-lg shadow-lg bg-white w-[790px]  h-[540px] mb-10 ">
               <form>
                 <div className="flex justify-start">
                   <div className="flex-col mr-8">
@@ -71,7 +78,7 @@ export default function CreatePictureForm() {
                         Movie Cover
                       </label>
                       <div className="flex items-center justify-center w-full">
-                        <label
+                        {/* <label
                           htmlFor="dropzone-file"
                           className="flex flex-col items-center justify-center w-[200px] h-[150px] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                         >
@@ -105,14 +112,23 @@ export default function CreatePictureForm() {
                           <input
                             id="dropzone-file"
                             type="file"
-                            className="hidden"
+                            className="hidden "
                           />
-                        </label>
+                        </label> */}
+                        <div className="bg-white w-[200px] h-[140px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center ">
+                          <img
+                            alt="Click to upload image"
+                            width={'200px'}
+                            height={'140px'}
+                            src={file ? URL.createObjectURL(file) : ''}
+                          />
+                        </div>
                       </div>
                       <input
-                        className="form-controlblock w-full first-letter:px-3  text-base font-normal  text-blue-700  bg-white bg-clip-padding  border border-solid border-gray-300 rounded-lg  transition ease-in-out  m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                        className="form-control block  px-3 py-1.5   text-sm  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         type="file"
                         id="formFile"
+                        onClick={handlePreviewImage}
                       />
                     </div>
                     <br />
@@ -124,7 +140,7 @@ export default function CreatePictureForm() {
                         Movie Logo
                       </label>
                       <div className="flex items-center justify-center w-full">
-                        <label
+                        {/* <label
                           htmlFor="dropzone-file"
                           className="flex flex-col items-center justify-center w-[200px] h-[150px] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                         >
@@ -157,14 +173,23 @@ export default function CreatePictureForm() {
                           <input
                             id="dropzone-file"
                             type="file"
-                            className="hidden"
+                            className="hidden "
                           />
-                        </label>
+                        </label> */}
+                        <div className="bg-white w-[200px] h-[140px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center ">
+                          <img
+                            alt="Click to upload image"
+                            width={'200px'}
+                            height={'140px'}
+                            src={file ? URL.createObjectURL(file) : ''}
+                          />
+                        </div>
                       </div>
                       <input
-                        className="form-controlblock w-full first-letter:px-3  text-base font-normal  text-blue-700  bg-white bg-clip-padding  border border-solid border-gray-300 rounded-lg  transition ease-in-out  m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                        className="form-control block  px-3 py-1.5   text-sm  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         type="file"
                         id="formFile"
+                        onClick={handlePreviewImage}
                       />
                     </div>
                   </div>

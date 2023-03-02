@@ -55,7 +55,7 @@ export function LockIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      className="text-white  "
+      className="text-gray-500  "
     >
       <path
         fill="currentColor"
@@ -86,7 +86,7 @@ export function PlusIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      className="text-white"
+      className="text-gray-500"
     >
       <path
         fill="currentColor"
@@ -525,8 +525,8 @@ export function BinIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2em"
-      height="2em"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="currentColor"
     >
@@ -543,8 +543,8 @@ export function WriteEditIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2em"
-      height="2em"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
     >
       <path
@@ -559,8 +559,8 @@ export function MovieIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2em"
-      height="2em"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
     >
       <path
@@ -575,8 +575,8 @@ export function FilmIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2em"
-      height="2em"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
     >
       <path
