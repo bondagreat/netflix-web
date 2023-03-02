@@ -13,11 +13,24 @@ import NavBarAccount from '../layouts/NavBarAccount';
 import Footer from '../layouts/Footer';
 import { useState } from 'react';
 import ModalChangeAccountEmail from '../components/account/ModalChangeAccountEmail';
+import ModalChangeAccountPassword from '../components/account/ModalChangeAccountPassword';
+import ModalChangeAccountPhone from '../components/account/ModalChangeAccountPhone';
+import { Link } from 'react-router-dom';
+import ChangePlan from '../components/account/ChangePlan';
 
 export default function UserEditAccountPage() {
-  const [showEmeil, setShowEmail] = useState(true);
+  const [openEmail, setOpenEmail] = useState(false);
+  const [openPassword, setOpenPassword] = useState(false);
+  const [openPhone, setOpenPhone] = useState(false);
+
   const handleOnClickEmail = () => {
-    setShowEmail(true);
+    setOpenEmail(true);
+  };
+  const handleOnClickPassword = () => {
+    setOpenPassword(true);
+  };
+  const handleOnClickPhone = () => {
+    setOpenPhone(true);
   };
   return (
     <>
@@ -70,22 +83,41 @@ export default function UserEditAccountPage() {
           <div className="h-full w-full text-right ">
             <a
               className="text-blue-600 cursor-pointer no-underline hover:underline"
+              id="email"
               type="button"
               onClick={handleOnClickEmail}
             >
               Change Account Email
               <ModalChangeAccountEmail
-                show={showEmeil}
-                setClose={setShowEmail}
+                show={openEmail}
+                setClose={setOpenEmail}
               />
             </a>
             <br className="text-black" />
-            <a className="block cursor-pointer mt-2 text-blue-600 no-underline hover:underline ">
+            <a
+              className="block cursor-pointer mt-2 text-blue-600 no-underline hover:underline "
+              id="password"
+              type="button"
+              onClick={handleOnClickPassword}
+            >
               Change Password
+              <ModalChangeAccountPassword
+                show={openPassword}
+                setClose={setOpenPassword}
+              />
             </a>
             <br />
-            <a className="block cursor-pointer mt-[-15px] text-blue-600 no-underline hover:underline">
+            <a
+              className="block cursor-pointer mt-[-15px] text-blue-600 no-underline hover:underline"
+              id="phone"
+              type="button"
+              onClick={handleOnClickPhone}
+            >
               Change Phone Number
+              <ModalChangeAccountPhone
+                show={openPhone}
+                setClose={setOpenPhone}
+              />
             </a>
 
             <br />
