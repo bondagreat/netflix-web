@@ -38,6 +38,7 @@ export default function RegisterPay() {
               token: noti,
               price: plan.price + '00',
               period: plan.period,
+              plan: plan.id,
             };
             console.log(token);
             await paymentApi.sendToken(token);

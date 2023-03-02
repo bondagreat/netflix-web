@@ -1,9 +1,24 @@
 import { Link } from 'react-router-dom';
 import useRegister from '../../hooks/useRegister';
+import { useDispatch } from 'react-redux';
+import { loginAPI } from '../../redux/authSlice';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm() {
   const { inputEmail, changeInputEmail } = useRegister();
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const handleClickLogin = async (e) => {
+    try {
+      e.preventDefault();
+      // console.log(inputEmail.email, 'dsd', password);
+      dispatch(loginAPI(inputEmail.email, password));
+      navigate('/profile');
+    } catch (err) {}
+  };
   return (
     <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-18 mb-10 w-[350px} p-[60px]">
       <form>
@@ -22,20 +37,21 @@ export default function LoginForm() {
           />
           <input
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full pl-3 py-3 text-sm font-normal text-gray-300 bg-[#444444]  rounded m-0 border-transparent focus:border-transparent focus:ring-0"
             placeholder="Password"
           />
         </div>
-        <Link to={{ pathname: '/profile' }}>
-          <div className="flex justify-between items-center mb-1">
-            <button
-              type="submit"
-              className="w-full  px-6  py-2.5  bg-red-600  text-white  font-medium  text-lg  leading-tight  rounded  shadow-md  transition  duration-150  ease-in-out mt-4"
-            >
-              Sign in
-            </button>
-          </div>
-        </Link>
+        <div className="flex justify-between items-center mb-1">
+          <button
+            type="submit"
+            className="w-full  px-6  py-2.5  bg-red-600  text-white  font-medium  text-lg  leading-tight  rounded  shadow-md  transition  duration-150  ease-in-out mt-4"
+            onClick={handleClickLogin}
+          >
+            Sign in
+          </button>
+        </div>
         <div className="flex justify-between mx-2 mb-10 form-group form-check">
           <div className="p">
             <input

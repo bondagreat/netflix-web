@@ -38,7 +38,6 @@ export default function RegisterPage() {
         await AuthApi.register(input);
         //endLoading?
         dispatch(loginAPI(input.email, input.password));
-
         navigate('/signup/step');
       }
     } catch (err) {
