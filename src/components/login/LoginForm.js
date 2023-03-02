@@ -14,7 +14,7 @@ export default function LoginForm() {
   const handleClickLogin = async (e) => {
     try {
       e.preventDefault();
-      // console.log(inputEmail.email, 'dsd', password);
+      console.log(inputEmail, 'dsd', password);
       dispatch(loginAPI(inputEmail.email, password));
       navigate('/profile');
     } catch (err) {}
@@ -32,7 +32,7 @@ export default function LoginForm() {
             type="email"
             value={inputEmail.email}
             className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-300  bg-[#444444]    rounded   m-0 mb-3.5 focus:border-transparent focus:ring-0"
-            onChange={(e) => changeInputEmail(e.target.value)}
+            onChange={(e) => changeInputEmail({ email: e.target.value })}
             placeholder="Email or phone number"
           />
           <input
