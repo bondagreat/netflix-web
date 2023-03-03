@@ -11,6 +11,7 @@ export default function EditProfile() {
   const dispatch = useDispatch();
   const location = useLocation();
   const id = location.state.id;
+  console.log(location);
 
   useEffect(() => {
     dispatch(fetchProfile(id));

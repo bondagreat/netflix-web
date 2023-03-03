@@ -1,20 +1,10 @@
-// import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import AddProfileCard from '../components/profile/AddProfileCard';
 import ManageProfileButton from '../components/profile/ManageProfileButton';
 import ProfileCard from '../components/profile/ProfileCard';
-import { fetchAuthUser } from '../redux/authSlice';
-// import { getAccessToken } from '../utils/local-storage';
 
 export default function ProfilePage() {
-  // const dispatch = useDispatch();
-  const userProfiles = useSelector((state) => state.user.profile?.Profiles);
-  console.log(userProfiles);
-  // useEffect(() => {
-  //   if (getAccessToken()) {
-  //     dispatch(fetchAuthUser());
-  //   }
-  // }, []);
+  const userProfiles = useSelector((state) => state.auth.user?.Profiles);
 
   return (
     <>
