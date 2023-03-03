@@ -12,6 +12,7 @@ export default function EditProfile() {
   const dispatch = useDispatch();
   const location = useLocation();
   const id = location.state.id;
+  console.log(location);
 
   // const authUserProfiles = useSelector((state) => state.auth.user);
   // console.log(111, authUserProfiles);

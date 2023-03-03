@@ -4,10 +4,7 @@ import AddProfileCard from './AddProfileCard';
 import ManageProfileCard from './ManageProfileCard';
 
 export default function ManageProfile() {
-  const userProfiles = useSelector((state) => state.user.profile?.Profiles);
-  const location = useLocation();
-  const id = location.state;
-  console.log(id);
+  const userProfiles = useSelector((state) => state.auth.user?.Profiles);
 
   return (
     <>

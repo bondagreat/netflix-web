@@ -14,6 +14,9 @@ const authSlice = createSlice({
     user: getAccessToken() ? true : null,
   },
   reducers: {
+    getMe: (state, action) => {
+      state.user = action.payload;
+    },
     login: (state, action) => {
       state.user = action.payload;
     },
@@ -24,7 +27,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, getMe } = authSlice.actions;
 
 export default authSlice.reducer;
 
@@ -35,6 +38,15 @@ export const loginAPI = (email, password) => async (dispatch) => {
     const user = jwtDecode(res.data.accessToken);
     dispatch(login(user));
   } catch (err) {
-    console.log(err);
+    console.log(err.response.data.message);
+  }
+};
+
+export const fetchAuthUser = () => async (dispatch) => {
+  try {
+    const res = await authApi.getMe();
+    dispatch(getMe(res.data.user));
+  } catch (err) {
+    removeAccessToken();
   }
 };
