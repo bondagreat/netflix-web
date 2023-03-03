@@ -52,25 +52,25 @@ const router = createBrowserRouter([
   {
     path: '/signup/step',
     element: (
-      <RedirectIfAuthenticate>
-        <RegisterStepForm />
-      </RedirectIfAuthenticate>
+      // <RedirectIfAuthenticate>
+      <RegisterStepForm />
+      // </RedirectIfAuthenticate>
     ),
   },
   {
     path: '/signup/package',
     element: (
-      <RedirectIfAuthenticate>
-        <RegisterPackage />
-      </RedirectIfAuthenticate>
+      // <RedirectIfAuthenticate>
+      <RegisterPackage />
+      // </RedirectIfAuthenticate>
     ),
   },
   {
     path: '/signup/payment',
     element: (
-      <RedirectIfAuthenticate>
-        <RegisterPay />
-      </RedirectIfAuthenticate>
+      // <RedirectIfAuthenticate>
+      <RegisterPay />
+      // </RedirectIfAuthenticate>
     ),
   },
   {
