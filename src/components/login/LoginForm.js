@@ -1,22 +1,38 @@
 import { Link } from 'react-router-dom';
 import useRegister from '../../hooks/useRegister';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginAPI } from '../../redux/authSlice';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import validateLogin from '../../validators/validate-login';
 
 export default function LoginForm() {
   const { inputEmail, changeInputEmail } = useRegister();
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const haveUser = useSelector((state) => state.auth.user);
+  const [error, setError] = useState('');
 
   const handleClickLogin = async (e) => {
     try {
       e.preventDefault();
-      console.log(inputEmail, 'dsd', password);
-      dispatch(loginAPI(inputEmail.email, password));
-      navigate('/profile');
+      const input = { email: inputEmail.email, password: password };
+      console.log(input);
+      const result = validateLogin({
+        email: inputEmail.email,
+        password: password,
+      });
+      console.log(result);
+      if (result) {
+        setError(result[0].message);
+      } else {
+        dispatch(loginAPI(inputEmail.email, password));
+        setError('');
+        if (!haveUser) {
+          setError('invalid email or password');
+        }
+      }
+      // login in redux got return in slice can not get output to check T/F?
     } catch (err) {}
   };
   return (
@@ -27,7 +43,7 @@ export default function LoginForm() {
             Sign In
           </label>
         </div>
-        <div className="form-group mb-6">
+        <div className="form-group mb-3">
           <input
             type="email"
             value={inputEmail.email}
@@ -42,6 +58,7 @@ export default function LoginForm() {
             className="w-full pl-3 py-3 text-sm font-normal text-gray-300 bg-[#444444]  rounded m-0 border-transparent focus:border-transparent focus:ring-0"
             placeholder="Password"
           />
+          <p className="text-red-500 pt-1 text-sm">{error}</p>
         </div>
         <div className="flex justify-between items-center mb-1">
           <button

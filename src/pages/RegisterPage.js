@@ -24,6 +24,7 @@ export default function RegisterPage() {
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
+
   const handleClickRegister = async (e) => {
     try {
       e.preventDefault();
