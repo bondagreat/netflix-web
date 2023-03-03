@@ -4,7 +4,7 @@ import AddProfileCard from './AddProfileCard';
 import ManageProfileCard from './ManageProfileCard';
 
 export default function ManageProfile() {
-  const userProfiles = useSelector((state) => state.user.profile?.Profiles);
+  const userProfiles = useSelector((state) => state.auth.user?.Profiles);
 
   return (
     <>
@@ -28,7 +28,7 @@ export default function ManageProfile() {
         </div>
         <div className="flex justify-center mt-14">
           <button className=" bg-white hover:bg-red-700 hover:text-white text-black py-1 px-5">
-            <Link to={'/profile'}>Done</Link>
+            <Link to={'/profiles'}>Done</Link>
           </button>
         </div>
       </div>

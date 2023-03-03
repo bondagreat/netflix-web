@@ -1,8 +1,24 @@
+import { useEffect } from 'react';
 import { EditIcon } from '../../images';
 import CreateProfileLock from './CreateProfileLock';
 import EditProfileLock from './EditProfileLock';
 import DeleteProfileLock from './DeleteProfileLock';
+import { Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProfile } from '../../redux/profileSlice';
+
 export default function EditProfile() {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const id = location.state.id;
+  console.log(location);
+
+  useEffect(() => {
+    dispatch(fetchProfile(id));
+  }, []);
+
+  const currentProfile = useSelector((state) => state.user.currentProfile);
+
   return (
     <>
       <div className="h-screen bg-black flex justify-center">
@@ -14,8 +30,8 @@ export default function EditProfile() {
           <div className="flex flex-row gap-4 mt-4">
             <div className="relative">
               <img
-                className="w-[100px]"
-                src="http://occ-0-2339-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ_JEhgVlFamty5bFR0ofXrH6YH0NJ868l21auwAbp78Qx2jeEuB088_MY2tepK6ppRoDQ7Fet7t8c4CI7t1xn_zbkLj0QtJU8Ot.png?r=749"
+                className="w-[100px] h-[100px] rounded-md"
+                src={currentProfile?.profileImg}
                 alt="1"
               />
               <div className="fill-white w-7 h-7 absolute top-16 left-2 bg-black rounded-xl">
@@ -29,10 +45,19 @@ export default function EditProfile() {
               </div>
               <hr className="mt-12" />
               <div className="flex justify-center flex-col mt-7">
-                <p className="text-white text-xs">Profile Lock</p>
+                <div className="flex gap-2">
+                  <p className="text-white text-xs">Profile Lock</p>
+                  <span className="text-xs">
+                    {currentProfile?.pin ? 'On' : 'Off'}
+                  </span>
+                </div>
                 <div className="flex gap-4">
-                  {true ? <EditProfileLock /> : <CreateProfileLock />}
-                  {true && <DeleteProfileLock />}
+                  {currentProfile?.pin ? (
+                    <EditProfileLock />
+                  ) : (
+                    <CreateProfileLock />
+                  )}
+                  {currentProfile?.pin && <DeleteProfileLock />}
                 </div>
               </div>
 
@@ -41,11 +66,13 @@ export default function EditProfile() {
           </div>
           <hr />
           <div className="mt-7 flex justify-around ">
-            <button className="text-black bg-white  px-6 ">Save</button>
-            <button className="border-2 border-white px-4 text-white py-1  ">
-              Cancel
+            <button className="text-black bg-white px-6 hover:bg-red-600 hover:text-white">
+              Save
             </button>
-            <button className="border-2 border-white  text-white px-4">
+            <button className="border-2 border-gray-500 px-4 text-gray-500 py-1 hover:border-white hover:text-white">
+              <Link to={'/profiles/manage'}>Cancel</Link>
+            </button>
+            <button className="border-2 border-gray-500 text-gray-500 px-4 hover:border-white hover:text-white">
               Delete Profile
             </button>
           </div>

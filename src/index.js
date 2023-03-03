@@ -9,6 +9,12 @@ import LoadingContextProvider from './contexts/LoadingContext';
 import 'tw-elements';
 import SearchUserContextProvider from './contexts/SearchUserContext';
 import RegisterContextProvider from './contexts/RegisterContext';
+import { getAccessToken } from './utils/local-storage';
+import { fetchAuthUser } from './redux/authSlice';
+
+if (getAccessToken()) {
+  store.dispatch(fetchAuthUser());
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

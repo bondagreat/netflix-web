@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/authSlice';
+import { Link, useNavigate } from 'react-router-dom';
 import { CheckCircleIcon, CheckIcon, NetFlixLogo } from '../../images';
-import Brand from '../../layouts/Brand';
 
 export default function RegisterStepForm() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   return (
     <div className="bg-white">
       <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
@@ -11,6 +15,10 @@ export default function RegisterStepForm() {
         <button
           type="button"
           className="text-lg text-black no-underline hover:underline px-2 font-medium my-5 rounded-sm "
+          onClick={() => {
+            dispatch(logout());
+            navigate('/');
+          }}
         >
           Sign Out
         </button>

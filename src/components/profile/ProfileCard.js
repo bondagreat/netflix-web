@@ -9,10 +9,11 @@ export default function ProfileCard({ id, name, profileImg, pin }) {
       <div
         onMouseEnter={() => setLight(true)}
         onMouseLeave={() => setLight(false)}
+        className="space-y-2"
       >
         <img
-          className={`w-[100px] h-[100px] outline ${
-            light ? 'outline-1 outline-offset-0 outline-white' : ''
+          className={`w-[100px] h-[100px] rounded-md ${
+            light ? 'outline outline-[3px] outline-offset-0 outline-white' : ''
           }`}
           src={profileImg}
           alt={id}
@@ -25,7 +26,7 @@ export default function ProfileCard({ id, name, profileImg, pin }) {
           {name}
         </span>
       </div>
-      <div className="w-4 h-4 mt-5 mx-auto ">{pin && <LockIcon />}</div>
+      <div className="w-4 h-4 mt-4 mx-auto ">{pin && <LockIcon />}</div>
     </button>
   );
 }
