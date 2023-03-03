@@ -28,7 +28,11 @@ import EditAccount from '../pages/EditAccount';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <LandingPage />,
+    element: (
+      // <RedirectIfAuthenticate>
+      <LandingPage />
+      // </RedirectIfAuthenticate>
+    ),
   },
   {
     path: '/login',
@@ -49,29 +53,29 @@ const router = createBrowserRouter([
   {
     path: '/signup/step',
     element: (
-      <RedirectIfAuthenticate>
-        <RegisterStepForm />
-      </RedirectIfAuthenticate>
+      // <RedirectIfAuthenticate>
+      <RegisterStepForm />
+      // </RedirectIfAuthenticate>
     ),
   },
   {
     path: '/signup/package',
     element: (
-      <RedirectIfAuthenticate>
-        <RegisterPackage />
-      </RedirectIfAuthenticate>
+      // <RedirectIfAuthenticate>
+      <RegisterPackage />
+      // </RedirectIfAuthenticate>
     ),
   },
   {
     path: '/signup/payment',
     element: (
-      <RedirectIfAuthenticate>
-        <RegisterPay />
-      </RedirectIfAuthenticate>
+      // <RedirectIfAuthenticate>
+      <RegisterPay />
+      // </RedirectIfAuthenticate>
     ),
   },
   {
-    path: '/profile',
+    path: '/profiles',
     element: (
       // <ProtectedRoute>
       <ProfilePage />
@@ -79,7 +83,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/ManageProfiles',
+    path: '/profiles/manage',
     element: (
       // <ProtectedRoute>
       <ManageProfile />
@@ -87,9 +91,27 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/EditProfile',
-    element: <EditProfile />,
+    path: '/profiles/edit',
+    element: (
+      // <ProtectedRoute>
+      <EditProfile />
+      // </ProtectedRoute>
+    ),
   },
+  {
+    element: (
+      // <ProtectedRoute>
+      <AuthLayout />
+      // </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: '/browse',
+        element: <HomePage />,
+      },
+    ],
+  },
+
   {
     path: '/loginAdmin',
     element: (
@@ -130,12 +152,12 @@ const router = createBrowserRouter([
     path: '/adminCreateMovieThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
-  // {
-  //   path: '/adminManageMovies',
-  //   element: <AdminManageMoviesPage />,
-  // },
   {
     path: '/adminManageMovies',
+    element: <AdminManageMoviesPage />,
+  },
+  {
+    path: '/adminManageMovie',
     element: <AdminManageMoviePage />,
   },
   {

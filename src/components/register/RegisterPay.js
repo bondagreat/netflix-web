@@ -2,10 +2,12 @@ import LockCirclePic from '../../assets/images/lockcircle.png';
 import VisaIconPic from '../../assets/images/visaicon.png';
 import MasterIconPic from '../../assets/images/mastericon.png';
 import { ChevronRight, Lock, NetFlixLogo } from '../../images';
-// import { Link } from 'react-router-dom';
-
 import { useState } from 'react';
 import * as paymentApi from '../../apis/payment-api';
+import { useDispatch } from 'react-redux';
+import useRegister from '../../hooks/useRegister';
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../../redux/authSlice';
 
 const myPayment = {
   publicKey: process.env.REACT_APP_OMISE_PUBLIC_KEY,
@@ -13,14 +15,17 @@ const myPayment = {
 };
 
 export default function RegisterPay() {
+  const { plan } = useRegister();
   const [souce, setSouce] = useState();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClickPay = async () => {
     window.OmiseCard.configure({
       PublicKey: myPayment.publicKey,
     });
     window.OmiseCard.open({
-      amount: 12345446,
+      amount: plan.price + '00',
       currency: 'THB',
       image:
         'https://logos-world.net/wp-content/uploads/2020/04/Netflix-Emblem-700x394.jpg',
@@ -29,7 +34,13 @@ export default function RegisterPay() {
       onCreateTokenSuccess: async (noti) => {
         try {
           if (noti.startsWith('tokn_')) {
-            const token = { token: noti };
+            const token = {
+              token: noti,
+              price: plan.price + '00',
+              period: plan.period,
+              plan: plan.id,
+            };
+            console.log(token);
             await paymentApi.sendToken(token);
           } else {
             setSouce = window.form.omiseSource.value = noti;
@@ -43,7 +54,6 @@ export default function RegisterPay() {
         }
       },
     });
-    console.log('sdsd');
   };
 
   return (
@@ -54,6 +64,10 @@ export default function RegisterPay() {
         <button
           type="button"
           className="text-lg text-black no-underline hover:underline px-2 font-medium my-5 rounded-sm "
+          onClick={() => {
+            dispatch(logout());
+            navigate('/');
+          }}
         >
           Sign Out
         </button>

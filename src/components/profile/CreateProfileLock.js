@@ -3,7 +3,6 @@ import { Modal } from 'flowbite-react';
 import { Button, Label, TextInput } from 'flowbite-react';
 export default function CreateProfileLock() {
   const [open, setOpen] = useState(false);
-  console.log(open);
   const handleClickChange = () => {
     setOpen(!open);
   };
@@ -11,7 +10,7 @@ export default function CreateProfileLock() {
     <>
       <div className="mt-2">
         <button
-          className="border-2 border-white px-4 text-white py-1  "
+          className="border-2 border-gray-500 px-4 text-gray-500 py-1 hover:border-white hover:text-white"
           onClick={handleClickChange}
         >
           Create
@@ -39,12 +38,15 @@ export default function CreateProfileLock() {
 
             <div className="flex justify-start gap-3 mt-5 ">
               <div>
-                <button className="border-2 border-red-600 px-4 text-white bg-red-600 py-1 rounded-md">
+                <button className="border-2 border-red-600 text-red-600 hover:border-red-600 px-4 hover:text-white hover:bg-red-600 py-1 rounded-md">
                   Submit
                 </button>
               </div>
               <div>
-                <button className="border-2 border-red-600 px-4 text-red-600 py-1 rounded-md">
+                <button
+                  onClick={() => setOpen(false)}
+                  className="border-2 border-gray-500 text-gray-500 hover:border-gray-500 px-4 hover:text-white hover:bg-gray-500 py-1 rounded-md"
+                >
                   Cancel
                 </button>
               </div>
