@@ -10,7 +10,7 @@ import 'tw-elements';
 import SearchContextProvider from './contexts/SearchUserContext';
 import RegisterContextProvider from './contexts/RegisterContext';
 import { getAccessToken } from './utils/local-storage';
-import { fetchAuthUser } from './redux/profileSlice';
+import { fetchAuthUser } from './redux/authSlice';
 
 if (getAccessToken()) {
   store.dispatch(fetchAuthUser());
