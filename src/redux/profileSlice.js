@@ -6,13 +6,14 @@ const profileSlice = createSlice({
   name: 'user',
   initialState: {
     profile: null,
+    currentProfile: null,
   },
   reducers: {
     getMe: (state, action) => {
       state.profile = action.payload;
     },
     getProfile: (state, action) => {
-      state.profile = action.payload;
+      state.currentProfile = action.payload;
     },
     addProfile: (state, action) => {
       state.profile = action.payload;

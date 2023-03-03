@@ -28,7 +28,7 @@ export default function ManageProfile() {
         </div>
         <div className="flex justify-center mt-14">
           <button className=" bg-white hover:bg-red-700 hover:text-white text-black py-1 px-5">
-            <Link to={'/profile'}>Done</Link>
+            <Link to={'/profiles'}>Done</Link>
           </button>
         </div>
       </div>
