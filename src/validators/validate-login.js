@@ -16,7 +16,6 @@ const validateLogin = (input) => {
   const { error } = loginSchema.validate(input);
   if (error) {
     const result = error.details;
-    console.log(result);
     return result;
   }
 };

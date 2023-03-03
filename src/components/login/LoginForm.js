@@ -17,12 +17,10 @@ export default function LoginForm() {
     try {
       e.preventDefault();
       const input = { email: inputEmail.email, password: password };
-      console.log(input);
       const result = validateLogin({
         email: inputEmail.email,
         password: password,
       });
-      console.log(result);
       if (result) {
         setError(result[0].message);
       } else {
