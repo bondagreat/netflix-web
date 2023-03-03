@@ -23,6 +23,7 @@ import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import UserEditAccountPage from '../pages/UserEditAccountPage';
+import CancelMemberShip from '../components/account/CancelMemberShip';
 // import AdminManageMoviePage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
@@ -141,6 +142,10 @@ const router = createBrowserRouter([
   {
     path: '/editaccountpage',
     element: <UserEditAccountPage />,
+  },
+  {
+    path: '/CancelMemberShip',
+    element: <CancelMemberShip />,
   },
   {
     element: (

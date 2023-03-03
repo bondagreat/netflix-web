@@ -17,6 +17,7 @@ import ModalChangeAccountPassword from '../components/account/ModalChangeAccount
 import ModalChangeAccountPhone from '../components/account/ModalChangeAccountPhone';
 import { Link } from 'react-router-dom';
 import ChangePlan from '../components/account/ChangePlan';
+import CancelMemberShip from '../components/account/CancelMemberShip';
 
 export default function UserEditAccountPage() {
   const [openEmail, setOpenEmail] = useState(false);
@@ -52,9 +53,11 @@ export default function UserEditAccountPage() {
         <div className="flex mx-auto pt-3 h-72">
           <div className="h-full w-full text-lg  text-gray-500 flex flex-col ">
             <h1 className="mb-2">MEMBERSHIP & BILLING</h1>
-            <botton className="cursor-pointer text-sm px-9 pt-2 pb-2 w-fit bg-gray-200 hover:bg-slate-50  border-2 border-none text-zinc-900  shadow-xl">
-              Cancel Membership
-            </botton>
+            <Link to={{ pathname: '/CancelMemberShip' }}>
+              <button className="cursor-pointer text-sm px-9 pt-2 pb-2 w-fit bg-gray-200 hover:bg-slate-50  border-2 border-none text-zinc-900  shadow-xl">
+                Cancel Membership
+              </button>
+            </Link>
           </div>
           <div className="h-full w-full ml-[-90px]">
             <div className="flex-row  w-60 h-72  text-gray-500 text-base">
