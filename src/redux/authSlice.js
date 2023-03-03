@@ -38,7 +38,7 @@ export const loginAPI = (email, password) => async (dispatch) => {
     const user = jwtDecode(res.data.accessToken);
     dispatch(login(user));
   } catch (err) {
-    console.log(err.response.data.message);
+    console.log(err.response.data?.message);
   }
 };
 

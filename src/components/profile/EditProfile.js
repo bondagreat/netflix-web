@@ -3,30 +3,41 @@ import { EditIcon } from '../../images';
 import CreateProfileLock from './CreateProfileLock';
 import EditProfileLock from './EditProfileLock';
 import DeleteProfileLock from './DeleteProfileLock';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProfile } from '../../redux/profileSlice';
 
 export default function EditProfile() {
   const [img, setImg] = useState(null);
+  const [name, setName] = useState('');
   const dispatch = useDispatch();
   const location = useLocation();
   const id = location.state.id;
-  console.log(location);
+  const navigate = useNavigate();
 
-  // const authUserProfiles = useSelector((state) => state.auth.user);
-  // console.log(111, authUserProfiles);
-
-  useEffect(() => {
-    // if()
-    dispatch(fetchProfile(id));
-  }, []);
+  const authUserProfiles = useSelector((state) => state.auth.user.Profiles);
 
   const currentProfile = useSelector((state) => state.user.currentProfile);
-  console.log(currentProfile);
+
+  useEffect(() => {
+    if (authUserProfiles?.filter((el) => el.id === id).length === 1) {
+      dispatch(fetchProfile(id));
+    } else {
+      navigate('/profiles');
+    }
+  }, []);
+
+  useEffect(() => {
+    setName(currentProfile?.name);
+    return () => setName('');
+  }, [currentProfile?.name]);
 
   const handlePreviewImg = (e) => {
     setImg(e.target.files[0]);
+  };
+
+  const handleChangeName = (e) => {
+    setName(e.target.value);
   };
 
   return (
@@ -62,7 +73,11 @@ export default function EditProfile() {
             <div className="">
               <div className="flex flex-col">
                 <p className="text-white text-xs">Name:</p>
-                <input className="bg-gray-500 w-72 h-8" />
+                <input
+                  className="bg-gray-500 w-72 h-8"
+                  value={name}
+                  onChange={handleChangeName}
+                />
               </div>
               <hr className="mt-12" />
               <div className="flex justify-center flex-col mt-7">
@@ -91,7 +106,9 @@ export default function EditProfile() {
               Save
             </button>
             <button
-              onClick={() => window.history.replaceState({}, document.title)}
+              onClick={() => {
+                window.history.replaceState({}, document.title);
+              }}
               className="border-2 border-gray-500 px-4 text-gray-500 py-1 hover:border-white hover:text-white"
             >
               <Link to={'/profiles/manage'}>Cancel</Link>
