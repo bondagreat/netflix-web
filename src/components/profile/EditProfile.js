@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { EditIcon } from '../../images';
 import CreateProfileLock from './CreateProfileLock';
 import EditProfileLock from './EditProfileLock';
@@ -8,15 +8,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProfile } from '../../redux/profileSlice';
 
 export default function EditProfile() {
+  const [img, setImg] = useState(null);
   const dispatch = useDispatch();
   const location = useLocation();
   const id = location.state.id;
 
+  // const authUserProfiles = useSelector((state) => state.auth.user);
+  // console.log(111, authUserProfiles);
+
   useEffect(() => {
+    // if()
     dispatch(fetchProfile(id));
   }, []);
 
   const currentProfile = useSelector((state) => state.user.currentProfile);
+  console.log(currentProfile);
+
+  const handlePreviewImg = (e) => {
+    setImg(e.target.files[0]);
+  };
 
   return (
     <>
@@ -30,12 +40,23 @@ export default function EditProfile() {
             <div className="relative">
               <img
                 className="w-[100px] h-[100px] rounded-md"
-                src={currentProfile?.profileImg}
+                src={
+                  img ? URL.createObjectURL(img) : currentProfile?.profileImg
+                }
                 alt="1"
               />
-              <div className="fill-white w-7 h-7 absolute top-16 left-2 bg-black rounded-xl">
+              <button
+                className="fill-white w-7 h-7 absolute top-16 left-2 bg-black rounded-xl"
+                onClick={() => document.getElementById('imgInput').click()}
+              >
                 <EditIcon />
-              </div>
+              </button>
+              <input
+                type="file"
+                id="imgInput"
+                className="hidden"
+                onChange={handlePreviewImg}
+              />
             </div>
             <div className="">
               <div className="flex flex-col">
@@ -68,7 +89,10 @@ export default function EditProfile() {
             <button className="text-black bg-white px-6 hover:bg-red-600 hover:text-white">
               Save
             </button>
-            <button className="border-2 border-gray-500 px-4 text-gray-500 py-1 hover:border-white hover:text-white">
+            <button
+              onClick={() => window.history.replaceState({}, document.title)}
+              className="border-2 border-gray-500 px-4 text-gray-500 py-1 hover:border-white hover:text-white"
+            >
               <Link to={'/profiles/manage'}>Cancel</Link>
             </button>
             <button className="border-2 border-gray-500 text-gray-500 px-4 hover:border-white hover:text-white">
