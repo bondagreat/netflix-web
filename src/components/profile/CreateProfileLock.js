@@ -3,7 +3,6 @@ import { Modal } from 'flowbite-react';
 import { Button, Label, TextInput } from 'flowbite-react';
 export default function CreateProfileLock() {
   const [open, setOpen] = useState(false);
-  console.log(open);
   const handleClickChange = () => {
     setOpen(!open);
   };

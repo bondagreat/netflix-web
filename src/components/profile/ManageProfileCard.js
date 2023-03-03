@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default function ManageProfileCard({ id, name, profileImg, pin }) {
   const [light, setLight] = useState(false);
-  // onclick show modal edit profile
 
   return (
     <button className="relative">

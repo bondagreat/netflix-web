@@ -1,13 +1,22 @@
+import { useEffect } from 'react';
 import { EditIcon } from '../../images';
 import CreateProfileLock from './CreateProfileLock';
 import EditProfileLock from './EditProfileLock';
 import DeleteProfileLock from './DeleteProfileLock';
 import { Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProfile } from '../../redux/profileSlice';
 
 export default function EditProfile() {
+  const dispatch = useDispatch();
   const location = useLocation();
   const id = location.state.id;
-  console.log(id);
+
+  useEffect(() => {
+    dispatch(fetchProfile(id));
+  }, []);
+
+  const currentProfile = useSelector((state) => state.user.currentProfile);
 
   return (
     <>
@@ -20,8 +29,8 @@ export default function EditProfile() {
           <div className="flex flex-row gap-4 mt-4">
             <div className="relative">
               <img
-                className="w-[100px]"
-                src="http://occ-0-2339-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ_JEhgVlFamty5bFR0ofXrH6YH0NJ868l21auwAbp78Qx2jeEuB088_MY2tepK6ppRoDQ7Fet7t8c4CI7t1xn_zbkLj0QtJU8Ot.png?r=749"
+                className="w-[100px] h-[100px] rounded-md"
+                src={currentProfile?.profileImg}
                 alt="1"
               />
               <div className="fill-white w-7 h-7 absolute top-16 left-2 bg-black rounded-xl">
@@ -37,11 +46,17 @@ export default function EditProfile() {
               <div className="flex justify-center flex-col mt-7">
                 <div className="flex gap-2">
                   <p className="text-white text-xs">Profile Lock</p>
-                  <span className="text-xs">{true ? 'On' : 'Off'}</span>
+                  <span className="text-xs">
+                    {currentProfile?.pin ? 'On' : 'Off'}
+                  </span>
                 </div>
                 <div className="flex gap-4">
-                  {true ? <EditProfileLock /> : <CreateProfileLock />}
-                  {true && <DeleteProfileLock />}
+                  {currentProfile?.pin ? (
+                    <EditProfileLock />
+                  ) : (
+                    <CreateProfileLock />
+                  )}
+                  {currentProfile?.pin && <DeleteProfileLock />}
                 </div>
               </div>
 
