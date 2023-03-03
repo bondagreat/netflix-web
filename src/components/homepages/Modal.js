@@ -16,7 +16,7 @@ export function Modal({ closeModal }) {
       onMouseDown={closeModal}
     >
       <div
-        className="relative mt-10 w-[55%] h-full bg-zinc-900 rounded-lg shadow-lg overflow-auto  m-auto  pb-10 "
+        className="relative mt-10 w-[55%] h-full bg-zinc-800 rounded-lg shadow-lg overflow-auto  m-auto  pb-10 "
         onMouseDown={(e) => e.stopPropagation()}
       >
         <button className="absolute mt-3 right-3 z-30" onClick={closeModal}>
@@ -122,7 +122,7 @@ export function Modal({ closeModal }) {
         <h1 className="text-white text-3xl ml-11 mt-10 ">More Like This</h1>
         <div className="flex flex-wrap justify-center gap-5 w-[900px] m-auto mt-4 mb-20">
           <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
+            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-700 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
                 <img className="rounded-t-lg" src={img2} alt="" />
               </div>
