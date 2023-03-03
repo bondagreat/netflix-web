@@ -27,7 +27,11 @@ import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <LandingPage />,
+    element: (
+      // <RedirectIfAuthenticate>
+      <LandingPage />
+      // </RedirectIfAuthenticate>
+    ),
   },
   {
     path: '/login',
@@ -70,7 +74,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/profile',
+    path: '/profiles',
     element: (
       // <ProtectedRoute>
       <ProfilePage />
@@ -78,7 +82,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/ManageProfiles',
+    path: '/profiles/manage',
     element: (
       // <ProtectedRoute>
       <ManageProfile />
@@ -86,9 +90,27 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/EditProfile',
-    element: <EditProfile />,
+    path: '/profiles/edit',
+    element: (
+      // <ProtectedRoute>
+      <EditProfile />
+      // </ProtectedRoute>
+    ),
   },
+  {
+    element: (
+      // <ProtectedRoute>
+      <AuthLayout />
+      // </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: '/browse',
+        element: <HomePage />,
+      },
+    ],
+  },
+
   {
     path: '/loginAdmin',
     element: (
@@ -159,11 +181,6 @@ const router = createBrowserRouter([
       {
         path: '/browse/original-audio',
         element: <h1>Browse by Languages</h1>,
-      },
-
-      {
-        path: '/homepage',
-        element: <HomePage />,
       },
     ],
   },
