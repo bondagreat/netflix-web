@@ -3,31 +3,15 @@ import MenuItemRight from '../layouts/MenuItemRight';
 import { HomeLogo, SearchIcon, ArrowLeft, ArrowRight } from '../images';
 import { useState } from 'react';
 import UserList from '../components/admin/UserList';
+import useSearch from '../hooks/useSearch';
 
 export default function AdminManageAccountPage() {
   const [search, setSearch] = useState('');
-  const [pageNum, setPageNum] = useState(5);
-  console.log(pageNum);
+  // const {} = useSearch();
 
   const handleSearch = () => {
     setSearch(search);
   };
-  const previousPage = () => {
-    if (pageNum > 1) setPageNum(pageNum - 1);
-  };
-  const nextPage = () => {
-    setPageNum(pageNum + 1);
-  };
-
-  const data = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
-  ];
-
-  const totalPage = Math.ceil(data.length / 8);
-  //   console.log(totalPage);
-
-  const pages = {};
 
   return (
     <>
@@ -40,11 +24,13 @@ export default function AdminManageAccountPage() {
             <div className=" h-[100px]  w-full ">
               <div className="flex items-center flex-row justify-end gap-3 mr-10 mt-8">
                 <MenuItemRight>
-                  <SearchIcon />
-                  <input
-                    className="border-2 border-white bg-black text-white"
-                    onChange={handleSearch}
-                  />
+                  <div className="flex flex-row">
+                    <SearchIcon />
+                    <input
+                      className="border-2 border-white bg-black text-white"
+                      onChange={handleSearch}
+                    />
+                  </div>
                 </MenuItemRight>
               </div>
             </div>
@@ -101,14 +87,14 @@ export default function AdminManageAccountPage() {
                 </div>
               </div>
               <div className="flex flex-row justify-center mt-14">
-                <div className="fill-white" onClick={previousPage}>
+                <div className="fill-white">
                   <ArrowLeft />
                 </div>
                 <div className="flex flex-row gap-4 mt-1">
                   <p className="text-white ">1</p>
-                  {pageNum > 4 && <p className="text-white ">...</p>}
+                  <p className="text-white ">...</p>
                 </div>
-                <div className="fill-white" onClick={nextPage}>
+                <div className="fill-white">
                   <ArrowRight />
                 </div>
               </div>

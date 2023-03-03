@@ -25,7 +25,7 @@ export default function EditProfile() {
             <div className="">
               <div className="flex flex-col">
                 <p className="text-white text-xs">Name:</p>
-                <input className="bg-gray-500 w-72 h-8" />
+                <input className="bg-gray-500 w-72 h-8 text-white" />
               </div>
               <hr className="mt-12" />
               <div className="flex justify-center flex-col mt-7">
