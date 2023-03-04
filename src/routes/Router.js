@@ -99,6 +99,14 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/profiles/add',
+    element: (
+      // <ProtectedRoute>
+      <AddProfile />
+      // </ProtectedRoute>
+    ),
+  },
+  {
     path: '/loginAdmin',
     element: (
       <RedirectIfAuthenticate>

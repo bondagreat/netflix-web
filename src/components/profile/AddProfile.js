@@ -12,25 +12,30 @@ export default function AddProfile() {
       setChange(false);
     }
   };
+
   return (
     <>
       <div className="h-screen bg-black flex justify-center">
         <div className="flex flex-col justify-center">
           <div className="flex flex-col mb-3 ">
             <h1 className="text-white text-5xl ">Add Profile</h1>
-            <p className="text-gray-400 mt-4">
+            <p className="text-gray-500 mt-4">
               Add a profile for another person watching Netflix.
             </p>
           </div>
-          <hr />
+          <hr className="border-gray-600" />
           <div className="flex flex-row gap-4 mt-4">
             <div className="relative">
-              <img className="w-[100px]" src={profileImage} alt="1" />
+              <img
+                className="w-[100px] h-[100px] rounded-md"
+                src={profileImage}
+                alt="1"
+              />
             </div>
             <div className="mt-10">
               <div className="flex flex-col ">
                 <input
-                  className="bg-gray-500 w-72 h-8 text-white "
+                  className="bg-gray-500 w-72 h-8 text-white placeholder-gray-200 px-2"
                   placeholder="Name"
                   onChange={handleChange}
                 />
@@ -39,7 +44,7 @@ export default function AddProfile() {
               <div className="mt-12"></div>
             </div>
           </div>
-          <hr />
+          <hr className="border-gray-600" />
           <div className="mt-7 flex justify-start gap-4 ">
             <button
               className={` ${
@@ -50,7 +55,7 @@ export default function AddProfile() {
             </button>
 
             <button className="border-2 border-gray-400 px-5 text-gray-400 hover:border-white hover:text-white py-1  ">
-              <Link to={'/profile'}>Cancel</Link>
+              <Link to={'/profiles'}>Cancel</Link>
             </button>
           </div>
         </div>

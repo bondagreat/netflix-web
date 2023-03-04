@@ -14,7 +14,6 @@ const profileSlice = createSlice({
     addProfile: (state, action) => {
       state.profile = action.payload;
     },
-    editProfile: (state, action) => {},
     deleteProfile: (state, action) => {},
     editPin: (state, action) => {},
     deletePin: (state, action) => {},
