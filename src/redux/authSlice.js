@@ -33,6 +33,12 @@ const authSlice = createSlice({
     deleteProfile: (state, action) => {
       state.user.Profiles.splice(action.payload, 1);
     },
+    addPin: (state, action) => {
+      state.user.Profiles[action.payload.arrayIdx] = {
+        ...state.user.Profiles[action.payload.arrayIdx],
+        pin: action.payload.pin,
+      };
+    },
   },
 });
 
@@ -43,6 +49,7 @@ export const {
   updateProfile,
   addProfile,
   deleteProfile,
+  addPin,
 } = authSlice.actions;
 
 export default authSlice.reducer;

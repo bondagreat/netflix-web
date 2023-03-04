@@ -140,11 +140,17 @@ export default function EditProfile() {
                 </div>
                 <div className="flex gap-4">
                   {currentProfile?.pin ? (
-                    <EditProfileLock />
+                    <EditProfileLock id={id} idx={idx} />
                   ) : (
-                    <CreateProfileLock />
+                    <CreateProfileLock id={id} idx={idx} />
                   )}
-                  {currentProfile?.pin && <DeleteProfileLock />}
+                  {currentProfile?.pin && (
+                    <DeleteProfileLock
+                      id={id}
+                      idx={idx}
+                      pin={currentProfile?.pin}
+                    />
+                  )}
                 </div>
               </div>
 
