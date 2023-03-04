@@ -7,7 +7,7 @@ import store from './redux/store';
 import './index.css';
 import LoadingContextProvider from './contexts/LoadingContext';
 import 'tw-elements';
-import SearchContextProvider from './contexts/SearchUserContext';
+import SearchUserContextProvider from './contexts/SearchUserContext';
 import RegisterContextProvider from './contexts/RegisterContext';
 import { getAccessToken } from './utils/local-storage';
 import { fetchAuthUser } from './redux/authSlice';
@@ -18,15 +18,15 @@ if (getAccessToken()) {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  <Provider store={store}>
-    <LoadingContextProvider>
-      <SearchContextProvider>
-        <RegisterContextProvider>
-          <App />
-        </RegisterContextProvider>
-      </SearchContextProvider>
-    </LoadingContextProvider>
-  </Provider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <LoadingContextProvider>
+        <SearchUserContextProvider>
+          <RegisterContextProvider>
+            <App />
+          </RegisterContextProvider>
+        </SearchUserContextProvider>
+      </LoadingContextProvider>
+    </Provider>
+  </React.StrictMode>
 );

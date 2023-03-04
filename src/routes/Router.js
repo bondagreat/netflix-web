@@ -22,6 +22,7 @@ import AdminEditVideoPage from '../pages/AdminEditVideoPage';
 import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
+import AddProfile from '../components/profile/AddProfile';
 import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
@@ -97,20 +98,6 @@ const router = createBrowserRouter([
       // </ProtectedRoute>
     ),
   },
-  {
-    element: (
-      // <ProtectedRoute>
-      <AuthLayout />
-      // </ProtectedRoute>
-    ),
-    children: [
-      {
-        path: '/browse',
-        element: <HomePage />,
-      },
-    ],
-  },
-
   {
     path: '/loginAdmin',
     element: (
