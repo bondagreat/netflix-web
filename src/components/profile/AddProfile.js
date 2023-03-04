@@ -30,7 +30,6 @@ export default function AddProfile() {
       startLoading();
       if (name) {
         const res = await profileApi.addProfile({ name: name });
-        console.log(res.data.newProfile);
         dispatch(addProfile(res.data.newProfile));
       }
     } catch (err) {

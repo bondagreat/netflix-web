@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProfile } from '../../redux/profileSlice';
 import * as profileApi from '../../apis/profile-api';
 import useLoading from '../../hooks/useLoading';
-import { updateProfile } from '../../redux/authSlice';
+import { deleteProfile, updateProfile } from '../../redux/authSlice';
 import defaultProfile from '../../assets/blank.png';
 
 export default function EditProfile() {
@@ -56,6 +56,8 @@ export default function EditProfile() {
       if (name !== currentProfile?.name) {
         const newName = { id: id, name: name };
         formData.append('input', JSON.stringify(newName));
+      } else {
+        formData.append('input', JSON.stringify({ id: id }));
       }
       if (img) {
         formData.append('photo', img);
@@ -64,6 +66,19 @@ export default function EditProfile() {
       dispatch(
         updateProfile({ arrayIdx: idx, newProfile: res.data.updatedProfile })
       );
+    } catch (err) {
+      console.log(err);
+    } finally {
+      stopLoading();
+      navigate('/profiles/manage');
+    }
+  };
+
+  const handleDelete = async () => {
+    try {
+      startLoading();
+      await profileApi.deleteProfile(id);
+      dispatch(deleteProfile(idx));
     } catch (err) {
       console.log(err);
     } finally {
@@ -152,7 +167,10 @@ export default function EditProfile() {
             >
               <Link to={'/profiles/manage'}>Cancel</Link>
             </button>
-            <button className="border-2 border-gray-500 text-gray-500 px-4 hover:border-white hover:text-white">
+            <button
+              onClick={handleDelete}
+              className="border-2 border-gray-500 text-gray-500 px-4 hover:border-white hover:text-white"
+            >
               Delete Profile
             </button>
           </div>

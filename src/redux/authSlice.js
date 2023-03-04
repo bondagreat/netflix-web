@@ -26,16 +26,24 @@ const authSlice = createSlice({
     },
     updateProfile: (state, action) => {
       state.user.Profiles[action.payload.arrayIdx] = action.payload.newProfile;
-      // state.user.Profiles[action.payload.arrayIdx] = {...state.user.Profiles[action.payload.arrayIdx], ...action.payload.updatedProfile};
     },
     addProfile: (state, action) => {
       state.user.Profiles.push(action.payload);
     },
+    deleteProfile: (state, action) => {
+      state.user.Profiles.splice(action.payload, 1);
+    },
   },
 });
 
-export const { login, logout, getMe, updateProfile, addProfile } =
-  authSlice.actions;
+export const {
+  login,
+  logout,
+  getMe,
+  updateProfile,
+  addProfile,
+  deleteProfile,
+} = authSlice.actions;
 
 export default authSlice.reducer;
 
