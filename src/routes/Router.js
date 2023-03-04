@@ -29,9 +29,9 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      // <RedirectIfAuthenticate>
-      <LandingPage />
-      // </RedirectIfAuthenticate>
+      <RedirectIfAuthenticate>
+        <LandingPage />
+      </RedirectIfAuthenticate>
     ),
   },
   {
@@ -95,6 +95,14 @@ const router = createBrowserRouter([
     element: (
       // <ProtectedRoute>
       <EditProfile />
+      // </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/profiles/add',
+    element: (
+      // <ProtectedRoute>
+      <AddProfile />
       // </ProtectedRoute>
     ),
   },

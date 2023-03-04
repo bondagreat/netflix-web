@@ -14,7 +14,7 @@ export default function AddProfileCard() {
           light ? 'bg-gray-100' : ''
         }`}
       ></div>
-      <Link to={'/AddProfile'}>
+      <Link to={'/profiles/add'}>
         <button className="fill-white w-[100px] h-[100px] absolute top-0 left-0 z-30">
           <div className="w-[100px] h-[100px] flex justify-center items-center">
             <PlusIcon />

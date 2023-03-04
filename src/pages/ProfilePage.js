@@ -16,11 +16,11 @@ export default function ProfilePage() {
           {userProfiles?.map((el) => {
             return (
               <ProfileCard
-                key={el.id}
-                id={el.id}
-                name={el.name}
-                profileImg={el.profileImg}
-                pin={el.pin}
+                key={el?.id}
+                id={el?.id}
+                name={el?.name}
+                profileImg={el?.profileImg}
+                pin={el?.pin}
               />
             );
           })}
