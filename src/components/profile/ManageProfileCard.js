@@ -2,12 +2,12 @@ import { EditIcon, LockIcon } from '../../images';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function ManageProfileCard({ id, name, profileImg, pin }) {
+export default function ManageProfileCard({ id, idx, name, profileImg, pin }) {
   const [light, setLight] = useState(false);
 
   return (
     <button className="relative">
-      <Link to="/profiles/edit" state={{ id }}>
+      <Link to="/profiles/edit" state={{ id, idx }}>
         <div
           onMouseEnter={() => setLight(true)}
           onMouseLeave={() => setLight(false)}

@@ -28,9 +28,9 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      // <RedirectIfAuthenticate>
-      <LandingPage />
-      // </RedirectIfAuthenticate>
+      <RedirectIfAuthenticate>
+        <LandingPage />
+      </RedirectIfAuthenticate>
     ),
   },
   {

@@ -6,6 +6,9 @@ import DeleteProfileLock from './DeleteProfileLock';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProfile } from '../../redux/profileSlice';
+import * as profileApi from '../../apis/profile-api';
+import useLoading from '../../hooks/useLoading';
+import { updateProfile } from '../../redux/authSlice';
 
 export default function EditProfile() {
   const [img, setImg] = useState(null);
@@ -13,7 +16,9 @@ export default function EditProfile() {
   const dispatch = useDispatch();
   const location = useLocation();
   const id = location.state.id;
+  const idx = location.state.idx;
   const navigate = useNavigate();
+  const { startLoading, stopLoading } = useLoading();
 
   const authUserProfiles = useSelector((state) => state.auth.user.Profiles);
 
@@ -29,7 +34,10 @@ export default function EditProfile() {
 
   useEffect(() => {
     setName(currentProfile?.name);
-    return () => setName('');
+    return () => {
+      setName('');
+      window.history.replaceState({}, document.title);
+    };
   }, [currentProfile?.name]);
 
   const handlePreviewImg = (e) => {
@@ -38,6 +46,29 @@ export default function EditProfile() {
 
   const handleChangeName = (e) => {
     setName(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      startLoading();
+      const formData = new FormData();
+      if (name !== currentProfile?.name) {
+        const newName = { id: id, name: name };
+        formData.append('input', JSON.stringify(newName));
+      }
+      if (img) {
+        formData.append('photo', img);
+      }
+      const res = await profileApi.editProfile(formData);
+      dispatch(
+        updateProfile({ arrayIdx: idx, newProfile: res.data.updatedProfile })
+      );
+    } catch (err) {
+      console.log(err);
+    } finally {
+      stopLoading();
+      navigate('/profiles/manage');
+    }
   };
 
   return (
@@ -102,13 +133,16 @@ export default function EditProfile() {
           </div>
           <hr />
           <div className="mt-7 flex justify-around ">
-            <button className="text-black bg-white px-6 hover:bg-red-600 hover:text-white">
+            <button
+              onClick={handleSubmit}
+              className="text-black bg-white px-6 hover:bg-red-600 hover:text-white"
+            >
               Save
             </button>
             <button
-              onClick={() => {
-                window.history.replaceState({}, document.title);
-              }}
+              // onClick={() => {
+              //   window.history.replaceState({}, document.title);
+              // }}
               className="border-2 border-gray-500 px-4 text-gray-500 py-1 hover:border-white hover:text-white"
             >
               <Link to={'/profiles/manage'}>Cancel</Link>
