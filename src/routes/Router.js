@@ -23,7 +23,6 @@ import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import AddProfile from '../components/profile/AddProfile';
-import EditAccount from '../pages/EditAccount';
 import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
@@ -169,15 +168,6 @@ const router = createBrowserRouter([
       {
         path: '/browse/original-audio',
         element: <h1>Browse by Languages</h1>,
-      },
-
-      {
-        path: '/homepage',
-        element: <HomePage />,
-      },
-      {
-        path: '/EditAccount',
-        element: <EditAccount />,
       },
     ],
   },
