@@ -23,7 +23,7 @@ import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import EditAccount from '../pages/EditAccount';
-// import AdminManageMoviePage from '../pages/AdminManageMoviesPage';
+import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
   {
