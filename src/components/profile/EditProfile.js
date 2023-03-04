@@ -9,6 +9,7 @@ import { fetchProfile } from '../../redux/profileSlice';
 import * as profileApi from '../../apis/profile-api';
 import useLoading from '../../hooks/useLoading';
 import { updateProfile } from '../../redux/authSlice';
+import defaultProfile from '../../assets/blank.png';
 
 export default function EditProfile() {
   const [img, setImg] = useState(null);
@@ -84,7 +85,11 @@ export default function EditProfile() {
               <img
                 className="w-[100px] h-[100px] rounded-md"
                 src={
-                  img ? URL.createObjectURL(img) : currentProfile?.profileImg
+                  img
+                    ? URL.createObjectURL(img)
+                    : currentProfile?.profileImg
+                    ? currentProfile?.profileImg
+                    : defaultProfile
                 }
                 alt="1"
               />

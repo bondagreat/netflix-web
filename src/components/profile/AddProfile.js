@@ -1,15 +1,43 @@
-import { Link } from 'react-router-dom';
-import profileImage from '../../assets/blank.png';
+import { Link, useNavigate } from 'react-router-dom';
+import defaultProfile from '../../assets/blank.png';
 import { useState } from 'react';
+import * as profileApi from '../../apis/profile-api';
+import { useDispatch } from 'react-redux';
+import { addProfile } from '../../redux/authSlice';
+import useLoading from '../../hooks/useLoading';
 
 export default function AddProfile() {
   const [change, setChange] = useState(false);
+  const [name, setName] = useState('');
+  const dispatch = useDispatch();
+  const { startLoading, stopLoading } = useLoading();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     if (e.target.value) {
       setChange(true);
     } else {
       setChange(false);
+    }
+  };
+
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      startLoading();
+      if (name) {
+        const res = await profileApi.addProfile({ name: name });
+        console.log(res.data.newProfile);
+        dispatch(addProfile(res.data.newProfile));
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      stopLoading();
+      navigate('/profiles');
     }
   };
 
@@ -28,7 +56,7 @@ export default function AddProfile() {
             <div className="relative">
               <img
                 className="w-[100px] h-[100px] rounded-md"
-                src={profileImage}
+                src={defaultProfile}
                 alt="1"
               />
             </div>
@@ -37,7 +65,10 @@ export default function AddProfile() {
                 <input
                   className="bg-gray-500 w-72 h-8 text-white placeholder-gray-200 px-2"
                   placeholder="Name"
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    handleChange(e);
+                    handleChangeName(e);
+                  }}
                 />
               </div>
 
@@ -50,8 +81,11 @@ export default function AddProfile() {
               className={` ${
                 change ? 'bg-red-700 text-white' : 'text-black bg-white'
               } hover:bg-red-700 hover:text-white px-6 `}
+              onClick={handleSubmit}
             >
-              <Link to={'/profile'}>Continue</Link>
+              {/* <Link to={'/profiles'}> */}
+              Continue
+              {/* </Link> */}
             </button>
 
             <button className="border-2 border-gray-400 px-5 text-gray-400 hover:border-white hover:text-white py-1  ">
