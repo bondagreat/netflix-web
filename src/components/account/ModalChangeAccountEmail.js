@@ -25,17 +25,25 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
                   <div className="form-group mb-6">
                     <input
                       type="email"
-                      className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-500  bg-white   rounded   m-0 mb-3.5 border-blue-500 focus:border-transparent focus:ring-0"
-                      id="exampleInputEmail2"
-                      aria-describedby="emailHelp"
+                      name="userLoginId1"
+                      className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-500  bg-white   rounded   m-0 mb-3.5 border-blue-500 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 focus:border-transparent focus:ring-0"
+                      id="id_userLoginId01"
                       placeholder="Current Email "
                     />
                     <input
                       type="email"
-                      className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-500  bg-white   rounded   m-0 mb-3.5 border-blue-500 focus:border-transparent focus:ring-0"
-                      id="exampleInputEmail2"
+                      name="userLoginId2"
+                      className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-500  bg-white   rounded   m-0 mb-3.5 border-blue-500 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 focus:border-transparent focus:ring-0"
+                      id="id_userLoginId02"
                       aria-describedby="emailHelp"
                       placeholder="New Email "
+                    />
+                    <input
+                      type="password"
+                      className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-500  bg-white   rounded   m-0 mb-3.5 border-blue-500 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 focus:border-transparent focus:ring-0"
+                      // id="exampleInputEmail2"
+                      aria-describedby="password"
+                      placeholder="Enter Confirm Password "
                     />
                   </div>
                 </div>
@@ -44,7 +52,7 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
               <div className="flex justify-start ">
                 <button
                   type="submit"
-                  id="save-btn"
+                  id="save-btn-email"
                   onClick={handleSubmitForm}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl  mt-1"
                 >
@@ -52,7 +60,7 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
                 </button>
                 <button
                   type="submit"
-                  id="cancel-btn"
+                  id="cancel-btn-email"
                   onClick={handleSubmitForm}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#FFFFFF] hover:bg-[#E50914] hover:ring-[#E50914] text-[#FA0000] hover:text-white hover:ring-white  bold-2 shadow-xl  drop-shadow-xl  mt-1"
                   ref={cancelButtonRef}

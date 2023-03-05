@@ -140,11 +140,11 @@ const router = createBrowserRouter([
     element: <AdminManageMoviePage />,
   },
   {
-    path: '/editaccountpage',
+    path: '/userEditAccount',
     element: <UserEditAccountPage />,
   },
   {
-    path: '/CancelMemberShip',
+    path: '/cancelMember',
     element: <CancelMemberShip />,
   },
   {

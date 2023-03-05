@@ -1,14 +1,8 @@
-// import Ultra from '../img/Ultra.png';
-// import visa from '../img/visa.png';
-// import girl from '../img/girl.png';
-// import key from '../img/key.png';
-// import mastercard from '../img/mastercard.png';
-// import sinceLogin from '../img/sinceLogin.png';
-import { ChevronDown, LockIcon } from '../images/index';
+// import { ChevronDown, LockIcon } from '../images/index';
 import MasterIcon from '../assets/images/mastericon.png';
 import VisaIcon from '../assets/images/visaicon.png';
-import Hd from '../assets/images/hd.png';
-import Women from '../assets/images/women.png';
+// import GoodHd from '../assets/images/goodhd.png';
+// import Women from '../assets/images/women.png';
 import NavBarAccount from '../layouts/NavBarAccount';
 import Footer from '../layouts/Footer';
 import { useState } from 'react';
@@ -16,8 +10,6 @@ import ModalChangeAccountEmail from '../components/account/ModalChangeAccountEma
 import ModalChangeAccountPassword from '../components/account/ModalChangeAccountPassword';
 import ModalChangeAccountPhone from '../components/account/ModalChangeAccountPhone';
 import { Link } from 'react-router-dom';
-import ChangePlan from '../components/account/ChangePlan';
-import CancelMemberShip from '../components/account/CancelMemberShip';
 
 export default function UserEditAccountPage() {
   const [openEmail, setOpenEmail] = useState(false);
@@ -42,10 +34,6 @@ export default function UserEditAccountPage() {
           <h1>Account</h1>{' '}
           <div className="mt-3 ml-6 flex text-sm font-semibold ">
             {' '}
-            {/* <img
-            className=" block w-[25px] mt-[-2px] mr-[5px] h-[25px]"
-            src={sinceLogin}
-          /> */}
             Member Since September 2019
           </div>
         </div>{' '}
@@ -53,7 +41,7 @@ export default function UserEditAccountPage() {
         <div className="flex mx-auto pt-3 h-72">
           <div className="h-full w-full text-lg  text-gray-500 flex flex-col ">
             <h1 className="mb-2">MEMBERSHIP & BILLING</h1>
-            <Link to={{ pathname: '/CancelMemberShip' }}>
+            <Link to={{ pathname: '/cancelMember' }}>
               <button className="cursor-pointer text-sm px-9 pt-2 pb-2 w-fit bg-gray-200 hover:bg-slate-50  border-2 border-none text-zinc-900  shadow-xl">
                 Cancel Membership
               </button>
@@ -112,7 +100,7 @@ export default function UserEditAccountPage() {
             <br />
             <a
               className="block cursor-pointer mt-[-15px] text-blue-600 no-underline hover:underline"
-              id="phone"
+              id="phoneNumber"
               type="button"
               onClick={handleOnClickPhone}
             >
@@ -125,20 +113,20 @@ export default function UserEditAccountPage() {
 
             <br />
 
-            <a className="cursor-pointer  text-blue-600 no-underline hover:underline">
+            {/* <a className="cursor-pointer  text-blue-600 no-underline hover:underline">
               Manage Payment info
-            </a>
+            </a> */}
           </div>
         </div>
-        <hr className="border-black" />
+        {/* <hr className="border-black" />
         <div className="flex mx-auto pt-3 h-20 ">
           <div className="h-full w-full  text-lg  text-gray-500 flex flex-col ">
             <h1>PLAN DETAILS</h1>
           </div>
           <div className="h-full w-full ml-[-90px]">
             <div className="flex pl-1 text-black  ">
-              <p>Premium</p>
-              <img className="ml-2 w-40px h-20px" src={Hd} />
+              <p>Good</p>
+              <img className="ml-2 w-40px h-20px" src={GoodHd} />
             </div>
           </div>
           <div className="h-full w-full text-right">
@@ -156,7 +144,7 @@ export default function UserEditAccountPage() {
           </div>
           <div className="h-full w-full ml-[-90px]">
             <img className="w-40px h-20px" src={Women} />
-            <div className="pl-20 mt-[-60px] text-start font-medium">ball</div>
+            <div className="pl-20 mt-[-60px] text-start font-medium">Ball</div>
             <div className="pl-20 mt-[5px] text-xs font-light">
               All Masturity Ratings
             </div>
@@ -180,7 +168,7 @@ export default function UserEditAccountPage() {
           <div className="h-full w-full text"></div>
           <div className="h-full w-full ml-[-90px]">
             <img className="w-40px h-20px" src={Women} />
-            <div className="pl-20 mt-[-60px] text-start font-medium">ball</div>
+            <div className="pl-20 mt-[-60px] text-start font-medium">Ball</div>
             <div className="pl-20 mt-[5px] text-xs font-light">
               All Masturity Ratings
             </div>
@@ -209,7 +197,7 @@ export default function UserEditAccountPage() {
           <div className="h-full w-full text"></div>
           <div className="h-full w-full ml-[-90px]">
             <img className="w-40px h-20px" src={Women} />
-            <div className="pl-20 mt-[-60px] text-start font-medium">ball</div>
+            <div className="pl-20 mt-[-60px] text-start font-medium">Ball</div>
             <div className="pl-20 mt-[5px] text-xs font-light">
               All Masturity Ratings
             </div>
@@ -238,7 +226,7 @@ export default function UserEditAccountPage() {
           <div className="h-full w-full text"></div>
           <div className="h-full w-full ml-[-90px]">
             <img className="w-40px h-20px" src={Women} />
-            <div className="pl-20 mt-[-60px] text-start font-medium">ball</div>
+            <div className="pl-20 mt-[-60px] text-start font-medium">Ball</div>
             <div className="pl-20 mt-[5px] text-xs font-light">
               All Masturity Ratings
             </div>
@@ -267,7 +255,7 @@ export default function UserEditAccountPage() {
           <div className="h-full w-full text"></div>
           <div className="h-full w-full ml-[-90px]">
             <img className="w-40px h-20px" src={Women} />
-            <div className="pl-20 mt-[-60px] text-start font-medium">ball</div>
+            <div className="pl-20 mt-[-60px] text-start font-medium">Ball</div>
             <div className="pl-20 mt-[5px] text-xs font-light">
               All Masturity Ratings
             </div>
@@ -288,7 +276,7 @@ export default function UserEditAccountPage() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="flex justify-end">
           <hr className=" w-[770px]" />
         </div>
