@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function ModalEditVideo(props) {
+export default function ModalEditVideo(props, { show, setClose }) {
   const handleSubmitForm = () => {};
   const { width, height } = props;
 
@@ -16,7 +16,12 @@ export default function ModalEditVideo(props) {
 
   return (
     <>
-      <div className="w-screen h-screen fixed top-0 left-0 bg-black/50 ">
+      <div
+        className={`w-screen h-screen fixed top-0 left-0 bg-black/50 ${
+          show ? ' block ' : ' hidden '
+        }`}
+        onClick={() => setClose(false)}
+      >
         <div className="w-full h-full flex justify-center items-center">
           <div className="block p-10 rounded-lg shadow-lg bg-white w-[700] h-[511]  ">
             <form className="flex-col">
@@ -83,7 +88,7 @@ export default function ModalEditVideo(props) {
                 ref={inputRef}
                 type="file"
                 id="formFile"
-                onClick={handleFileChange}
+                onChange={handleFileChange}
               />
               <div className="flex justify-end ">
                 <button

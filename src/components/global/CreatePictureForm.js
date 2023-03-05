@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 // import { ChevronRight } from '../../images';
 
-export default function CreatePictureForm() {
+export default function CreatePictureForm({ show, setClose }) {
   const optionsMood = [
     { value: '1', label: 'Adventure' },
     { value: '2', label: 'Comedies' },
@@ -50,10 +50,19 @@ export default function CreatePictureForm() {
     setFile(e.target.files[0]);
   };
   const [file, setFile] = useState(null);
+  const handlePreviewImageLogo = (e) => {
+    setFileLogo(e.target.files[0]);
+  };
+  const [fileLogo, setFileLogo] = useState(null);
 
   return (
     <>
-      <div className="w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)]">
+      <div
+        className={`w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)] ${
+          show ? ' block ' : ' hidden '
+        }`}
+        onClick={() => setClose(false)}
+      >
         <div className="flex justify-center items-center">
           <div>
             <button className="rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl">
@@ -128,10 +137,10 @@ export default function CreatePictureForm() {
                         className="form-control block  px-3 py-1.5   text-sm  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         type="file"
                         id="formFile"
-                        onClick={handlePreviewImage}
+                        onChange={handlePreviewImage}
                       />
                     </div>
-                    <br />
+                    {/* <br /> */}
                     <div className="flex flex-col">
                       <label
                         htmlFor="formFile"
@@ -181,7 +190,7 @@ export default function CreatePictureForm() {
                             alt="Click to upload image"
                             width={'200px'}
                             height={'140px'}
-                            src={file ? URL.createObjectURL(file) : ''}
+                            src={fileLogo ? URL.createObjectURL(fileLogo) : ''}
                           />
                         </div>
                       </div>
@@ -189,7 +198,7 @@ export default function CreatePictureForm() {
                         className="form-control block  px-3 py-1.5   text-sm  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         type="file"
                         id="formFile"
-                        onClick={handlePreviewImage}
+                        onChange={handlePreviewImageLogo}
                       />
                     </div>
                   </div>

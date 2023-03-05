@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
-import { useState } from 'react';
-export default function ModalEditPicture() {
+
+export default function ModalEditPicture({ show, setClose }) {
   const optionsEditMood = [
     { value: '1', label: 'Adventure' },
     { value: '2', label: 'Comedies' },
@@ -49,9 +49,14 @@ export default function ModalEditPicture() {
 
   return (
     <>
-      <div className="w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)]">
+      <div
+        className={`w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)]${
+          show ? ' block ' : ' hidden '
+        }`}
+        onClick={() => setClose(false)}
+      >
         <div className="flex justify-center items-center">
-          <div className="p-8 rounded-lg shadow-lg bg-white w-[770px]  h-[560px] my-10 ">
+          <div className="p-8 rounded-lg shadow-lg bg-white w-[790px]  h-[560px] my-10 ">
             <form>
               <div className="flex justify-start">
                 <div className="flex-col mr-8">

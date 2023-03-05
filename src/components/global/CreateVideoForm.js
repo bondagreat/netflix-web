@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function CreateVideoForm(props) {
+export default function CreateVideoForm(props, { show, setClose }) {
   const navigate = useNavigate();
   const handleOnClick = (value) => {
     navigate('/adminCreateMovieThirdPage');
@@ -10,6 +10,9 @@ export default function CreateVideoForm(props) {
   const { width, height } = props;
 
   const inputRef = React.useRef();
+  // useEffect(() => {
+  //   inputRef();
+  // }, []);
 
   const [source, setSource] = React.useState();
 
@@ -18,13 +21,19 @@ export default function CreateVideoForm(props) {
     const url = URL.createObjectURL(file);
     setSource(url);
   };
+  const videoRef = useRef();
 
   // const handleChoose = (event) => {
   //   inputRef.current.click();
   // };
   return (
     <>
-      <div className="w-screen h-screen fixed top-0 left-0 bg-black/50 ">
+      <div
+        className={`w-screen h-screen fixed top-0 left-0 bg-black/50 ${
+          show ? ' block ' : ' hidden '
+        }`}
+        onClick={() => setClose(false)}
+      >
         <div className="w-full h-full flex justify-center items-center">
           <div>
             <button className="rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10 bg-white text-black/60 bold-2 shadow-xl  drop-shadow-xl">
@@ -91,6 +100,7 @@ export default function CreateVideoForm(props) {
                     {source && (
                       <video
                         className="VideoInput_video"
+                        ref={videoRef}
                         width="100%"
                         height={height}
                         controls
@@ -105,7 +115,7 @@ export default function CreateVideoForm(props) {
                   type="file"
                   id="formFile"
                   accept=".mov,.mp4"
-                  onClick={handleFileChange}
+                  onChange={handleFileChange}
                 />
                 <div className="flex justify-between">
                   <button
