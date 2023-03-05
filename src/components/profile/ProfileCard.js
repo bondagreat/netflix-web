@@ -1,6 +1,7 @@
 import { LockIcon } from '../../images';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import defaultProfile from '../../assets/blank.png';
 
 export default function ProfileCard({
   id,
@@ -41,7 +42,7 @@ export default function ProfileCard({
           className={`w-[100px] h-[100px] rounded-md ${
             light ? 'outline outline-[3px] outline-offset-0 outline-white' : ''
           }`}
-          src={profileImg}
+          src={profileImg || defaultProfile}
           alt={id}
         />
         <span

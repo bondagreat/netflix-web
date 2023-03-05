@@ -1,10 +1,12 @@
 import { createContext, useState } from 'react';
 
-export const SearchContext = createContext();
+export const SearchUserContext = createContext();
 
-export default function SearchUserContext({ children }) {
+export default function SearchUserContextProvider({ children }) {
   const [user, setUser] = useState([]);
   return (
-    <SearchContext.Provider value={{ user }}>{children}</SearchContext.Provider>
+    <SearchUserContext.Provider value={{ user }}>
+      {children}
+    </SearchUserContext.Provider>
   );
 }

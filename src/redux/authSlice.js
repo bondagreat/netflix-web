@@ -24,10 +24,33 @@ const authSlice = createSlice({
       removeAccessToken();
       state.user = null;
     },
+    updateProfile: (state, action) => {
+      state.user.Profiles[action.payload.arrayIdx] = action.payload.newProfile;
+    },
+    addProfile: (state, action) => {
+      state.user.Profiles.push(action.payload);
+    },
+    deleteProfile: (state, action) => {
+      state.user.Profiles.splice(action.payload, 1);
+    },
+    addPin: (state, action) => {
+      state.user.Profiles[action.payload.arrayIdx] = {
+        ...state.user.Profiles[action.payload.arrayIdx],
+        pin: action.payload.pin,
+      };
+    },
   },
 });
 
-export const { login, logout, getMe } = authSlice.actions;
+export const {
+  login,
+  logout,
+  getMe,
+  updateProfile,
+  addProfile,
+  deleteProfile,
+  addPin,
+} = authSlice.actions;
 
 export default authSlice.reducer;
 
@@ -38,7 +61,7 @@ export const loginAPI = (email, password) => async (dispatch) => {
     const user = jwtDecode(res.data.accessToken);
     dispatch(login(user));
   } catch (err) {
-    console.log(err.response.data.message);
+    console.log(err.response.data?.message);
   }
 };
 

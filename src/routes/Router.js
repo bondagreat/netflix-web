@@ -22,15 +22,16 @@ import AdminEditVideoPage from '../pages/AdminEditVideoPage';
 import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
+import AddProfile from '../components/profile/AddProfile';
 import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      // <RedirectIfAuthenticate>
-      <LandingPage />
-      // </RedirectIfAuthenticate>
+      <RedirectIfAuthenticate>
+        <LandingPage />
+      </RedirectIfAuthenticate>
     ),
   },
   {
@@ -98,19 +99,13 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/profiles/add',
     element: (
       // <ProtectedRoute>
-      <AuthLayout />
+      <AddProfile />
       // </ProtectedRoute>
     ),
-    children: [
-      {
-        path: '/browse',
-        element: <HomePage />,
-      },
-    ],
   },
-
   {
     path: '/loginAdmin',
     element: (

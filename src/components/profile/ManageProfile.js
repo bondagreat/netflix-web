@@ -13,11 +13,12 @@ export default function ManageProfile() {
           <h1 className="text-white text-4xl">Manage Profiles:</h1>
         </div>
         <div className="flex justify-center gap-5 mt-6">
-          {userProfiles?.map((el) => {
+          {userProfiles?.map((el, idx) => {
             return (
               <ManageProfileCard
                 key={el.id}
                 id={el.id}
+                idx={idx}
                 name={el.name}
                 profileImg={el.profileImg}
                 pin={el.pin}
