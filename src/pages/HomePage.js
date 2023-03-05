@@ -12,6 +12,7 @@ import { fetchAllMovie } from '../redux/movieSlice';
 export default function HomePage() {
   const [currentMovie, setCurrentMovie] = useState(false);
   const allMovies = useSelector((state) => state.movie.movie);
+  // console.log(allMovies);
 
   const dispatch = useDispatch();
 
@@ -27,7 +28,7 @@ export default function HomePage() {
     dispatch(fetchAllMovie());
   }, []);
 
-  console.log(allMovies);
+  // console.log(allMovies);
 
   return (
     <>
@@ -50,14 +51,11 @@ export default function HomePage() {
 
         {/* MovieList */}
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
-          <MovieList changeCurrentMovie={changeCurrentMovie} />
-        </div>
-
-        <div className="relative bottom-[800px]">
-          <div className="absolute top-[26%] left-10 ">
-            <NetflixTitleLogo />
-          </div>
-          <p className="absolute  mt-5 left-20 text-gray-300">Movies</p>
+          <MovieList
+            changeCurrentMovie={changeCurrentMovie}
+            allMovies={allMovies}
+            dispatch={dispatch}
+          />
         </div>
       </div>
     </>

@@ -1,9 +1,6 @@
-import { useState } from 'react';
-
 import { AddButton, Dot, MoreInfoButton, PlayButton } from '../../images';
 
 export function MediaButton({ changeCurrentMovie }) {
-  const [open, setOpen] = useState(false);
   return (
     <>
       <div className="absolute  bg-gradient-to-t from-zinc-600 w-[269px] bottom-0 rounded-b-md px-3 pb-1 flex flex-col justify-center ">

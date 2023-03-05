@@ -1,4 +1,5 @@
 import logo from '../../assets/logo.png';
+import { NetflixTitleLogo } from '../../images';
 import { ButtonHomepage } from '../homepages/ButtonHomepage';
 
 export default function MovieShowcase() {
@@ -14,6 +15,12 @@ export default function MovieShowcase() {
       </div>
 
       <div className="absolute top-60 left-10 ">
+        <div className="relative top-24">
+          <div className=" absolute ">
+            <NetflixTitleLogo />
+          </div>
+          <p className="absolute left-7 top-2 text-gray-300">Movies</p>
+        </div>
         <div className="flex flex-col ">
           {/* logoMovie */}
           <div className="w-2/6 h-[360px]">
