@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 
-export default function ModalEditVideo(props, { show, setClose }) {
+export default function ModalEditVideo({ show, setClose }) {
   const handleSubmitForm = () => {};
-  const { width, height } = props;
+  // const { width, height } = props;
 
   const inputRef = React.useRef();
 
   const [source, setSource] = React.useState();
 
   const handleFileChange = (event) => {
+    // event.preventDefault();
     const file = event.target.files[0];
     const url = URL.createObjectURL(file);
     setSource(url);
@@ -20,7 +21,6 @@ export default function ModalEditVideo(props, { show, setClose }) {
         className={`w-screen h-screen fixed top-0 left-0 bg-black/50 ${
           show ? ' block ' : ' hidden '
         }`}
-        onClick={() => setClose(false)}
       >
         <div className="w-full h-full flex justify-center items-center">
           <div className="block p-10 rounded-lg shadow-lg bg-white w-[700] h-[511]  ">
@@ -76,7 +76,7 @@ export default function ModalEditVideo(props, { show, setClose }) {
                       className="VideoInput_video"
                       alt="Upload"
                       width="100%"
-                      height={height}
+                      // height={height}
                       controls
                       src={source}
                     />
@@ -92,14 +92,14 @@ export default function ModalEditVideo(props, { show, setClose }) {
               />
               <div className="flex justify-end ">
                 <button
-                  type="submit"
-                  onClick={handleSubmitForm}
+                  type="button"
+                  onClick={setClose}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#FFFFFF] hover:bg-[#E50914] hover:ring-[#E50914] text-[#FA0000] hover:text-white hover:ring-white  bold-2 shadow-xl  drop-shadow-xl  mt-1"
                 >
                   Cancel
                 </button>
                 <button
-                  type="submit"
+                  type="button"
                   onClick={handleSubmitForm}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl  mt-1"
                 >

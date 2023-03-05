@@ -61,7 +61,6 @@ export default function CreatePictureForm({ show, setClose }) {
         className={`w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)] ${
           show ? ' block ' : ' hidden '
         }`}
-        onClick={() => setClose(false)}
       >
         <div className="flex justify-center items-center">
           <div>
@@ -208,7 +207,7 @@ export default function CreatePictureForm({ show, setClose }) {
                         Title:
                       </span>
                       <input
-                        className="w-full h-[36px] pl-3  rounded-md border border-slate-400 my-2 "
+                        className="w-full h-[36px] pl-3  rounded-md border border-slate-400 my-2 text-gray-900"
                         type="name"
                       />
                     </label>
@@ -217,7 +216,7 @@ export default function CreatePictureForm({ show, setClose }) {
                         Release Date:
                       </span>
                       <input
-                        className="grow h-[36px] pl-3  rounded-md border border-slate-400 mt-1"
+                        className="grow h-[36px] pl-3  rounded-md border border-slate-400 mt-1 text-gray-900"
                         type="name"
                       />
                     </label>
@@ -226,7 +225,7 @@ export default function CreatePictureForm({ show, setClose }) {
                         Length:
                       </span>
                       <input
-                        className="w-full pl-3 h-[36px] rounded-md border border-slate-400 mt-3"
+                        className="w-full pl-3 h-[36px] rounded-md border border-slate-400 mt-3 text-gray-900"
                         type="name"
                       />
                     </label>
@@ -235,7 +234,7 @@ export default function CreatePictureForm({ show, setClose }) {
                         Description:
                       </span>
                       <input
-                        className="w-full h-[36px] pl-3  rounded-md border border-slate-400 mt-3 mb-1"
+                        className="w-full h-[36px] pl-3  rounded-md border border-slate-400 mt-3 mb-1 text-gray-900"
                         type="name"
                       />
                     </label>
@@ -249,7 +248,7 @@ export default function CreatePictureForm({ show, setClose }) {
                           placeholder="Age"
                           onChange={handleOnChange}
                           options={optionsRate}
-                          className="w-full px-3  rounded-md  mt-2"
+                          className="w-full px-3  rounded-md  mt-2 text-gray-900"
                         />
                       </div>
                     </div>
@@ -263,7 +262,7 @@ export default function CreatePictureForm({ show, setClose }) {
                           placeholder="language"
                           onChange={handleOnChange}
                           options={optionsLanguage}
-                          className="w-full px-3  rounded-md  "
+                          className="w-full px-3  rounded-md  text-gray-900"
                           styles={{
                             control: (styles) => ({
                               ...styles,
@@ -283,7 +282,7 @@ export default function CreatePictureForm({ show, setClose }) {
                           isMulti
                           onChange={handleOnChange}
                           name="colors"
-                          className="basic-multi-select w-full px-3  rounded-md  "
+                          className="basic-multi-select w-full px-3  rounded-md text-gray-900 "
                           classNamePrefix="select"
                           options={optionsCasts}
                         />
@@ -298,7 +297,7 @@ export default function CreatePictureForm({ show, setClose }) {
                           isMulti
                           onChange={handleOnChange}
                           name="colors"
-                          className="basic-multi-select w-full px-3  rounded-md  "
+                          className="basic-multi-select w-full px-3  rounded-md  text-gray-900"
                           classNamePrefix="select"
                           options={optionsGenres}
                         />
@@ -314,7 +313,7 @@ export default function CreatePictureForm({ show, setClose }) {
                           isMulti
                           onChange={handleOnChange}
                           name="colors"
-                          className="basic-multi-select w-full px-3  rounded-md  "
+                          className="basic-multi-select w-full px-3  rounded-md text-gray-900 "
                           classNamePrefix="select"
                           options={optionsMood}
                         />

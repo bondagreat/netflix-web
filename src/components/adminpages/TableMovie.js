@@ -46,18 +46,32 @@ export function TableMovie() {
 
   const [openCreateMovie, setOpenCreateMovie] = useState(false);
 
-  const handleOnClickPicture = () => {
+  const handleOpenPicture = () => {
     setOpenPicture(true);
   };
-  const handleOnClickVideo = () => {
+  const handleClosePicture = () => {
+    setOpenPicture(false);
+  };
+  const handleOpenVideo = () => {
     setOpenVideo(true);
   };
-  const handleOnClickTrailer = () => {
+  const handleCloseVideo = () => {
+    setOpenVideo(false);
+  };
+  const handleOpenTrailer = () => {
     setOpenTrailer(true);
   };
-  const handleOnClickCreateMovie = () => {
+  const handleCloseTrailer = () => {
+    setOpenTrailer(false);
+  };
+  const handleOpenCreateMovie = () => {
     setOpenCreateMovie(true);
   };
+  const handleCloseCreateMovie = () => {
+    setOpenCreateMovie(false);
+  };
+
+  console.log(openVideo);
 
   return (
     <div className="flex flex-col h-full">
@@ -89,15 +103,15 @@ export function TableMovie() {
                       <button
                         id="movie"
                         type="button"
-                        onClick={handleOnClickCreateMovie}
+                        onClick={handleOpenCreateMovie}
                         className="inline-block rounded bg-green-500 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg"
                       >
                         Add movie
-                        <CreatePictureForm
-                          show={openCreateMovie}
-                          setClose={setOpenCreateMovie}
-                        />
                       </button>
+                      <CreatePictureForm
+                        show={openCreateMovie}
+                        setClose={handleCloseCreateMovie}
+                      />
                     </div>
                   </th>
                 </tr>
@@ -132,38 +146,38 @@ export function TableMovie() {
                         id="picture"
                         type="button"
                         className="opacity-60 hover:opacity-100"
-                        onClick={handleOnClickPicture}
+                        onClick={handleOpenPicture}
                       >
                         <WriteEditIcon />
-                        <ModalEditPicture
-                          show={openPicture}
-                          setClose={setOpenPicture}
-                        />
                       </button>
+                      <ModalEditPicture
+                        show={openPicture}
+                        setClose={handleClosePicture}
+                      />
                       <button
                         id="video"
                         type="button"
                         className="opacity-60 hover:opacity-100"
-                        onClick={handleOnClickVideo}
+                        onClick={handleOpenVideo}
                       >
                         <MovieIcon />
-                        <ModalEditVideo
-                          show={openVideo}
-                          setClose={setOpenVideo}
-                        />
                       </button>
+                      <ModalEditVideo
+                        show={openVideo}
+                        setClose={handleCloseVideo}
+                      />
                       <button
                         id="trailer"
                         type="button"
                         className="opacity-60 hover:opacity-100"
-                        onClick={handleOnClickTrailer}
+                        onClick={handleOpenTrailer}
                       >
                         <FilmIcon />
-                        <ModalEditTrailer
-                          show={openTrailer}
-                          setClose={setOpenTrailer}
-                        />
                       </button>
+                      <ModalEditTrailer
+                        show={openTrailer}
+                        setClose={handleCloseTrailer}
+                      />
                     </td>
                   </tr>
                 ))}
