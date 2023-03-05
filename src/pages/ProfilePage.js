@@ -32,8 +32,7 @@ export default function ProfilePage() {
     // console.log(choseUser, 'userere');
     if (inPin[3]) {
       if (comparePin(choseUser, inPin)) {
-        // navigate('/browse');
-        console.log('whatttt');
+        navigate('/browse');
       } else {
         setIsError(true);
       }
