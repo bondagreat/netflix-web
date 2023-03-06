@@ -26,6 +26,7 @@ import UserEditAccountPage from '../pages/UserEditAccountPage';
 import CancelMemberShip from '../components/account/CancelMemberShip';
 import AdminManageMoviePage from '../pages/AdminManageMoviePage';
 import AddProfile from '../components/profile/AddProfile';
+import { TableAccount } from '../components/adminpages/TableAccount';
 
 const router = createBrowserRouter([
   {
@@ -153,6 +154,10 @@ const router = createBrowserRouter([
     path: '/adminManageMovie',
     element: <AdminManageMoviePage />,
   },
+  // {
+  //   path: '/tableAccount',
+  //   element: <TableAccount />,
+  // },
   {
     path: '/userEditAccount',
     element: <UserEditAccountPage />,
