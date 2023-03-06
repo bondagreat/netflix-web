@@ -53,6 +53,12 @@ export default function ModalEditPicture({ show, setClose }) {
     setFileLogo(e.target.files[0]);
   };
   const [fileLogo, setFileLogo] = useState(null);
+
+  const [title, setTitle] = useState();
+  const [date, setDate] = useState();
+  const [lenght, setLenght] = useState();
+  const [description, setDescription] = useState();
+
   return (
     <>
       <div
@@ -73,7 +79,7 @@ export default function ModalEditPicture({ show, setClose }) {
                       Movie Cover
                     </label>
                     <div className="flex items-center justify-center w-full">
-                      <div className="bg-white w-[200px] h-[140px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center ">
+                      <div className="bg-white w-[200px] h-[140px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center text-gray-400 font-light text-sm ">
                         <img
                           alt="Click to upload image"
                           width={'200px'}
@@ -99,7 +105,7 @@ export default function ModalEditPicture({ show, setClose }) {
                       Movie Logo
                     </label>
                     <div className="flex items-center justify-center w-full">
-                      <div className="bg-white w-[200px] h-[140px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center ">
+                      <div className="bg-white w-[200px] h-[140px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center text-gray-400 font-light text-sm ">
                         <img
                           alt="Click to upload image"
                           width={'200px'}
@@ -122,6 +128,7 @@ export default function ModalEditPicture({ show, setClose }) {
                       Title:
                     </span>
                     <input
+                      onChange={(e) => setTitle(e.target.value)}
                       className="w-full h-[36px] pl-3  rounded-md border border-slate-400 my-2 text-gray-900"
                       type="text"
                     />
@@ -131,6 +138,7 @@ export default function ModalEditPicture({ show, setClose }) {
                       Release Date:
                     </span>
                     <input
+                      onChange={(e) => setDate(e.target.value)}
                       className="grow h-[36px] pl-3  rounded-md border border-slate-400 mt-1 text-gray-900"
                       type="text"
                     />
@@ -140,6 +148,7 @@ export default function ModalEditPicture({ show, setClose }) {
                       Length:
                     </span>
                     <input
+                      onChange={(e) => setLenght(e.target.value)}
                       className="w-full pl-3 h-[36px] rounded-md border border-slate-400 mt-3 text-gray-900"
                       type="text"
                     />
@@ -149,6 +158,7 @@ export default function ModalEditPicture({ show, setClose }) {
                       Description:
                     </span>
                     <input
+                      onChange={(e) => setDescription(e.target.value)}
                       className="w-full h-[36px] pl-3  rounded-md border border-slate-400 mt-3 mb-1 text-gray-900"
                       type="text"
                     />
@@ -163,7 +173,7 @@ export default function ModalEditPicture({ show, setClose }) {
                         placeholder="Age"
                         onChange={handleOnChange}
                         options={optionsEditRate}
-                        className="w-full px-3  rounded-md  mt-2 text-gray-900 "
+                        className="w-full px-3  rounded-md mt-2 text-gray-900 "
                       />
                     </div>
                   </div>

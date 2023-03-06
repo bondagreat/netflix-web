@@ -86,7 +86,7 @@ export default function CreatePictureForm({ show, setClose }) {
         <div className="flex justify-center items-center">
           <div>
             <button
-              className={`rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10  bold-2 shadow-xl  drop-shadow-xl ${
+              className={`rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-5  bold-2 shadow-xl  drop-shadow-xl ${
                 step === 1
                   ? 'bg-[#E50914] text-white'
                   : 'bg-white text-black/60'
@@ -96,7 +96,7 @@ export default function CreatePictureForm({ show, setClose }) {
             </button>
 
             <button
-              className={`rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10  bold-2 shadow-xl  drop-shadow-xl ${
+              className={`rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-5  bold-2 shadow-xl  drop-shadow-xl ${
                 step === 2
                   ? 'bg-[#E50914] text-white'
                   : 'bg-white text-black/60'
@@ -105,7 +105,7 @@ export default function CreatePictureForm({ show, setClose }) {
               Step 2
             </button>
             <button
-              className={`rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10 mr-96 bold-2 shadow-xl  drop-shadow-xl ${
+              className={`rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-5 mr-96 bold-2 shadow-xl  drop-shadow-xl ${
                 step === 3
                   ? 'bg-[#E50914] text-white'
                   : 'bg-white text-black/60'
@@ -221,7 +221,7 @@ export default function CreatePictureForm({ show, setClose }) {
                             placeholder="Age"
                             onChange={handleOnChange}
                             options={optionsRate}
-                            className="w-full px-3  rounded-md  mt-2 text-gray-900 font-normal text-base "
+                            className="w-full px-3  rounded-md  mt-2 text-gray-900 font-normal text-sm "
                           />
                         </div>
                       </div>
@@ -235,7 +235,7 @@ export default function CreatePictureForm({ show, setClose }) {
                             placeholder="language"
                             onChange={handleOnChange}
                             options={optionsLanguage}
-                            className="w-full px-3  rounded-md  text-gray-900 font-normal text-base"
+                            className="w-full px-3  rounded-md  text-gray-900 font-normal text-sm"
                             styles={{
                               control: (styles) => ({
                                 ...styles,
@@ -255,7 +255,7 @@ export default function CreatePictureForm({ show, setClose }) {
                             isMulti
                             onChange={handleOnChange}
                             name="colors"
-                            className="basic-multi-select w-full px-3  rounded-md text-gray-900 font-normal text-base"
+                            className="basic-multi-select w-full px-3  rounded-md text-gray-900 font-normal text-sm"
                             classNamePrefix="select"
                             options={optionsCasts}
                           />
@@ -270,7 +270,7 @@ export default function CreatePictureForm({ show, setClose }) {
                             isMulti
                             onChange={handleOnChange}
                             name="colors"
-                            className="basic-multi-select w-full px-3  rounded-md  text-gray-900 font-normal text-base"
+                            className="basic-multi-select w-full px-3  rounded-md  text-gray-900 font-normal text-sm"
                             classNamePrefix="select"
                             options={optionsGenres}
                           />
@@ -286,7 +286,7 @@ export default function CreatePictureForm({ show, setClose }) {
                             isMulti
                             onChange={handleOnChange}
                             name="colors"
-                            className="basic-multi-select w-full px-3  rounded-md text-gray-900 font-normal text-base"
+                            className="basic-multi-select w-full px-3  rounded-md text-gray-900 font-normal text-sm"
                             classNamePrefix="select"
                             options={optionsMood}
                           />
