@@ -135,51 +135,27 @@ export default function CancelMemberShip() {
                 <div className="flex justify-center flex-wrap w-[450px] grid-cols-4 gap-2 ">
                   <img
                     src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
+                    className="w-[200px] h-[120px] rounded-md"
                   />
                   <img
                     src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
+                    className="w-[200px] h-[120px] rounded-md"
                   />
                   <img
                     src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
+                    className="w-[200px] h-[120px] rounded-md"
                   />
                   <img
                     src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
+                    className="w-[200px] h-[120px] rounded-md"
                   />
                   <img
                     src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
+                    className="w-[200px] h-[120px] rounded-md"
                   />
                   <img
                     src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
-                  />
-                  <img
-                    src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
-                  />
-                  <img
-                    src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
-                  />
-                  <img
-                    src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
-                  />
-                  <img
-                    src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
-                  />
-                  <img
-                    src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
-                  />
-                  <img
-                    src={MovieJunge}
-                    className="w-[90px] h-[120px] rounded-md"
+                    className="w-[200px] h-[120px] rounded-md"
                   />
                 </div>
                 <Link to={{ pathname: '/homepage' }}>

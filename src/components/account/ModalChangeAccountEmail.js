@@ -51,7 +51,7 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
 
               <div className="flex justify-start ">
                 <button
-                  type="submit"
+                  type="button"
                   id="save-btn-email"
                   onClick={handleSubmitForm}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl  mt-1"
@@ -59,7 +59,7 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
                   Save
                 </button>
                 <button
-                  type="submit"
+                  type="button"
                   id="cancel-btn-email"
                   onClick={handleSubmitForm}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#FFFFFF] hover:bg-[#E50914] hover:ring-[#E50914] text-[#FA0000] hover:text-white hover:ring-white  bold-2 shadow-xl  drop-shadow-xl  mt-1"
