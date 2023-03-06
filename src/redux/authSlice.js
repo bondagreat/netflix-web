@@ -14,6 +14,9 @@ const authSlice = createSlice({
     user: getAccessToken() ? true : null,
   },
   reducers: {
+    getMe: (state, action) => {
+      state.user = action.payload;
+    },
     login: (state, action) => {
       state.user = action.payload;
     },
@@ -21,10 +24,33 @@ const authSlice = createSlice({
       removeAccessToken();
       state.user = null;
     },
+    updateProfile: (state, action) => {
+      state.user.Profiles[action.payload.arrayIdx] = action.payload.newProfile;
+    },
+    addProfile: (state, action) => {
+      state.user.Profiles.push(action.payload);
+    },
+    deleteProfile: (state, action) => {
+      state.user.Profiles.splice(action.payload, 1);
+    },
+    addPin: (state, action) => {
+      state.user.Profiles[action.payload.arrayIdx] = {
+        ...state.user.Profiles[action.payload.arrayIdx],
+        pin: action.payload.pin,
+      };
+    },
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const {
+  login,
+  logout,
+  getMe,
+  updateProfile,
+  addProfile,
+  deleteProfile,
+  addPin,
+} = authSlice.actions;
 
 export default authSlice.reducer;
 
@@ -35,6 +61,15 @@ export const loginAPI = (email, password) => async (dispatch) => {
     const user = jwtDecode(res.data.accessToken);
     dispatch(login(user));
   } catch (err) {
-    console.log(err);
+    console.log(err.response.data?.message);
+  }
+};
+
+export const fetchAuthUser = () => async (dispatch) => {
+  try {
+    const res = await authApi.getMe();
+    dispatch(getMe(res.data.user));
+  } catch (err) {
+    removeAccessToken();
   }
 };

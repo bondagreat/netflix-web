@@ -1,3 +1,23 @@
+export function XIcon() {
+  return (
+    <svg
+      width="80px"
+      height="80px"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 8L8 16M8.00001 8L16 16"
+        stroke="#ffffff"
+        strokeWidth="0.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function CheckIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -525,8 +545,8 @@ export function BinIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2em"
-      height="2em"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="currentColor"
     >
@@ -543,8 +563,8 @@ export function WriteEditIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2em"
-      height="2em"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
     >
       <path
@@ -559,8 +579,8 @@ export function MovieIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2em"
-      height="2em"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
     >
       <path
@@ -575,8 +595,8 @@ export function FilmIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2em"
-      height="2em"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
     >
       <path
