@@ -24,7 +24,7 @@ import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import UserEditAccountPage from '../pages/UserEditAccountPage';
 import CancelMemberShip from '../components/account/CancelMemberShip';
-import AdminManageMoviePage from '../pages/AdminManageMoviePage';
+// import AdminManageMoviePage from '../pages/AdminManageMoviePage';
 import AddProfile from '../components/profile/AddProfile';
 import { TableAccount } from '../components/adminpages/TableAccount';
 
