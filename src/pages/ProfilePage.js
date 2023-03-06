@@ -1,10 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddProfileCard from '../components/profile/AddProfileCard';
 import ManageProfileButton from '../components/profile/ManageProfileButton';
 import ProfileCard from '../components/profile/ProfileCard';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { XIcon } from '../images';
+import { fetchProfile } from '../redux/profileSlice';
 
 export default function ProfilePage() {
   const userProfiles = useSelector((state) => state.auth.user?.Profiles);
@@ -12,7 +13,9 @@ export default function ProfilePage() {
   const [isError, setIsError] = useState(false);
   const [inPin, setInPin] = useState({});
   const [choseUser, setChoseUser] = useState();
+  const [userId, setUserId] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const fromRef = useRef(null);
   const inputRef = [useRef(null), useRef(null), useRef(null), useRef(null)];
@@ -37,6 +40,7 @@ export default function ProfilePage() {
   useEffect(() => {
     if (inPin[3]) {
       if (comparePin(choseUser, inPin)) {
+        dispatch(fetchProfile(userId));
         navigate('/browse');
       } else {
         setIsError(true);
@@ -148,6 +152,7 @@ export default function ProfilePage() {
                   pin={el.pin}
                   setModal={setModal}
                   setChoseUser={setChoseUser}
+                  setUserId={setUserId}
                 />
               );
             })}
