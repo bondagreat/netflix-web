@@ -148,10 +148,7 @@ const router = createBrowserRouter([
     path: '/adminCreateMovieThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
-  {
-    path: '/adminManageMovies',
-    element: <AdminManageMoviesPage />,
-  },
+
   {
     path: '/adminManageMovie',
     element: <AdminManageMoviePage />,
