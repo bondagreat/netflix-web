@@ -12,6 +12,12 @@ import { fetchAllMovie } from '../redux/movieSlice';
 export default function HomePage() {
   const [currentMovie, setCurrentMovie] = useState(false);
   const allMovies = useSelector((state) => state.movie.movie);
+  const [genreList1, setGenreList1] = useState([]);
+  const [genreList2, setGenreList2] = useState([]);
+  const [genreList3, setGenreList3] = useState([]);
+  const [genreList4, setGenreList4] = useState([]);
+  const [genreList5, setGenreList5] = useState([]);
+
   // console.log(allMovies);
 
   const dispatch = useDispatch();
@@ -19,7 +25,6 @@ export default function HomePage() {
   const changeCurrentMovie = () => {
     setCurrentMovie(true);
   };
-
   const closeModal = () => {
     setCurrentMovie(false);
   };
@@ -28,6 +33,35 @@ export default function HomePage() {
     dispatch(fetchAllMovie());
   }, []);
 
+  useEffect(() => {
+    // console.log(allMovies);
+    if (allMovies) {
+      const genreListMovie = allMovies.filter(
+        (el) => el.MovieGenres[0]?.Genre?.id === 1
+      );
+      setGenreList1(genreListMovie);
+
+      const genreListMovie2 = allMovies.filter(
+        (el) => el.MovieGenres[0]?.Genre?.id === 2
+      );
+      setGenreList2(genreListMovie2);
+
+      const genreListMovie3 = allMovies.filter(
+        (el) => el.MovieGenres[0]?.Genre?.id === 3
+      );
+      setGenreList3(genreListMovie3);
+
+      const genreListMovie4 = allMovies.filter(
+        (el) => el.MovieGenres[0]?.Genre?.id === 4
+      );
+      setGenreList4(genreListMovie4);
+
+      const genreListMovie5 = allMovies.filter(
+        (el) => el.MovieGenres[0]?.Genre?.id === 5
+      );
+      setGenreList5(genreListMovie5);
+    }
+  }, [allMovies]);
   // console.log(allMovies);
 
   return (
@@ -52,8 +86,41 @@ export default function HomePage() {
         {/* MovieList */}
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
           <MovieList
+            title={'My List'}
             changeCurrentMovie={changeCurrentMovie}
-            allMovies={allMovies}
+            movieSet={genreList1}
+            dispatch={dispatch}
+          />
+        </div>
+        <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
+          <MovieList
+            title={'New Release'}
+            changeCurrentMovie={changeCurrentMovie}
+            movieSet={genreList2}
+            dispatch={dispatch}
+          />
+        </div>
+        <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
+          <MovieList
+            title={'Thrillers & Horror'}
+            changeCurrentMovie={changeCurrentMovie}
+            movieSet={genreList3}
+            dispatch={dispatch}
+          />
+        </div>
+        <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
+          <MovieList
+            title={'Comedies'}
+            changeCurrentMovie={changeCurrentMovie}
+            movieSet={genreList4}
+            dispatch={dispatch}
+          />
+        </div>
+        <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
+          <MovieList
+            title={'Cartoons'}
+            changeCurrentMovie={changeCurrentMovie}
+            movieSet={genreList5}
             dispatch={dispatch}
           />
         </div>
