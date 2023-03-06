@@ -22,16 +22,19 @@ import AdminEditVideoPage from '../pages/AdminEditVideoPage';
 import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
-import EditAccount from '../pages/EditAccount';
-import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
+import UserEditAccountPage from '../pages/UserEditAccountPage';
+import CancelMemberShip from '../components/account/CancelMemberShip';
+import AdminManageMoviePage from '../pages/AdminManageMoviePage';
+import AddProfile from '../components/profile/AddProfile';
+import { TableAccount } from '../components/adminpages/TableAccount';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      // <RedirectIfAuthenticate>
-      <LandingPage />
-      // </RedirectIfAuthenticate>
+      <RedirectIfAuthenticate>
+        <LandingPage />
+      </RedirectIfAuthenticate>
     ),
   },
   {
@@ -99,19 +102,13 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/profiles/add',
     element: (
       // <ProtectedRoute>
-      <AuthLayout />
+      <AddProfile />
       // </ProtectedRoute>
     ),
-    children: [
-      {
-        path: '/browse',
-        element: <HomePage />,
-      },
-    ],
   },
-
   {
     path: '/loginAdmin',
     element: (
@@ -152,13 +149,22 @@ const router = createBrowserRouter([
     path: '/adminCreateMovieThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
-  {
-    path: '/adminManageMovies',
-    element: <AdminManageMoviesPage />,
-  },
+
   {
     path: '/adminManageMovie',
     element: <AdminManageMoviePage />,
+  },
+  // {
+  //   path: '/tableAccount',
+  //   element: <TableAccount />,
+  // },
+  {
+    path: '/userEditAccount',
+    element: <UserEditAccountPage />,
+  },
+  {
+    path: '/cancelMember',
+    element: <CancelMemberShip />,
   },
   {
     element: (
@@ -182,15 +188,6 @@ const router = createBrowserRouter([
       {
         path: '/browse/original-audio',
         element: <h1>Browse by Languages</h1>,
-      },
-
-      {
-        path: '/homepage',
-        element: <HomePage />,
-      },
-      {
-        path: '/EditAccount',
-        element: <EditAccount />,
       },
     ],
   },

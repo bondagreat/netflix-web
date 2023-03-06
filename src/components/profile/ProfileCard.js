@@ -1,21 +1,48 @@
 import { LockIcon } from '../../images';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import defaultProfile from '../../assets/blank.png';
 
-export default function ProfileCard({ id, name, profileImg, pin }) {
+export default function ProfileCard({
+  id,
+  name,
+  profileImg,
+  pin,
+  setModal,
+  setChoseUser,
+}) {
   const [light, setLight] = useState(false);
-  // onClick show homepage
+  const navigate = useNavigate();
+
+  // onClick show homepage if not have pass
+  const handleClickProfile = () => {
+    if (!pin) {
+      navigate('/browse');
+    } else {
+      // modal ==> insert pin
+      setModal(true);
+      console.log('openModal');
+      const pinToObj = {};
+      for (let i = 0; i < pin.length; i++) {
+        pinToObj[i] = pin.charAt(i);
+      }
+      setChoseUser(pinToObj);
+    }
+  };
+
   return (
     <button>
       <div
         onMouseEnter={() => setLight(true)}
         onMouseLeave={() => setLight(false)}
         className="space-y-2"
+        onClick={handleClickProfile}
       >
         <img
           className={`w-[100px] h-[100px] rounded-md ${
             light ? 'outline outline-[3px] outline-offset-0 outline-white' : ''
           }`}
-          src={profileImg}
+          src={profileImg || defaultProfile}
           alt={id}
         />
         <span

@@ -16,7 +16,6 @@ export default function LoginForm() {
   const handleClickLogin = async (e) => {
     try {
       e.preventDefault();
-      const input = { email: inputEmail.email, password: password };
       const result = validateLogin({
         email: inputEmail.email,
         password: password,
@@ -27,7 +26,9 @@ export default function LoginForm() {
         dispatch(loginAPI(inputEmail.email, password));
         setError('');
         if (!haveUser) {
-          setError('invalid email or password');
+          setTimeout(() => {
+            setError('invalid email or password');
+          }, 500);
         }
       }
       // login in redux got return in slice can not get output to check T/F?
