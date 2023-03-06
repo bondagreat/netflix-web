@@ -3,6 +3,10 @@ import img1 from '../../assets/img1.png';
 import { BinIcon, FilmIcon, MovieIcon, WriteEditIcon } from '../../images';
 
 import { Link } from 'react-router-dom';
+import ModalEditPicture from '../global/ModalEditPicture';
+import ModalEditVideo from '../global/ModalEditVideo';
+import ModalEditTrailer from '../global/ModalEditTrailer';
+import CreatePictureForm from '../global/CreatePictureForm';
 
 const mockData = [
   { id: 1, name: 'movie1', length: '2h 10m', genres: 'comedies' },
@@ -36,6 +40,39 @@ export function TableMovie() {
   const page = Math.ceil(mockData.length / movieListPerPage);
   const numbers = [...Array(page + 1).keys()].slice(1);
 
+  const [openPicture, setOpenPicture] = useState(false);
+  const [openVideo, setOpenVideo] = useState(false);
+  const [openTrailer, setOpenTrailer] = useState(false);
+
+  const [openCreateMovie, setOpenCreateMovie] = useState(false);
+
+  const handleOpenPicture = () => {
+    setOpenPicture(true);
+  };
+  const handleClosePicture = () => {
+    setOpenPicture(false);
+  };
+  const handleOpenVideo = () => {
+    setOpenVideo(true);
+  };
+  const handleCloseVideo = () => {
+    setOpenVideo(false);
+  };
+  const handleOpenTrailer = () => {
+    setOpenTrailer(true);
+  };
+  const handleCloseTrailer = () => {
+    setOpenTrailer(false);
+  };
+  const handleOpenCreateMovie = () => {
+    setOpenCreateMovie(true);
+  };
+  const handleCloseCreateMovie = () => {
+    setOpenCreateMovie(false);
+  };
+
+  console.log(openVideo);
+
   return (
     <div className="flex flex-col h-full">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -64,11 +101,17 @@ export function TableMovie() {
                   <th scope="col" className="px-6 py-4">
                     <div className="flex justify-center space-x-2">
                       <button
+                        id="movie"
                         type="button"
+                        onClick={handleOpenCreateMovie}
                         className="inline-block rounded bg-green-500 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg"
                       >
                         Add movie
                       </button>
+                      <CreatePictureForm
+                        show={openCreateMovie}
+                        setClose={handleCloseCreateMovie}
+                      />
                     </div>
                   </th>
                 </tr>
@@ -98,15 +141,43 @@ export function TableMovie() {
                       <button className="opacity-60 hover:opacity-100">
                         <BinIcon />
                       </button>
-                      <button className="opacity-60 hover:opacity-100">
+
+                      <button
+                        id="picture"
+                        type="button"
+                        className="opacity-60 hover:opacity-100"
+                        onClick={handleOpenPicture}
+                      >
                         <WriteEditIcon />
                       </button>
-                      <button className="opacity-60 hover:opacity-100">
+                      <ModalEditPicture
+                        show={openPicture}
+                        setClose={handleClosePicture}
+                      />
+                      <button
+                        id="video"
+                        type="button"
+                        className="opacity-60 hover:opacity-100"
+                        onClick={handleOpenVideo}
+                      >
                         <MovieIcon />
                       </button>
-                      <button className="opacity-60 hover:opacity-100">
+                      <ModalEditVideo
+                        show={openVideo}
+                        setClose={handleCloseVideo}
+                      />
+                      <button
+                        id="trailer"
+                        type="button"
+                        className="opacity-60 hover:opacity-100"
+                        onClick={handleOpenTrailer}
+                      >
                         <FilmIcon />
                       </button>
+                      <ModalEditTrailer
+                        show={openTrailer}
+                        setClose={handleCloseTrailer}
+                      />
                     </td>
                   </tr>
                 ))}
