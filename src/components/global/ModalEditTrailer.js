@@ -1,13 +1,25 @@
-import { useState } from 'react';
-export default function ModalEditTrailer() {
+import React, { useState } from 'react';
+export default function ModalEditTrailer({ show, setClose }) {
   const handleSubmitForm = () => {};
-  const handlePreviewImage = (e) => {
-    setFile(e.target.files[0]);
+  // const { width, height } = props;
+
+  const inputRef = React.useRef();
+
+  const [source, setSource] = React.useState();
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    setSource(url);
   };
-  const [file, setFile] = useState(null);
+
   return (
     <>
-      <div className="w-screen h-screen fixed top-0 left-0 bg-black/50 ">
+      <div
+        className={`w-screen h-screen fixed top-0 left-0 bg-black/50 ${
+          show ? ' block ' : ' hidden '
+        }`}
+      >
         <div className="w-full h-full flex justify-center items-center">
           <div className="block p-10 rounded-lg shadow-lg bg-white w-[700] h-[511] ">
             <form className="flex-col">
@@ -53,21 +65,29 @@ export default function ModalEditTrailer() {
                   />
                 </label> */}
                 <div className="bg-white w-[400px] h-[280px] rounded-md border-dashed border-2 border-gray-300 flex justify-center items-center ">
-                  <img
-                    alt="Click to upload image"
-                    width={'400px'}
-                    height={'280px'}
-                    src={file ? URL.createObjectURL(file) : ''}
+                  <svg
+                    className="animate-spin h-5 w-5 mr-3 ..."
+                    viewBox="0 0 24 24"
                   />
+                  {source && (
+                    <video
+                      className="VideoInput_video"
+                      alt="Upload"
+                      width="100%"
+                      // height={height}
+                      controls
+                      src={source}
+                    />
+                  )}
                 </div>
               </div>
 
               <input
-                className="form-control block  px-3 py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                className="form-control  block    px-1   py-1.5   text-base  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                ref={inputRef}
                 type="file"
                 id="formFile"
-                name="ImageStyle"
-                onClick={handlePreviewImage}
+                onChange={handleFileChange}
               />
               {/* <label className="flex flex-row items-center space-x-2 px-5">
                 <span className="block text-sm font-medium mb-2 text-gray-900  ">
@@ -80,14 +100,14 @@ export default function ModalEditTrailer() {
               </label> */}
               <div className="flex justify-end ">
                 <button
-                  type="submit"
-                  onClick={handleSubmitForm}
+                  type="button"
+                  onClick={setClose}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#FFFFFF] hover:bg-[#E50914] hover:ring-[#E50914] text-[#FA0000] hover:text-white hover:ring-white  bold-2 shadow-xl  drop-shadow-xl  mt-1"
                 >
                   Cancel
                 </button>
                 <button
-                  type="submit"
+                  type="button"
                   onClick={handleSubmitForm}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl  mt-1"
                 >

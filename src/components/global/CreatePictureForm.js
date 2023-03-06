@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 // import { ChevronRight } from '../../images';
 
-export default function CreatePictureForm() {
+export default function CreatePictureForm({ show, setClose }) {
   const optionsMood = [
     { value: '1', label: 'Adventure' },
     { value: '2', label: 'Comedies' },
@@ -50,10 +50,18 @@ export default function CreatePictureForm() {
     setFile(e.target.files[0]);
   };
   const [file, setFile] = useState(null);
+  const handlePreviewImageLogo = (e) => {
+    setFileLogo(e.target.files[0]);
+  };
+  const [fileLogo, setFileLogo] = useState(null);
 
   return (
     <>
-      <div className="w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)]">
+      <div
+        className={`w-screen h-screen fixed top-0 left-0 bg-[rgba(0,0,0,0.3)] ${
+          show ? ' block ' : ' hidden '
+        }`}
+      >
         <div className="flex justify-center items-center">
           <div>
             <button className="rounded-md px-6 pt-2.5 pb-2 text-xl font-medium  mt-10 bg-[#E50914] text-white bold-2 shadow-xl  drop-shadow-xl">
@@ -128,10 +136,10 @@ export default function CreatePictureForm() {
                         className="form-control block  px-3 py-1.5   text-sm  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         type="file"
                         id="formFile"
-                        onClick={handlePreviewImage}
+                        onChange={handlePreviewImage}
                       />
                     </div>
-                    <br />
+                    {/* <br /> */}
                     <div className="flex flex-col">
                       <label
                         htmlFor="formFile"
@@ -181,7 +189,7 @@ export default function CreatePictureForm() {
                             alt="Click to upload image"
                             width={'200px'}
                             height={'140px'}
-                            src={file ? URL.createObjectURL(file) : ''}
+                            src={fileLogo ? URL.createObjectURL(fileLogo) : ''}
                           />
                         </div>
                       </div>
@@ -189,7 +197,7 @@ export default function CreatePictureForm() {
                         className="form-control block  px-3 py-1.5   text-sm  font-normal   text-blue-700   bg-white bg-clip-padding   border border-solid border-gray-300  rounded-lg  transition   ease-in-out   m-5   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         type="file"
                         id="formFile"
-                        onClick={handlePreviewImage}
+                        onChange={handlePreviewImageLogo}
                       />
                     </div>
                   </div>
@@ -199,7 +207,7 @@ export default function CreatePictureForm() {
                         Title:
                       </span>
                       <input
-                        className="w-full h-[36px] pl-3  rounded-md border border-slate-400 my-2 "
+                        className="w-full h-[36px] pl-3  rounded-md border border-slate-400 my-2 text-gray-900"
                         type="name"
                       />
                     </label>
@@ -208,7 +216,7 @@ export default function CreatePictureForm() {
                         Release Date:
                       </span>
                       <input
-                        className="grow h-[36px] pl-3  rounded-md border border-slate-400 mt-1"
+                        className="grow h-[36px] pl-3  rounded-md border border-slate-400 mt-1 text-gray-900"
                         type="name"
                       />
                     </label>
@@ -217,7 +225,7 @@ export default function CreatePictureForm() {
                         Length:
                       </span>
                       <input
-                        className="w-full pl-3 h-[36px] rounded-md border border-slate-400 mt-3"
+                        className="w-full pl-3 h-[36px] rounded-md border border-slate-400 mt-3 text-gray-900"
                         type="name"
                       />
                     </label>
@@ -226,7 +234,7 @@ export default function CreatePictureForm() {
                         Description:
                       </span>
                       <input
-                        className="w-full h-[36px] pl-3  rounded-md border border-slate-400 mt-3 mb-1"
+                        className="w-full h-[36px] pl-3  rounded-md border border-slate-400 mt-3 mb-1 text-gray-900"
                         type="name"
                       />
                     </label>
@@ -240,7 +248,7 @@ export default function CreatePictureForm() {
                           placeholder="Age"
                           onChange={handleOnChange}
                           options={optionsRate}
-                          className="w-full px-3  rounded-md  mt-2"
+                          className="w-full px-3  rounded-md  mt-2 text-gray-900"
                         />
                       </div>
                     </div>
@@ -254,7 +262,7 @@ export default function CreatePictureForm() {
                           placeholder="language"
                           onChange={handleOnChange}
                           options={optionsLanguage}
-                          className="w-full px-3  rounded-md  "
+                          className="w-full px-3  rounded-md  text-gray-900"
                           styles={{
                             control: (styles) => ({
                               ...styles,
@@ -274,7 +282,7 @@ export default function CreatePictureForm() {
                           isMulti
                           onChange={handleOnChange}
                           name="colors"
-                          className="basic-multi-select w-full px-3  rounded-md  "
+                          className="basic-multi-select w-full px-3  rounded-md text-gray-900 "
                           classNamePrefix="select"
                           options={optionsCasts}
                         />
@@ -289,7 +297,7 @@ export default function CreatePictureForm() {
                           isMulti
                           onChange={handleOnChange}
                           name="colors"
-                          className="basic-multi-select w-full px-3  rounded-md  "
+                          className="basic-multi-select w-full px-3  rounded-md  text-gray-900"
                           classNamePrefix="select"
                           options={optionsGenres}
                         />
@@ -305,7 +313,7 @@ export default function CreatePictureForm() {
                           isMulti
                           onChange={handleOnChange}
                           name="colors"
-                          className="basic-multi-select w-full px-3  rounded-md  "
+                          className="basic-multi-select w-full px-3  rounded-md text-gray-900 "
                           classNamePrefix="select"
                           options={optionsMood}
                         />
