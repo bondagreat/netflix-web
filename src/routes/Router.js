@@ -163,7 +163,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/browse',
-        element: <h1>Profile + home</h1>,
+        element: <HomePage />,
       },
       {
         path: '/browse/latest',
