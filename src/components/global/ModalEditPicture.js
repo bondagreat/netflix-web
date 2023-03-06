@@ -19,7 +19,7 @@ export default function ModalEditPicture({ show, setClose }) {
     { value: '3', label: 'Comedies' },
     { value: '4', label: 'Horror' },
     { value: '5', label: 'Hollywood' },
-    { value: '6', label: 'QuiKids&Familyrky' },
+    { value: '6', label: 'Kids&Family' },
     { value: '7', label: 'K-Dramas' },
     { value: '8', label: 'Romance' },
     { value: '9', label: 'Variety' },
@@ -68,7 +68,7 @@ export default function ModalEditPicture({ show, setClose }) {
                   <div className="flex flex-col ">
                     <label
                       htmlFor="formFile"
-                      className="form-label inline-block mb-2 text-gray-700 text-md"
+                      className="form-label inline-block mb-2 text-gray-700 text-md font-medium flex justify-start"
                     >
                       Movie Cover
                     </label>
@@ -94,7 +94,7 @@ export default function ModalEditPicture({ show, setClose }) {
                   <div className="flex flex-col">
                     <label
                       htmlFor="formFile"
-                      className="form-label inline-block mb-2 text-gray-700 text-md"
+                      className="form-label inline-block mb-2 text-gray-700 text-md font-medium flex justify-start"
                     >
                       Movie Logo
                     </label>
@@ -123,7 +123,7 @@ export default function ModalEditPicture({ show, setClose }) {
                     </span>
                     <input
                       className="w-full h-[36px] pl-3  rounded-md border border-slate-400 my-2 text-gray-900"
-                      type="name"
+                      type="text"
                     />
                   </label>
                   <label className="flex flex-row items-center space-x-2">
@@ -132,7 +132,7 @@ export default function ModalEditPicture({ show, setClose }) {
                     </span>
                     <input
                       className="grow h-[36px] pl-3  rounded-md border border-slate-400 mt-1 text-gray-900"
-                      type="name"
+                      type="text"
                     />
                   </label>
                   <label className="flex flex-row items-center space-x-2">
@@ -141,7 +141,7 @@ export default function ModalEditPicture({ show, setClose }) {
                     </span>
                     <input
                       className="w-full pl-3 h-[36px] rounded-md border border-slate-400 mt-3 text-gray-900"
-                      type="name"
+                      type="text"
                     />
                   </label>
                   <label className="flex flex-row items-center space-x-2">
@@ -150,7 +150,7 @@ export default function ModalEditPicture({ show, setClose }) {
                     </span>
                     <input
                       className="w-full h-[36px] pl-3  rounded-md border border-slate-400 mt-3 mb-1 text-gray-900"
-                      type="name"
+                      type="text"
                     />
                   </label>
                   <div className="mb-3 xl:w-96">
