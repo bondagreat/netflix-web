@@ -22,8 +22,11 @@ import AdminEditVideoPage from '../pages/AdminEditVideoPage';
 import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
+import UserEditAccountPage from '../pages/UserEditAccountPage';
+import CancelMemberShip from '../components/account/CancelMemberShip';
+// import AdminManageMoviePage from '../pages/AdminManageMoviePage';
 import AddProfile from '../components/profile/AddProfile';
-import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
+import { TableAccount } from '../components/adminpages/TableAccount';
 
 const router = createBrowserRouter([
   {
@@ -146,13 +149,22 @@ const router = createBrowserRouter([
     path: '/adminCreateMovieThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
-  {
-    path: '/adminManageMovies',
-    element: <AdminManageMoviesPage />,
-  },
+
   {
     path: '/adminManageMovie',
     element: <AdminManageMoviePage />,
+  },
+  // {
+  //   path: '/tableAccount',
+  //   element: <TableAccount />,
+  // },
+  {
+    path: '/userEditAccount',
+    element: <UserEditAccountPage />,
+  },
+  {
+    path: '/cancelMember',
+    element: <CancelMemberShip />,
   },
   {
     element: (
