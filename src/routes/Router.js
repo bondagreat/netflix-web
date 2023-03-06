@@ -24,6 +24,7 @@ import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import AddProfile from '../components/profile/AddProfile';
 import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
+import { TableAccount } from '../components/adminpages/TableAccount';
 
 const router = createBrowserRouter([
   {
@@ -146,6 +147,10 @@ const router = createBrowserRouter([
     path: '/adminManageMovie',
     element: <AdminManageMoviePage />,
   },
+  // {
+  //   path: '/tableAccount',
+  //   element: <TableAccount />,
+  // },
   {
     element: (
       // <ProtectedRoute>
