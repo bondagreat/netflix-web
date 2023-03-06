@@ -21,6 +21,9 @@ export default function EditAccount() {
   const [phoneNumber, setPhoneNumber] = useState(false);
   const [managePayment, setManagePayment] = useState(false);
   const [changePlan, setChangePlan] = useState(false);
+
+
+  
   return (
     <div
       className={`flex-low h-screen ml-[445px] mt-6 mr-10 w-1/2 justify-center`}
