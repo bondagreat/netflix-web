@@ -12,7 +12,7 @@ import { fetchWatchlist } from '../redux/watchlistSlice';
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  const profile = useSelector((state) => state.user);
+  const profile = useSelector((state) => state.user.currentProfile);
 
   const [currentMovie, setCurrentMovie] = useState(false);
   const allMovies = useSelector((state) => state.movie.movie);
@@ -27,9 +27,9 @@ export default function HomePage() {
 
   useEffect(() => {
     console.log(profile);
-    // dispatch(fetchAllMovie());
-    dispatch(fetchWatchlist(profile.id));
-  }, []);
+    dispatch(fetchAllMovie());
+    dispatch(fetchWatchlist(profile?.id));
+  }, [profile]);
 
   // console.log(allMovies);
 
