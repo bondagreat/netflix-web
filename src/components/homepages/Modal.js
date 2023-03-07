@@ -7,9 +7,10 @@ import {
 } from '../../images';
 import img2 from '../../assets/img2.png';
 import logo from '../../assets/logo.png';
-import { useState } from 'react';
 
-export function Modal({ closeModal }) {
+export function Modal({ closeModal, itemModal }) {
+  // console.log(itemModal);
+  // console.log(itemModal?.MovieCasts[0].Cast?.name);
   return (
     <div
       className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-30"
@@ -67,14 +68,13 @@ export function Modal({ closeModal }) {
         </div>
 
         <div className="absolute top-[370px]  left-0 right-0 bg-gradient-to-t from-zinc-900 h-[130px] "></div>
+
         {/* video */}
         <div className="w-full h-[500px] overflow-hidden ">
-          <video className="w-full shadow-lg" autoPlay loop controls muted>
-            <source
-              src="https://cdn.akamai.steamstatic.com/steam/apps/256930504/movie480_vp9.webm?t=1676412591"
-              type="video/mp4"
-            />
-          </video>
+          {/* <video className="w-full shadow-lg" autoPlay loop controls muted>
+            <source src={movieLink} type="video/mp4" />
+          </video> */}
+          <img src={itemModal.cover} className="object-cover" />
         </div>
         {/* video */}
 
@@ -83,15 +83,13 @@ export function Modal({ closeModal }) {
           <div className="flex flex-col w-[60%]">
             <div className="flex gap-3">
               <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                16+
+                {itemModal.Age.name}
               </button>
-              <p className="text-yellow-50 text-lg">2h 1m</p>
+              <p className="text-yellow-50 text-lg">{itemModal.length}</p>
             </div>
             <div>
               <p className="break-words w-[500px] text-white text-lg pt-8 ">
-                The Guardians leave us with lessons on love, laughter, fun,
-                family and friends as they fight against the forces of Ronan and
-                Thanos to protect the galaxy.
+                {itemModal.description}
               </p>
             </div>
           </div>
@@ -99,7 +97,7 @@ export function Modal({ closeModal }) {
             <div className="flex">
               <p className="text-zinc-500">Cast: </p>
               <p className="break-words w-[200px] text-white ">
-                The Guardians leave us with lessons on love,
+                {itemModal?.MovieCasts[0].Cast?.name}
               </p>
             </div>
             <div className="flex mt-5">
@@ -118,8 +116,9 @@ export function Modal({ closeModal }) {
         </div>
         {/* content */}
 
-        {/* cardMovie */}
         <h1 className="text-white text-3xl ml-11 mt-10 ">More Like This</h1>
+
+        {/* cardMovie */}
         <div className="flex flex-wrap justify-center gap-5 w-[900px] m-auto mt-4 mb-20">
           <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
