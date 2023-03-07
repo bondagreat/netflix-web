@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom';
 
-export default function MenuItem({ children, active, to }) {
+export default function MenuItem({ children, className, to }) {
   return (
-    <Link
-      to={to}
-      className={`${
-        active ? 'text-white text-sm' : 'text-gray-400 hover:text-gray-500'
-      }`}
-    >
+    <Link to={to} className={className}>
       {children}
     </Link>
   );
