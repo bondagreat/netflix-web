@@ -4,7 +4,7 @@ import { HomeLogo, SearchIcon } from '../images';
 import { useEffect, useState } from 'react';
 import UserList from '../components/adminpages/UserList';
 import * as adminApi from '../apis/admin-api';
-import SearchForm from '../components/adminpages/SearchForm';
+import UserSearchForm from '../components/adminpages/UserSearchForm';
 import { Link } from 'react-router-dom';
 
 export default function AdminManageAccountPage() {
@@ -56,7 +56,7 @@ export default function AdminManageAccountPage() {
               <div className="flex items-center flex-row justify-end gap-3 mr-10 mt-8">
                 <MenuItemRight>
                   <SearchIcon />
-                  <SearchForm updateShowUser={updateShowUser} />
+                  <UserSearchForm updateShowUser={updateShowUser} />
                 </MenuItemRight>
               </div>
             </div>
@@ -74,10 +74,10 @@ export default function AdminManageAccountPage() {
                 </Link>
               </div>
               <div className="pl-11">
-                <Link to="/adminManageAccount">
+                <Link to="/admin/manageAccount">
                   <p className="text-white mt-2">Users</p>
                 </Link>
-                <Link to="/adminManageMovie">
+                <Link to="/admin/manageMovie">
                   <p className="text-white mt-2">Movies</p>
                 </Link>
               </div>

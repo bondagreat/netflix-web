@@ -21,9 +21,10 @@ import AdminEditVideoPage from '../pages/AdminEditVideoPage';
 import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
+import UserEditAccountPage from '../pages/UserEditAccountPage';
+import CancelMemberShip from '../components/account/CancelMemberShip';
 import AddProfile from '../components/profile/AddProfile';
-import AdminManageMoviePage from '../pages/AdminManageMoviePage';
-import RedirectIfNotActive from '../features/auth/RedirectIfNotActive';
+import { TableAccount } from '../components/adminpages/TableAccount';
 
 const router = createBrowserRouter([
   {
@@ -129,40 +130,52 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/adminSeeTransaction',
+    path: '/admin/transaction',
     element: <AdminSeeTransactionPage />,
   },
   {
-    path: '/adminManageAccount',
+    path: '/admin/manageAccount',
     element: <AdminManageAccountPage />,
   },
   {
-    path: '/adminEditMovies',
+    path: '/admin/editMovies',
     element: <AdminEditMoviePage />,
   },
   {
-    path: '/adminEditVideo',
+    path: '/admin/editVideo',
     element: <AdminEditVideoPage />,
   },
   {
-    path: '/adminEditTrailer',
+    path: '/admin/editTrailer',
     element: <AdminEditTrailerPage />,
   },
   {
-    path: '/adminCreateMovieFirstPage',
+    path: '/admin/createMovie/FirstPage',
     element: <AdminCreateMovieFirstPage />,
   },
   {
-    path: '/adminCreateMovieSecondPage',
+    path: '/admin/createMovie/SecondPage',
     element: <AdminCreateMovieSecondPage />,
   },
   {
-    path: '/adminCreateMovieThirdPage',
+    path: '/admin/createMovie/ThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
   {
-    path: '/adminManageMovie',
+    path: '/admin/manageMovie',
     element: <AdminManageMoviePage />,
+  },
+  // {
+  //   path: '/tableAccount',
+  //   element: <TableAccount />,
+  // },
+  {
+    path: '/user/editAccount',
+    element: <UserEditAccountPage />,
+  },
+  {
+    path: '/cancelMember',
+    element: <CancelMemberShip />,
   },
   {
     element: (
