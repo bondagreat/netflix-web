@@ -24,6 +24,7 @@ import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import AddProfile from '../components/profile/AddProfile';
 import AdminManageMoviePage from '../pages/AdminManageMoviePage';
 import RedirectIfNotActive from '../features/auth/RedirectIfNotActive';
+import MyListPage from '../pages/MyListPage';
 
 const router = createBrowserRouter([
   {
@@ -183,7 +184,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/browse/my-list',
-        element: <h1>My List</h1>,
+        element: <MyListPage />,
       },
       {
         path: '/browse/original-audio',
