@@ -2,6 +2,8 @@ import { LockIcon } from '../../images';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import defaultProfile from '../../assets/blank.png';
+import { useDispatch } from 'react-redux';
+import { fetchProfile } from '../../redux/profileSlice';
 
 export default function ProfileCard({
   id,
@@ -10,23 +12,27 @@ export default function ProfileCard({
   pin,
   setModal,
   setChoseUser,
+  setUserId,
 }) {
   const [light, setLight] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // onClick show homepage if not have pass
   const handleClickProfile = () => {
     if (!pin) {
+      console.log(id);
+      dispatch(fetchProfile(id));
       navigate('/browse');
     } else {
       // modal ==> insert pin
-      setModal(true);
-      console.log('openModal');
+      setUserId(id);
       const pinToObj = {};
       for (let i = 0; i < pin.length; i++) {
         pinToObj[i] = pin.charAt(i);
       }
       setChoseUser(pinToObj);
+      setModal(true);
     }
   };
 
