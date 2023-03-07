@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function SearchForm({ updateShowUser }) {
+export default function UserSearchForm({ updateShowUser }) {
   const [searchUser, setSearchUser] = useState(null);
 
   const handleChangeSearchUser = (e) => {
@@ -8,7 +8,6 @@ export default function SearchForm({ updateShowUser }) {
       setSearchUser(null);
       updateShowUser(searchUser);
     }
-    // console.log(e.target.value);
     setSearchUser(e.target.value.trim());
     updateShowUser(e.target.value.trim());
   };

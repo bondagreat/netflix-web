@@ -24,7 +24,6 @@ import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import UserEditAccountPage from '../pages/UserEditAccountPage';
 import CancelMemberShip from '../components/account/CancelMemberShip';
-import AdminManageMoviePage from '../pages/AdminManageMoviePage';
 import AddProfile from '../components/profile/AddProfile';
 import { TableAccount } from '../components/adminpages/TableAccount';
 
@@ -118,40 +117,40 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/adminSeeTransaction',
+    path: '/admin/transaction',
     element: <AdminSeeTransactionPage />,
   },
   {
-    path: '/adminManageAccount',
+    path: '/admin/manageAccount',
     element: <AdminManageAccountPage />,
   },
   {
-    path: '/adminEditMovies',
+    path: '/admin/editMovies',
     element: <AdminEditMoviePage />,
   },
   {
-    path: '/adminEditVideo',
+    path: '/admin/editVideo',
     element: <AdminEditVideoPage />,
   },
   {
-    path: '/adminEditTrailer',
+    path: '/admin/editTrailer',
     element: <AdminEditTrailerPage />,
   },
   {
-    path: '/adminCreateMovieFirstPage',
+    path: '/admin/createMovie/FirstPage',
     element: <AdminCreateMovieFirstPage />,
   },
   {
-    path: '/adminCreateMovieSecondPage',
+    path: '/admin/createMovie/SecondPage',
     element: <AdminCreateMovieSecondPage />,
   },
   {
-    path: '/adminCreateMovieThirdPage',
+    path: '/admin/createMovie/ThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
 
   {
-    path: '/adminManageMovie',
+    path: '/admin/manageMovie',
     element: <AdminManageMoviePage />,
   },
   // {
@@ -159,7 +158,7 @@ const router = createBrowserRouter([
   //   element: <TableAccount />,
   // },
   {
-    path: '/userEditAccount',
+    path: '/user/editAccount',
     element: <UserEditAccountPage />,
   },
   {
