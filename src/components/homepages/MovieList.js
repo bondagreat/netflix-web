@@ -3,7 +3,12 @@ import { Carousel } from 'react-responsive-carousel';
 import { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 
-export function MovieList({ changeCurrentMovie, movieSet, title }) {
+export function MovieList({
+  changeCurrentMovie,
+  movieSet,
+  title,
+  setItemModal,
+}) {
   const [showButton, setShowButton] = useState(false);
   const [isAllMovie, setIsAllMovie] = useState([]);
   useEffect(() => {
@@ -43,6 +48,7 @@ export function MovieList({ changeCurrentMovie, movieSet, title }) {
                       item={el}
                       idx={index}
                       changeCurrentMovie={changeCurrentMovie}
+                      setItemModal={setItemModal}
                     />
                   );
                 })}

@@ -17,6 +17,7 @@ export default function HomePage() {
   const [genreList3, setGenreList3] = useState([]);
   const [genreList4, setGenreList4] = useState([]);
   const [genreList5, setGenreList5] = useState([]);
+  const [itemModal, setItemModal] = useState({});
 
   const dispatch = useDispatch();
 
@@ -63,7 +64,11 @@ export default function HomePage() {
   return (
     <>
       {currentMovie && (
-        <Modal closeModal={closeModal} setCurrentMovie={setCurrentMovie} />
+        <Modal
+          closeModal={closeModal}
+          setCurrentMovie={setCurrentMovie}
+          itemModal={itemModal}
+        />
       )}
       <div className="absolute top-[770px]  left-0 right-0 bg-gradient-to-t from-black h-[130px] "></div>
       <div className="bg-black ">
@@ -86,6 +91,7 @@ export default function HomePage() {
             changeCurrentMovie={changeCurrentMovie}
             movieSet={genreList1}
             dispatch={dispatch}
+            setItemModal={setItemModal}
           />
         </div>
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
