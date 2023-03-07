@@ -124,7 +124,7 @@ export default function ModalEditPicture({ show, setClose }) {
                 </div>
                 <div className="flex-col">
                   <label className="flex flex-row items-center space-x-2">
-                    <span className="block text-sm font-medium mb-2 text-gray-900  ">
+                    <span className="block text-sm font-medium  text-gray-900  ">
                       Title:
                     </span>
                     <input
@@ -134,7 +134,7 @@ export default function ModalEditPicture({ show, setClose }) {
                     />
                   </label>
                   <label className="flex flex-row items-center space-x-2">
-                    <span className=" text-sm font-medium mb-2 text-gray-900 ">
+                    <span className=" text-sm font-medium  text-gray-900 ">
                       Release Date:
                     </span>
                     <input
@@ -144,7 +144,7 @@ export default function ModalEditPicture({ show, setClose }) {
                     />
                   </label>
                   <label className="flex flex-row items-center space-x-2">
-                    <span className="block text-sm font-medium mb-2 text-gray-900 ">
+                    <span className="block text-sm font-medium  text-gray-900 ">
                       Length:
                     </span>
                     <input
@@ -153,19 +153,51 @@ export default function ModalEditPicture({ show, setClose }) {
                       type="text"
                     />
                   </label>
+
+                  <div className="mb-3 xl:w-96">
+                    <div className="flex flex-row items-center space-x-2">
+                      <span className="block text-sm font-medium  text-gray-900 ">
+                        Mood:
+                      </span>
+                      <Select
+                        isMulti
+                        onChange={handleOnChange}
+                        name="colors"
+                        className="basic-multi-select w-full px-3 mt-3 rounded-md text-gray-900 "
+                        classNamePrefix="select"
+                        options={optionsEditMood}
+                      />
+                    </div>
+                  </div>
+                  <div className="mb-3 xl:w-96">
+                    <div className="flex flex-row items-center space-x-2">
+                      <span className="block text-sm font-medium  text-gray-900 ">
+                        Genres:
+                      </span>
+                      <Select
+                        isMulti
+                        onChange={handleOnChange}
+                        name="colors"
+                        className="basic-multi-select w-full px-3  rounded-md text-gray-900 "
+                        classNamePrefix="select"
+                        options={optionsEditGenres}
+                      />
+                    </div>
+                  </div>
                   <label className="flex flex-row items-center space-x-2">
                     <span className="block text-sm font-medium mb-2 text-gray-900 ">
                       Description:
                     </span>
                     <input
                       onChange={(e) => setDescription(e.target.value)}
-                      className="w-full h-[36px] pl-3  rounded-md border border-slate-400 mt-3 mb-1 text-gray-900"
+                      className="w-full h-[36px] pl-3  rounded-md border border-slate-400  mb-1 text-gray-900"
                       type="text"
                     />
                   </label>
+
                   <div className="mb-3 xl:w-96">
                     <div className="flex flex-row items-center space-x-2">
-                      <span className=" text-sm font-medium mb-2 text-gray-900 ">
+                      <span className=" text-sm font-medium  text-gray-900 ">
                         Rate:
                       </span>
                       <Select
@@ -174,6 +206,21 @@ export default function ModalEditPicture({ show, setClose }) {
                         onChange={handleOnChange}
                         options={optionsEditRate}
                         className="w-full px-3  rounded-md mt-2 text-gray-900 "
+                      />
+                    </div>
+                  </div>
+                  <div className="mb-3 xl:w-96">
+                    <div className="flex flex-row items-center space-x-2">
+                      <span className="text-sm font-medium  text-gray-900">
+                        Casts:
+                      </span>
+                      <Select
+                        isMulti
+                        onChange={handleOnChange}
+                        name="colors"
+                        className="basic-multi-select w-full px-3  rounded-md  text-gray-900"
+                        classNamePrefix="select"
+                        options={optionsEditCasts}
                       />
                     </div>
                   </div>
@@ -198,52 +245,6 @@ export default function ModalEditPicture({ show, setClose }) {
                     </div>
                   </div>
 
-                  <div className="mb-3 xl:w-96">
-                    <div className="flex flex-row items-center space-x-2">
-                      <span className="text-sm font-medium  text-gray-900">
-                        Casts:
-                      </span>
-                      <Select
-                        isMulti
-                        onChange={handleOnChange}
-                        name="colors"
-                        className="basic-multi-select w-full px-3  rounded-md  text-gray-900"
-                        classNamePrefix="select"
-                        options={optionsEditCasts}
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-3 xl:w-96">
-                    <div className="flex flex-row items-center space-x-2">
-                      <span className="block text-sm font-medium mb-2 text-gray-900 ">
-                        Genres:
-                      </span>
-                      <Select
-                        isMulti
-                        onChange={handleOnChange}
-                        name="colors"
-                        className="basic-multi-select w-full px-3  rounded-md text-gray-900 "
-                        classNamePrefix="select"
-                        options={optionsEditGenres}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mb-3 xl:w-96">
-                    <div className="flex flex-row items-center space-x-2">
-                      <span className="block text-sm font-medium mb-2 text-gray-900 ">
-                        Mood:
-                      </span>
-                      <Select
-                        isMulti
-                        onChange={handleOnChange}
-                        name="colors"
-                        className="basic-multi-select w-full px-3  rounded-md text-gray-900 "
-                        classNamePrefix="select"
-                        options={optionsEditMood}
-                      />
-                    </div>
-                  </div>
                   <div className="flex justify-end ">
                     <button
                       type="button"
