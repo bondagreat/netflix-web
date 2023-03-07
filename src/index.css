@@ -9,3 +9,13 @@
 .main span:hover {
   color: white;
 } */
+/* hidepassword::-ms-reveal,
+::-ms-clear {
+  display: none;
+} */
+
+/* to set password reveal in edge to none
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+  display: none;
+} */
