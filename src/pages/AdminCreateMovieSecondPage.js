@@ -1,7 +1,7 @@
 import { HomeLogo, SearchIcon } from '../images';
 import Brand from '../layouts/Brand';
 import MenuItemRight from '../layouts/MenuItemRight';
-import CreateVideoForm from '../components/global/CreateVideoForm';
+// import CreateVideoForm from '../components/global/CreateVideoForm';
 
 export default function AdminCreateMovieSecondPage() {
   return (
@@ -42,7 +42,7 @@ export default function AdminCreateMovieSecondPage() {
           <div className="bg-neutral-500 flex flex-grow flex-col">
             <p className="text-white mt-2 ml-2">Movies</p>
           </div>
-          <CreateVideoForm />
+          {/* <CreateVideoForm /> */}
         </div>
       </div>
     </>
