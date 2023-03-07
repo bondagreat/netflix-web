@@ -47,6 +47,7 @@ export default function ProfilePage() {
   useEffect(() => {
     if (inPin[3]) {
       if (comparePin(choseUser, inPin)) {
+        console.log(userId);
         dispatch(fetchProfile(userId));
         navigate('/browse');
       } else {

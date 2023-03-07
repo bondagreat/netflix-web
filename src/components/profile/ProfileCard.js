@@ -21,6 +21,7 @@ export default function ProfileCard({
   // onClick show homepage if not have pass
   const handleClickProfile = () => {
     if (!pin) {
+      console.log(id);
       dispatch(fetchProfile(id));
       navigate('/browse');
     } else {

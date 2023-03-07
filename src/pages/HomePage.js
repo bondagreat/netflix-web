@@ -11,10 +11,11 @@ import { fetchAllMovie } from '../redux/movieSlice';
 import { fetchWatchlist } from '../redux/watchlistSlice';
 
 export default function HomePage() {
-  const profile = useSelector((state) => state.user.currentProfile);
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.user);
+
   const [currentMovie, setCurrentMovie] = useState(false);
   const allMovies = useSelector((state) => state.movie.movie);
-  const dispatch = useDispatch();
 
   const changeCurrentMovie = () => {
     setCurrentMovie(true);
@@ -25,7 +26,8 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    dispatch(fetchAllMovie());
+    console.log(profile);
+    // dispatch(fetchAllMovie());
     dispatch(fetchWatchlist(profile.id));
   }, []);
 
