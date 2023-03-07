@@ -18,8 +18,6 @@ export default function HomePage() {
   const [genreList4, setGenreList4] = useState([]);
   const [genreList5, setGenreList5] = useState([]);
 
-  // console.log(allMovies);
-
   const dispatch = useDispatch();
 
   const changeCurrentMovie = () => {
@@ -34,7 +32,6 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    // console.log(allMovies);
     if (allMovies) {
       const genreListMovie = allMovies.filter(
         (el) => el.MovieGenres[0]?.Genre?.id === 1
@@ -62,7 +59,6 @@ export default function HomePage() {
       setGenreList5(genreListMovie5);
     }
   }, [allMovies]);
-  // console.log(allMovies);
 
   return (
     <>
@@ -118,7 +114,7 @@ export default function HomePage() {
         </div>
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
           <MovieList
-            title={'Cartoons'}
+            title={'Family Comedies'}
             changeCurrentMovie={changeCurrentMovie}
             movieSet={genreList5}
             dispatch={dispatch}

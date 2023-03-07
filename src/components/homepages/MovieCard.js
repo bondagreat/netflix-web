@@ -3,10 +3,10 @@ import { MediaButton } from './MediaButton';
 
 export default function MovieCard({ item, idx, changeCurrentMovie }) {
   const [showButton, setShowButton] = useState(false);
-  const set2 =
-    ' flex w-1/6  hover:scale-150 ease-in duration-200 hover:shadow-xl';
   const set1 =
     ' flex w-1/6 hover:translate-x-20 hover:scale-150 ease-in duration-200 hover:shadow-xl';
+  const set2 =
+    ' flex w-1/6  hover:scale-150 ease-in duration-200 hover:shadow-xl';
   const set3 =
     ' flex w-1/6  hover:-translate-x-24 hover:scale-150 ease-in duration-200 hover:shadow-xl';
   let classNameSetup = '';

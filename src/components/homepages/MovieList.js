@@ -1,7 +1,6 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { useEffect, useState } from 'react';
-import { MediaButton } from './MediaButton';
 import MovieCard from './MovieCard';
 
 export function MovieList({ changeCurrentMovie, movieSet, title }) {
