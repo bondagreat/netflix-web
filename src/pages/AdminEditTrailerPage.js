@@ -49,7 +49,7 @@ export default function AdminEditTrailerPage() {
           <div className="bg-neutral-500 flex flex-grow flex-col">
             <p className="text-white mt-2 ml-2">Movies</p>
           </div>
-          <ModalEditTrailer />
+          {/* <ModalEditTrailer /> */}
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import { HomeLogo, SearchIcon } from '../images';
 import Brand from '../layouts/Brand';
 import MenuItemRight from '../layouts/MenuItemRight';
-import CreateTrailerForm from '../components/global/CreateTrailerForm';
+// import CreateTrailerForm from '../components/global/CreateTrailerForm';
 
 export default function AdminCreateMovieThirdPage() {
   return (
@@ -42,7 +42,7 @@ export default function AdminCreateMovieThirdPage() {
           <div className="bg-neutral-500 flex flex-grow flex-col">
             <p className="text-white mt-2 ml-2">Movies</p>
           </div>
-          <CreateTrailerForm />
+          {/* <CreateTrailerForm /> */}
         </div>
       </div>
     </>
