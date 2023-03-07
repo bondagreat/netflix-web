@@ -23,8 +23,6 @@ export default function HomePage() {
   const [genreList5, setGenreList5] = useState([]);
   const [itemModal, setItemModal] = useState({});
 
-  const dispatch = useDispatch();
-
   const changeCurrentMovie = () => {
     setCurrentMovie(true);
   };
