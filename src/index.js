@@ -18,15 +18,15 @@ if (getAccessToken()) {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  <Provider store={store}>
-    <LoadingContextProvider>
-      <SearchUserContextProvider>
-        <RegisterContextProvider>
-          <App />
-        </RegisterContextProvider>
-      </SearchUserContextProvider>
-    </LoadingContextProvider>
-  </Provider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <LoadingContextProvider>
+        <SearchUserContextProvider>
+          <RegisterContextProvider>
+            <App />
+          </RegisterContextProvider>
+        </SearchUserContextProvider>
+      </LoadingContextProvider>
+    </Provider>
+  </React.StrictMode>
 );

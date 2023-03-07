@@ -3,15 +3,16 @@ import useRegister from '../../hooks/useRegister';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginAPI } from '../../redux/authSlice';
 import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import * as AuthApi from '../../apis/auth-api';
+import { useNavigate } from 'react-router-dom';
 import validateLogin from '../../validators/validate-login';
 
 export default function LoginForm() {
   const { inputEmail, changeInputEmail } = useRegister();
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const haveUser = useSelector((state) => state.auth.user);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleClickLogin = async (e) => {
     try {
@@ -24,15 +25,19 @@ export default function LoginForm() {
         setError(result[0].message);
       } else {
         dispatch(loginAPI(inputEmail.email, password));
-        setError('');
-        if (!haveUser) {
-          setTimeout(() => {
-            setError('invalid email or password');
-          }, 500);
+        const res = await AuthApi.login({
+          email: inputEmail.email,
+          password: password,
+        });
+        if (res) {
+          navigate('/profiles');
+          setError('');
         }
       }
       // login in redux got return in slice can not get output to check T/F?
-    } catch (err) {}
+    } catch (err) {
+      setError('invalid email or password');
+    }
   };
   return (
     <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-18 mb-10 w-[350px} p-[60px]">

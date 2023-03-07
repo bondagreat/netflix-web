@@ -9,6 +9,7 @@ import { fetchProfile } from '../redux/profileSlice';
 
 export default function ProfilePage() {
   const userProfiles = useSelector((state) => state.auth.user?.Profiles);
+  const checkActive = useSelector((state) => state.auth.user?.isActive);
   const [modal, setModal] = useState(false);
   const [isError, setIsError] = useState(false);
   const [inPin, setInPin] = useState({});
@@ -16,6 +17,12 @@ export default function ProfilePage() {
   const [userId, setUserId] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (checkActive === false) {
+      navigate('/signup/step');
+    }
+  }, []);
 
   const fromRef = useRef(null);
   const inputRef = [useRef(null), useRef(null), useRef(null), useRef(null)];

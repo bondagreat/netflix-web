@@ -14,7 +14,6 @@ import ProfilePage from '../pages/ProfilePage';
 import HomePage from '../pages/HomePage';
 import AdminSeeTransactionPage from '../pages/AdminSeeTransactionPage';
 import AdminManageAccountPage from '../pages/AdminManageAccountPage';
-import AdminManageMoviePage from '../pages/AdminManageMoviePage';
 import AdminEditMoviePage from '../pages/AdminEditMoviePage';
 import AdminCreateMovieFirstPage from '../pages/AdminCreateMovieFirstPage';
 import LoginAdminPage from '../pages/LoginAdminPage';
@@ -23,95 +22,110 @@ import AdminEditTrailerPage from '../pages/AdminEditTrailerPage';
 import AdminCreateMovieSecondPage from '../pages/AdminCreateMovieSecondPage';
 import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import AddProfile from '../components/profile/AddProfile';
-import AdminManageMoviesPage from '../pages/AdminManageMoviesPage';
+import AdminManageMoviePage from '../pages/AdminManageMoviePage';
+import RedirectIfNotActive from '../features/auth/RedirectIfNotActive';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <RedirectIfAuthenticate>
-        <LandingPage />
-      </RedirectIfAuthenticate>
+      <RedirectIfNotActive>
+        <RedirectIfAuthenticate>
+          <LandingPage />
+        </RedirectIfAuthenticate>
+      </RedirectIfNotActive>
     ),
   },
   {
     path: '/login',
     element: (
-      <RedirectIfAuthenticate>
-        <LoginPage />
-      </RedirectIfAuthenticate>
+      <RedirectIfNotActive>
+        <RedirectIfAuthenticate>
+          <LoginPage />
+        </RedirectIfAuthenticate>
+      </RedirectIfNotActive>
     ),
   },
   {
     path: '/signup/regform',
     element: (
-      <RedirectIfAuthenticate>
-        <RegisterPage />
-      </RedirectIfAuthenticate>
+      <RedirectIfNotActive>
+        <RedirectIfAuthenticate>
+          <RegisterPage />
+        </RedirectIfAuthenticate>
+      </RedirectIfNotActive>
     ),
   },
   {
     path: '/signup/step',
     element: (
-      // <RedirectIfAuthenticate>
-      <RegisterStepForm />
-      // </RedirectIfAuthenticate>
+      <RedirectIfAuthenticate>
+        <RegisterStepForm />
+      </RedirectIfAuthenticate>
     ),
   },
   {
     path: '/signup/package',
     element: (
-      // <RedirectIfAuthenticate>
-      <RegisterPackage />
-      // </RedirectIfAuthenticate>
+      <RedirectIfAuthenticate>
+        <RegisterPackage />
+      </RedirectIfAuthenticate>
     ),
   },
   {
     path: '/signup/payment',
     element: (
-      // <RedirectIfAuthenticate>
-      <RegisterPay />
-      // </RedirectIfAuthenticate>
+      <RedirectIfAuthenticate>
+        <RegisterPay />
+      </RedirectIfAuthenticate>
     ),
   },
   {
     path: '/profiles',
     element: (
-      // <ProtectedRoute>
-      <ProfilePage />
-      // </ProtectedRoute>
+      <ProtectedRoute>
+        <RedirectIfNotActive>
+          <ProfilePage />
+        </RedirectIfNotActive>
+      </ProtectedRoute>
     ),
   },
   {
     path: '/profiles/manage',
     element: (
-      // <ProtectedRoute>
-      <ManageProfile />
-      // </ProtectedRoute>
+      <ProtectedRoute>
+        <RedirectIfNotActive>
+          <ManageProfile />
+        </RedirectIfNotActive>
+      </ProtectedRoute>
     ),
   },
   {
     path: '/profiles/edit',
     element: (
-      // <ProtectedRoute>
-      <EditProfile />
-      // </ProtectedRoute>
+      <ProtectedRoute>
+        <RedirectIfNotActive>
+          <EditProfile />
+        </RedirectIfNotActive>
+      </ProtectedRoute>
     ),
   },
   {
     path: '/profiles/add',
     element: (
-      // <ProtectedRoute>
-      <AddProfile />
-      // </ProtectedRoute>
+      <ProtectedRoute>
+        <RedirectIfNotActive>
+          <AddProfile />
+        </RedirectIfNotActive>
+      </ProtectedRoute>
     ),
   },
   {
     path: '/loginAdmin',
     element: (
-      <RedirectIfAuthenticate>
-        <LoginAdminPage />
-      </RedirectIfAuthenticate>
+      // <RedirectIfAuthenticate>
+      <LoginAdminPage />
+      // </RedirectIfAuthenticate>
     ),
   },
   {
@@ -147,18 +161,16 @@ const router = createBrowserRouter([
     element: <AdminCreateMovieThirdPage />,
   },
   {
-    path: '/adminManageMovies',
-    element: <AdminManageMoviesPage />,
-  },
-  {
     path: '/adminManageMovie',
     element: <AdminManageMoviePage />,
   },
   {
     element: (
-      // <ProtectedRoute>
-      <AuthLayout />
-      // </ProtectedRoute>
+      <ProtectedRoute>
+        <RedirectIfNotActive>
+          <AuthLayout />
+        </RedirectIfNotActive>
+      </ProtectedRoute>
     ),
     children: [
       {
