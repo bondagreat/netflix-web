@@ -1,14 +1,13 @@
 import {
   AddButton,
-  CheckButton,
   CloseButton,
   PlayButton,
   PlayIconButton,
 } from '../../images';
 import img2 from '../../assets/img2.png';
 
-export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
-  // console.log(genreList1);
+export function Modal({ closeModal, itemModal, allMovies }) {
+  console.log(allMovies);
   // console.log(itemModal?.MovieCasts[0].Cast?.name);
   return (
     <div
@@ -36,11 +35,12 @@ export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
               <div className="flex gap-2 absolute z-10 ml-12 top-60">
                 <button
                   className="
-                  px-3
+                  px-7
                   py-0
                   bg-white
                   text-black
                   text-lg
+                  font-bold
                   leading-tight
                   uppercase
                   rounded
@@ -77,7 +77,7 @@ export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
           <video className="w-full shadow-lg" autoPlay loop controls muted>
             <source src={itemModal.trailer} type="video/mp4" />
           </video>
-          <img src={itemModal.trailer} className="object-cover w-full h-full" />
+          {/* <img src={itemModal.trailer} className="object-cover w-full h-full" /> */}
         </div>
         {/* video */}
 
@@ -153,36 +153,6 @@ export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
               </div>
             </div>
           </div>
-          {/* <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
-              <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
-              </div>
-              <div className="p-2">
-                <div className="flex justify-between">
-                  <div className="flex gap-2 mt-1 pr-2 py-3">
-                    <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                      16+
-                    </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
-                  </div>
-                  <div>
-                    <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
-                      <PlayButton />
-                    </button>
-                    <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
-                      <AddButton />
-                    </button>
-                  </div>
-                </div>
-                <p className="break-words w-[240px] text-white text-sm pt-3 m-auto ">
-                  The Guardians leave us with lessons on love, laughter, fun,
-                  family and friends as they fight against the forces of Ronan
-                  and Thanos to protect the galaxy.
-                </p>
-              </div>
-            </div>
-          </div>
           <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
@@ -302,10 +272,43 @@ export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
                 </p>
               </div>
             </div>
-          </div> */}
-          {/* endCardMovie */}
+          </div>
+          <div className="flex justify-center">
+            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
+              <div className="w-full h-[140px] overflow-hidden">
+                <img className="rounded-t-lg" src={img2} alt="" />
+              </div>
+              <div className="p-2">
+                <div className="flex justify-between">
+                  <div className="flex gap-2 mt-1 pr-2 py-3">
+                    <button className=" border-2 border-gray-500 text-white text-lg px-2">
+                      16+
+                    </button>
+                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
+                  </div>
+                  <div>
+                    <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
+                      <PlayButton />
+                    </button>
+                    <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
+                      <AddButton />
+                    </button>
+                  </div>
+                </div>
+                <p className="break-words w-[240px] text-white text-sm pt-3 m-auto ">
+                  The Guardians leave us with lessons on love, laughter, fun,
+                  family and friends as they fight against the forces of Ronan
+                  and Thanos to protect the galaxy.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
+}
+
+{
+  /* endCardMovie */
 }
