@@ -23,13 +23,13 @@ export default function AdminManageMoviePage() {
 
   const fetchMovie = async () => {
     const res = await adminApi.getAllMovie();
-    console.log(res.data.movie);
     setMovies(res.data.movie);
   };
 
   useEffect(() => {
     fetchMovie();
   }, []);
+
   return (
     <>
       <div className=" top-0 left-0 right-0 bg-black h-[100px] ">

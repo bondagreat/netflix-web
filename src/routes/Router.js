@@ -25,6 +25,7 @@ import UserEditAccountPage from '../pages/UserEditAccountPage';
 import CancelMemberShip from '../components/account/CancelMemberShip';
 import AddProfile from '../components/profile/AddProfile';
 import { TableAccount } from '../components/adminpages/TableAccount';
+import RedirectIfNotActive from '../features/auth/RedirectIfNotActive';
 
 const router = createBrowserRouter([
   {
@@ -161,10 +162,10 @@ const router = createBrowserRouter([
     path: '/admin/createMovie/ThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
-  {
-    path: '/admin/manageMovie',
-    element: <AdminManageMoviePage />,
-  },
+  // {
+  //   path: '/admin/manageMovie',
+  //   element: <AdminManageMoviePage />,
+  // },
   // {
   //   path: '/tableAccount',
   //   element: <TableAccount />,
