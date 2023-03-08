@@ -12,7 +12,7 @@ export default function MenuRight() {
   const userProfiles = useSelector((state) => state.auth.user?.Profiles);
   const currentProfile = useSelector((state) => state.user.currentProfile);
 
-  console.log(currentProfile);
+  // console.log(currentProfile);
   useEffect(() => {
     dispatch(fetchProfile(getProfileId()));
   }, []);
