@@ -6,10 +6,9 @@ import {
   PlayIconButton,
 } from '../../images';
 import img2 from '../../assets/img2.png';
-import logo from '../../assets/logo.png';
 
-export function Modal({ closeModal, itemModal }) {
-  // console.log(itemModal);
+export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
+  // console.log(genreList1);
   // console.log(itemModal?.MovieCasts[0].Cast?.name);
   return (
     <div
@@ -26,11 +25,15 @@ export function Modal({ closeModal, itemModal }) {
         <div className="absolute top-40 ">
           <div className="flex flex-col ">
             {/* logoMovie */}
-            <div className="w-[40%] h-full">
-              <img src={logo} alt="" />
+            <div className="relative z-10 w-[50%] h-full pl-4 top-10">
+              <img
+                className=" object-cover w-full h-full "
+                src={itemModal.logo}
+                alt=""
+              />
             </div>
             <div className="flex ">
-              <div className="flex gap-2 absolute z-10 ml-12 top-72">
+              <div className="flex gap-2 absolute z-10 ml-12 top-60">
                 <button
                   className="
                   px-3
@@ -67,14 +70,14 @@ export function Modal({ closeModal, itemModal }) {
           </div>
         </div>
 
-        <div className="absolute top-[370px]  left-0 right-0 bg-gradient-to-t from-zinc-900 h-[130px] "></div>
+        <div className="absolute top-[320px]  left-0 right-0 bg-gradient-to-t from-zinc-900 h-[130px] "></div>
 
         {/* video */}
-        <div className="w-full h-[500px] overflow-hidden ">
-          {/* <video className="w-full shadow-lg" autoPlay loop controls muted>
-            <source src={movieLink} type="video/mp4" />
-          </video> */}
-          <img src={itemModal.cover} className="object-cover" />
+        <div className="w-full h-[450px] overflow-hidden ">
+          <video className="w-full shadow-lg" autoPlay loop controls muted>
+            <source src={itemModal.trailer} type="video/mp4" />
+          </video>
+          <img src={itemModal.trailer} className="object-cover w-full h-full" />
         </div>
         {/* video */}
 
@@ -95,21 +98,21 @@ export function Modal({ closeModal, itemModal }) {
           </div>
           <div className="flex flex-col">
             <div className="flex">
-              <p className="text-zinc-500">Cast: </p>
+              <p className="text-zinc-500">Cast : &nbsp; </p>
               <p className="break-words w-[200px] text-white ">
                 {itemModal?.MovieCasts[0].Cast?.name}
               </p>
             </div>
             <div className="flex mt-5">
-              <p className="text-zinc-500">Genres: </p>
+              <p className="text-zinc-500">Genres : &nbsp; </p>
               <p className="break-words w-[200px] text-white ">
-                The Guardians leave us with lessons on love,
+                {itemModal?.MovieGenres[0].Genre?.name}
               </p>
             </div>
             <div className="flex mt-5">
-              <p className="text-zinc-500">This movie is : </p>
+              <p className="text-zinc-500">This movie is : &nbsp; </p>
               <p className="break-words w-[150px] text-white ">
-                The Guardians leave
+                {itemModal?.MovieMoods[0].Mood?.name}
               </p>
             </div>
           </div>
@@ -150,7 +153,7 @@ export function Modal({ closeModal, itemModal }) {
               </div>
             </div>
           </div>
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
                 <img className="rounded-t-lg" src={img2} alt="" />
@@ -299,7 +302,7 @@ export function Modal({ closeModal, itemModal }) {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* endCardMovie */}
         </div>
       </div>

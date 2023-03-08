@@ -4,7 +4,7 @@ export function MediaButton({ changeCurrentMovie, item, setItemModal }) {
   // console.log(item);
   return (
     <>
-      <div className="absolute  bg-gradient-to-t from-zinc-600 w-[269px] bottom-0 rounded-b-md px-3 pb-1 flex flex-col justify-center ">
+      <div className="absolute  bg-gradient-to-t from-zinc-600 w-full bottom-0 rounded-b-md px-3 pb-1 flex flex-col justify-center ">
         <div className="flex justify-end pt-1">
           <button className="opacity-70 hover:opacity-100 active:opacity-50">
             <PlayButton />
