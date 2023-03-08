@@ -71,6 +71,8 @@ export default function HomePage() {
           closeModal={closeModal}
           setCurrentMovie={setCurrentMovie}
           itemModal={itemModal}
+          genreList1={genreList1}
+          genreList2={genreList2}
         />
       )}
       <div className="absolute top-[770px]  left-0 right-0 bg-gradient-to-t from-black h-[130px] "></div>
@@ -103,6 +105,7 @@ export default function HomePage() {
             changeCurrentMovie={changeCurrentMovie}
             movieSet={genreList2}
             dispatch={dispatch}
+            setItemModal={setItemModal}
           />
         </div>
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
@@ -111,6 +114,7 @@ export default function HomePage() {
             changeCurrentMovie={changeCurrentMovie}
             movieSet={genreList3}
             dispatch={dispatch}
+            setItemModal={setItemModal}
           />
         </div>
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
@@ -119,6 +123,7 @@ export default function HomePage() {
             changeCurrentMovie={changeCurrentMovie}
             movieSet={genreList4}
             dispatch={dispatch}
+            setItemModal={setItemModal}
           />
         </div>
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">
@@ -127,6 +132,7 @@ export default function HomePage() {
             changeCurrentMovie={changeCurrentMovie}
             movieSet={genreList5}
             dispatch={dispatch}
+            setItemModal={setItemModal}
           />
         </div>
       </div>
