@@ -7,6 +7,7 @@ import ModalEditPicture from '../global/ModalEditPicture';
 import ModalEditVideo from '../global/ModalEditVideo';
 import ModalEditTrailer from '../global/ModalEditTrailer';
 import CreatePictureForm from '../global/CreatePictureForm';
+import ModalDeleteVideo from '../global/ModalDeleteVideo';
 
 const mockData = [
   { id: 1, name: 'movie1', length: '2h 10m', genres: 'comedies' },
@@ -40,12 +41,19 @@ export function TableMovie() {
   const page = Math.ceil(mockData.length / movieListPerPage);
   const numbers = [...Array(page + 1).keys()].slice(1);
 
+  const [openDeleteVideo, setOpenDeleteVideo] = useState(false);
   const [openPicture, setOpenPicture] = useState(false);
   const [openVideo, setOpenVideo] = useState(false);
   const [openTrailer, setOpenTrailer] = useState(false);
 
   const [openCreateMovie, setOpenCreateMovie] = useState(false);
 
+  const handleOpenDeleteVideo = () => {
+    setOpenDeleteVideo(true);
+  };
+  const handleCloseDeleteVideo = () => {
+    setOpenDeleteVideo(false);
+  };
   const handleOpenPicture = () => {
     setOpenPicture(true);
   };
@@ -138,10 +146,17 @@ export function TableMovie() {
                       {item.genres}
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 mt-3 flex justify-center gap-2">
-                      <button className="opacity-60 hover:opacity-100">
+                      <button
+                        className="opacity-60 hover:opacity-100"
+                        type="button"
+                        onClick={handleOpenDeleteVideo}
+                      >
                         <BinIcon />
                       </button>
-
+                      <ModalDeleteVideo
+                        show={openDeleteVideo}
+                        setClose={handleCloseDeleteVideo}
+                      />
                       <button
                         id="picture"
                         type="button"
