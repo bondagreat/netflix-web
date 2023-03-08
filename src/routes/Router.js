@@ -162,10 +162,10 @@ const router = createBrowserRouter([
     path: '/admin/createMovie/ThirdPage',
     element: <AdminCreateMovieThirdPage />,
   },
-  {
-    path: '/admin/manageMovie',
-    element: <AdminManageMoviePage />,
-  },
+  // {
+  //   path: '/admin/manageMovie',
+  //   element: <AdminManageMoviePage />,
+  // },
   // {
   //   path: '/tableAccount',
   //   element: <TableAccount />,
