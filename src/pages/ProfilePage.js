@@ -22,7 +22,7 @@ export default function ProfilePage() {
   useEffect(() => {
     async function fetchActive() {
       const res = await AuthApi.getMe();
-      if (res?.data?.user.isActive == false) {
+      if (res?.data?.user.isActive === false) {
         navigate('/signup/step');
       }
     }
@@ -64,14 +64,14 @@ export default function ProfilePage() {
 
   const handleChangePin = (e) => {
     setFocusedIndex(e.target.name);
-    if (e.key == 'Backspace') {
+    if (e.key === 'Backspace') {
       if (focusedIndex > 0) {
         const nextIndex = focusedIndex - 1;
         inputRef[nextIndex].current.focus();
         setFocusedIndex(nextIndex);
       }
     } else {
-      if (focusedIndex == 3) {
+      if (focusedIndex === 3) {
         const nextIndex = 0;
         inputRef[nextIndex].current.focus();
         setFocusedIndex(nextIndex);

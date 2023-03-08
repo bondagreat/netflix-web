@@ -1,6 +1,4 @@
-// import logo from '../assets/logo.png';
 import { useEffect, useState } from 'react';
-// import { ButtonHomepage } from '../components/homepages/ButtonHomepage';
 import { DropdownGenres } from '../components/homepages/DropdownGenres';
 import { Modal } from '../components/homepages/Modal';
 import { MovieList } from '../components/homepages/MovieList';
@@ -13,6 +11,7 @@ import { fetchWatchlist } from '../redux/watchlistSlice';
 export default function HomePage() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.user.currentProfile);
+  const watchlist = useSelector((state) => state.watchlist.mylist);
 
   const [currentMovie, setCurrentMovie] = useState(false);
   const allMovies = useSelector((state) => state.movie.movie);

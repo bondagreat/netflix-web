@@ -73,7 +73,7 @@ export default function LandingPage() {
       }
     } catch (err) {
       // console.log(err);
-      if (err.response.data.message == 'email is already in use') {
+      if (err.response.data.message === 'email is already in use') {
         navigate('/login');
       }
       setError(err.response.data.message);
