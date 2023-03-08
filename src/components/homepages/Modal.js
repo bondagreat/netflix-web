@@ -1,9 +1,9 @@
 import {
   AddButton,
-  CheckButton,
   CloseButton,
   PlayButton,
   PlayIconButton,
+  CheckButton,
 } from '../../images';
 import img2 from '../../assets/img2.png';
 import { useDispatch, useSelector } from 'react-redux';
@@ -57,11 +57,12 @@ export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
               <div className="flex gap-2 absolute z-10 ml-12 top-60">
                 <button
                   className="
-                  px-3
+                  px-7
                   py-0
                   bg-white
                   text-black
                   text-lg
+                  font-bold
                   leading-tight
                   uppercase
                   rounded
@@ -110,7 +111,6 @@ export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
           <video className="w-full shadow-lg" autoPlay loop controls muted>
             <source src={itemModal.trailer} type="video/mp4" />
           </video>
-          <img src={itemModal.trailer} className="object-cover w-full h-full" />
         </div>
         {/* video */}
 
