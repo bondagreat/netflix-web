@@ -1,9 +1,9 @@
 import blankImage from '../assets/blank.png';
 
-export default function ImageProfile({ src, size }) {
+export default function ImageProfile({ src, size, profileImg }) {
   return (
     <img
-      src={src || blankImage}
+      src={src || profileImg || blankImage}
       className="rounded-sm cursor-pointer"
       alt="ImageProfile"
       width={size}

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import defaultProfile from '../../assets/blank.png';
 import { useDispatch } from 'react-redux';
 import { fetchProfile } from '../../redux/profileSlice';
+import { setProfileId } from '../../utils/local-storage';
 
 export default function ProfileCard({
   id,
@@ -20,8 +21,8 @@ export default function ProfileCard({
 
   // onClick show homepage if not have pass
   const handleClickProfile = () => {
+    setProfileId(id);
     if (!pin) {
-      console.log(id);
       dispatch(fetchProfile(id));
       navigate('/browse');
     } else {

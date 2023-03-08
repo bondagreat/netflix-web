@@ -24,7 +24,8 @@ import AdminCreateMovieThirdPage from '../pages/AdminCreateMovieThirdPage';
 import UserEditAccountPage from '../pages/UserEditAccountPage';
 import CancelMemberShip from '../components/account/CancelMemberShip';
 import AddProfile from '../components/profile/AddProfile';
-import { TableAccount } from '../components/adminpages/TableAccount';
+import AdminManageMoviePage from '../pages/AdminManageMoviePage';
+import RedirectIfNotActive from '../features/auth/RedirectIfNotActive';
 
 const router = createBrowserRouter([
   {

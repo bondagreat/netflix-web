@@ -9,6 +9,7 @@ import MovieShowcase from '../components/homepages/MovieShowcase';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllMovie } from '../redux/movieSlice';
 import { fetchWatchlist } from '../redux/watchlistSlice';
+import { getProfileId } from '../utils/local-storage';
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -26,10 +27,10 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    console.log(profile);
+    // console.log(profile);
     dispatch(fetchAllMovie());
-    dispatch(fetchWatchlist(profile?.id));
-  }, [profile]);
+    dispatch(fetchWatchlist(getProfileId()));
+  }, []);
 
   // console.log(allMovies);
 
