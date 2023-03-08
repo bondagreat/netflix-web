@@ -12,6 +12,7 @@ export default function HomePage() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.user.currentProfile);
   const watchlist = useSelector((state) => state.watchlist.mylist);
+  const watchlistId = watchlist?.map((el) => el.movieId);
 
   const [currentMovie, setCurrentMovie] = useState(false);
   const allMovies = useSelector((state) => state.movie.movie);
@@ -30,7 +31,6 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    console.log(profile);
     dispatch(fetchAllMovie());
     dispatch(fetchWatchlist(profile?.id));
   }, [profile]);
@@ -97,6 +97,7 @@ export default function HomePage() {
             movieSet={genreList1}
             dispatch={dispatch}
             setItemModal={setItemModal}
+            watchlistId={watchlistId}
           />
         </div>
         <div className="relative bottom-[110px] z-10  ml-10 w-[1650px]">

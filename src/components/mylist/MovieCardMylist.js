@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { MediaButton } from '../homepages/MediaButton';
-// import { MediaButton } from '../homepages/MediaButton';
 
 export default function MovieCardMyList({
   item,
@@ -8,7 +7,7 @@ export default function MovieCardMyList({
   changeCurrentMovie,
   setItemModal,
 }) {
-  // console.log(item);
+  // console.log(item.Movie);
 
   const [showButton, setShowButton] = useState(false);
   const set1 =
@@ -34,6 +33,7 @@ export default function MovieCardMyList({
       <img src={item.Movie.cover} className="rounded-lg " />
       {showButton && (
         <MediaButton
+          showButton={showButton}
           changeCurrentMovie={changeCurrentMovie}
           item={item.Movie}
           setItemModal={setItemModal}

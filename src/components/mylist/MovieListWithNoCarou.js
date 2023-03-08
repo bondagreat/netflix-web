@@ -11,7 +11,7 @@ export function MovieListWithNoCarou({
   useEffect(() => {
     if (movieSet) {
       // const page = Math.floor(movieSet.length / 6);
-      const page = 3;
+      const page = 5;
       let newArrPage = [];
       let i = 0;
       while (i < page) {
@@ -31,7 +31,7 @@ export function MovieListWithNoCarou({
           return (
             <div
               key={idx}
-              className="w-11/12 h-[150px] flex mx-auto gap-2 items-center"
+              className="w-full h-[150px] flex mx-auto gap-2 items-center"
             >
               {item?.map((el, index) => {
                 return (

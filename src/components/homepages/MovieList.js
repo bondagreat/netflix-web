@@ -8,6 +8,7 @@ export function MovieList({
   movieSet,
   title,
   setItemModal,
+  watchlistId,
 }) {
   const [showButton, setShowButton] = useState(false);
   const [isAllMovie, setIsAllMovie] = useState([]);
@@ -39,7 +40,7 @@ export function MovieList({
             return (
               <div
                 key={idx}
-                className=" w-full h-[250px]   flex gap-2 items-center"
+                className=" w-full h-[250px] flex gap-2 items-center"
               >
                 {item?.map((el, index) => {
                   return (
@@ -49,6 +50,7 @@ export function MovieList({
                       idx={index}
                       changeCurrentMovie={changeCurrentMovie}
                       setItemModal={setItemModal}
+                      watchlistId={watchlistId}
                     />
                   );
                 })}

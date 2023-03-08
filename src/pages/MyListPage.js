@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../components/homepages/Modal';
 import { MovieListWithNoCarou } from '../components/mylist/MovieListWithNoCarou';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function MyListPage() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   const watchlistMovie = useSelector((state) => state.watchlist.mylist);
-  console.log(watchlistMovie);
+  const [watchlistFetch, setWatchlistFetch] = useState();
   const [itemModal, setItemModal] = useState({});
   const [currentMovie, setCurrentMovie] = useState(false);
 
@@ -17,7 +18,15 @@ export default function MyListPage() {
     setCurrentMovie(false);
   };
 
-  console.log(itemModal);
+  useEffect(() => {
+    setWatchlistFetch(watchlistMovie);
+  }, [watchlistMovie]);
+
+  useEffect(() => {
+    setWatchlistFetch(watchlistMovie);
+  }, [watchlistMovie]);
+
+  // console.log(watchlistFetch);
   return (
     <>
       {currentMovie && (
@@ -31,7 +40,7 @@ export default function MyListPage() {
         <p className="text-white text-3xl mx-10 pt-20 ">My List</p>
         <div className="">
           <MovieListWithNoCarou
-            movieSet={watchlistMovie}
+            movieSet={watchlistFetch}
             changeCurrentMovie={changeCurrentMovie}
             setItemModal={setItemModal}
           />

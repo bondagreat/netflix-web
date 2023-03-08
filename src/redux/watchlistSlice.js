@@ -10,6 +10,12 @@ const watchlistSlice = createSlice({
     getWatchlist: (state, action) => {
       state.mylist = action.payload;
     },
+    addWatchlist: (state, action) => {
+      state.mylist = [...state.mylist, action.payload];
+    },
+    deleteWatchlist: (state, action) => {
+      state.mylist = action.payload;
+    },
   },
 });
 
@@ -19,27 +25,32 @@ export default watchlistSlice.reducer;
 
 export const fetchWatchlist = (profileId) => async (dispatch) => {
   try {
-    const res = await watchlistApi.getWatchlist(profileId);
+    if (profileId) {
+      const res = await watchlistApi.getWatchlist(profileId);
+      dispatch(getWatchlist(res.data.watchlist));
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const addWatchlist = (input) => async (dispatch) => {
+  try {
+    await watchlistApi.addWatchlist(input);
+    const res = await watchlistApi.getWatchlist(input.profileId);
     dispatch(getWatchlist(res.data.watchlist));
   } catch (err) {
     console.log(err);
   }
 };
 
-// export const addWatchlist = (input) => async (dispatch) => {
-//     try {
-//       const res = await watchlistApi.addWatchlist(input);
-//       dispatch(addWatchlist(res.data.watchlist));
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
+export const deleteWatchlist = (watchlistId, profileId) => async (dispatch) => {
+  try {
+    await watchlistApi.deleteWatchlist(watchlistId);
 
-// export const deleteWatchlist = (watchlistId) => async (dispatch) => {
-//     try {
-//       const res = await watchlistApi.getWatchlist(watchlistId);
-//       dispatch(deleteWatchlist());
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
+    const res = await watchlistApi.getWatchlist(profileId);
+    dispatch(getWatchlist(res.data.watchlist));
+  } catch (err) {
+    console.log(err);
+  }
+};

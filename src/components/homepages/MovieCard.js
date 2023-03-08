@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { MediaButton } from './MediaButton';
 
 export default function MovieCard({
@@ -7,6 +8,8 @@ export default function MovieCard({
   changeCurrentMovie,
   setItemModal,
 }) {
+  // console.log(item);
+
   const [showButton, setShowButton] = useState(false);
   const set1 =
     ' flex w-1/6 hover:translate-x-20 hover:scale-150 ease-in duration-200 hover:shadow-xl';
@@ -29,13 +32,12 @@ export default function MovieCard({
       className={classNameSetup}
     >
       <img src={item.cover} className="rounded-lg " />
-      {showButton && (
-        <MediaButton
-          changeCurrentMovie={changeCurrentMovie}
-          item={item}
-          setItemModal={setItemModal}
-        />
-      )}
+      <MediaButton
+        showButton={showButton}
+        changeCurrentMovie={changeCurrentMovie}
+        item={item}
+        setItemModal={setItemModal}
+      />
     </div>
   );
 }

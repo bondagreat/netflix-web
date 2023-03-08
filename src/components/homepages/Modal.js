@@ -6,10 +6,31 @@ import {
   PlayIconButton,
 } from '../../images';
 import img2 from '../../assets/img2.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { addWatchlist, deleteWatchlist } from '../../redux/watchlistSlice';
 
 export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
-  // console.log(genreList1);
-  // console.log(itemModal?.MovieCasts[0].Cast?.name);
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.user.currentProfile);
+  const watchlist = useSelector((state) => state.watchlist.mylist);
+
+  const watchlistId = watchlist?.map((el) => el.movieId);
+  const watchlistDel = watchlist?.filter((el) => el.movieId === itemModal.id);
+
+  const [inWatchwatch, setInWatchlist] = useState(false);
+
+  useEffect(() => {
+    const res = watchlistId.some((el) => el === itemModal.id);
+    setInWatchlist(res);
+  }, [watchlist]);
+
+  const handleClickAddWatchlist = () => {
+    dispatch(addWatchlist({ movieId: itemModal.id, profileId: profile.id }));
+  };
+  const handleClickDelWatchlist = () => {
+    dispatch(deleteWatchlist(watchlistDel[0].id, profile.id));
+  };
   return (
     <div
       className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-30"
@@ -62,9 +83,21 @@ export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
                   <PlayIconButton />
                   play
                 </button>
-                <button className="stroke-white opacity-50 hover:opacity-100 active:opacity-50">
-                  <AddButton />
-                </button>
+                {inWatchwatch ? (
+                  <button
+                    className="stroke-white opacity-70 hover:opacity-100 active:opacity-50"
+                    onClick={handleClickDelWatchlist}
+                  >
+                    <CheckButton />
+                  </button>
+                ) : (
+                  <button
+                    className="stroke-white opacity-70 hover:opacity-100 active:opacity-50"
+                    onClick={handleClickAddWatchlist}
+                  >
+                    <AddButton />
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -153,157 +186,6 @@ export function Modal({ closeModal, itemModal, genreList1, genreList2 }) {
               </div>
             </div>
           </div>
-          {/* <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
-              <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
-              </div>
-              <div className="p-2">
-                <div className="flex justify-between">
-                  <div className="flex gap-2 mt-1 pr-2 py-3">
-                    <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                      16+
-                    </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
-                  </div>
-                  <div>
-                    <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
-                      <PlayButton />
-                    </button>
-                    <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
-                      <AddButton />
-                    </button>
-                  </div>
-                </div>
-                <p className="break-words w-[240px] text-white text-sm pt-3 m-auto ">
-                  The Guardians leave us with lessons on love, laughter, fun,
-                  family and friends as they fight against the forces of Ronan
-                  and Thanos to protect the galaxy.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
-              <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
-              </div>
-              <div className="p-2">
-                <div className="flex justify-between">
-                  <div className="flex gap-2 mt-1 pr-2 py-3">
-                    <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                      16+
-                    </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
-                  </div>
-                  <div>
-                    <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
-                      <PlayButton />
-                    </button>
-                    <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
-                      <AddButton />
-                    </button>
-                  </div>
-                </div>
-                <p className="break-words w-[240px] text-white text-sm pt-3 m-auto ">
-                  The Guardians leave us with lessons on love, laughter, fun,
-                  family and friends as they fight against the forces of Ronan
-                  and Thanos to protect the galaxy.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
-              <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
-              </div>
-              <div className="p-2">
-                <div className="flex justify-between">
-                  <div className="flex gap-2 mt-1 pr-2 py-3">
-                    <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                      16+
-                    </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
-                  </div>
-                  <div>
-                    <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
-                      <PlayButton />
-                    </button>
-                    <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
-                      <AddButton />
-                    </button>
-                  </div>
-                </div>
-                <p className="break-words w-[240px] text-white text-sm pt-3 m-auto ">
-                  The Guardians leave us with lessons on love, laughter, fun,
-                  family and friends as they fight against the forces of Ronan
-                  and Thanos to protect the galaxy.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
-              <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
-              </div>
-              <div className="p-2">
-                <div className="flex justify-between">
-                  <div className="flex gap-2 mt-1 pr-2 py-3">
-                    <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                      16+
-                    </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
-                  </div>
-                  <div>
-                    <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
-                      <PlayButton />
-                    </button>
-                    <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
-                      <AddButton />
-                    </button>
-                  </div>
-                </div>
-                <p className="break-words w-[240px] text-white text-sm pt-3 m-auto ">
-                  The Guardians leave us with lessons on love, laughter, fun,
-                  family and friends as they fight against the forces of Ronan
-                  and Thanos to protect the galaxy.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
-              <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
-              </div>
-              <div className="p-2">
-                <div className="flex justify-between">
-                  <div className="flex gap-2 mt-1 pr-2 py-3">
-                    <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                      16+
-                    </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
-                  </div>
-                  <div>
-                    <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
-                      <PlayButton />
-                    </button>
-                    <button className="stroke-white opacity-70 hover:opacity-100 active:opacity-50">
-                      <AddButton />
-                    </button>
-                  </div>
-                </div>
-                <p className="break-words w-[240px] text-white text-sm pt-3 m-auto ">
-                  The Guardians leave us with lessons on love, laughter, fun,
-                  family and friends as they fight against the forces of Ronan
-                  and Thanos to protect the galaxy.
-                </p>
-              </div>
-            </div>
-          </div> */}
-          {/* endCardMovie */}
         </div>
       </div>
     </div>
