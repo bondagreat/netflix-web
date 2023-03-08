@@ -1,7 +1,31 @@
 import { useRef, useState } from 'react';
+import { changePassword } from '../../apis/auth-api';
 export default function ModalChangeAccountPassword({ show, setClose }) {
-  const handleSubmitForm = () => {};
-  const cancelButtonRef = useRef(null);
+  const [currentPassword, setCurrentPassword] = useState();
+  const [newPassword, setNewPassword] = useState();
+  const [confirmPassword, setConfirmpassword] = useState();
+  const handleSubmitForm = async (e) => {
+    e.preventDefault();
+    const payload = {
+      currentPassword,
+      newPassword,
+      confirmPassword,
+    };
+    console.log(payload);
+    try {
+      const result = await changePassword(payload);
+      console.log(result.data);
+      if (result && result.data) {
+        setCurrentPassword('');
+        setNewPassword('');
+        setConfirmpassword('');
+        setClose();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // const cancelButtonRef = useRef(null);
 
   return (
     <>
@@ -9,7 +33,7 @@ export default function ModalChangeAccountPassword({ show, setClose }) {
         className={`w-screen h-screen fixed top-0 left-0 bg-black/50 ${
           show ? 'block' : 'hidden'
         }`}
-        onClick={() => setClose(false)}
+        // onClick={() => setClose(false)}
       >
         <div className="w-full h-full flex justify-center items-center">
           <div className="block p-10 rounded-lg shadow-lg bg-white w-[700] h-[511] ">
@@ -29,6 +53,8 @@ export default function ModalChangeAccountPassword({ show, setClose }) {
                       id="password"
                       aria-describedby="password"
                       placeholder="Current Password "
+                      value={currentPassword}
+                      onChange={(e) => setCurrentPassword(e.target.value)}
                     />
                     <input
                       type="password"
@@ -38,6 +64,8 @@ export default function ModalChangeAccountPassword({ show, setClose }) {
                       // id="myInput"
                       aria-describedby="password"
                       placeholder="New Password"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
                     />
 
                     <input
@@ -48,6 +76,8 @@ export default function ModalChangeAccountPassword({ show, setClose }) {
                       // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                       aria-describedby="password"
                       placeholder="Confirm New Password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmpassword(e.target.value)}
                     />
                   </div>
                 </div>
@@ -65,9 +95,9 @@ export default function ModalChangeAccountPassword({ show, setClose }) {
                 <button
                   type="button"
                   id="cancel-btn-psw"
-                  onClick={handleSubmitForm}
+                  onClick={setClose}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#FFFFFF] hover:bg-[#E50914] hover:ring-[#E50914] text-[#FA0000] hover:text-white hover:ring-white  bold-2 shadow-xl  drop-shadow-xl  mt-1"
-                  ref={cancelButtonRef}
+                  // ref={cancelButtonRef}
                 >
                   Cancel
                 </button>
