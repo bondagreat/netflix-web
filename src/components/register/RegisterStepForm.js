@@ -8,7 +8,7 @@ export default function RegisterStepForm() {
   const dispatch = useDispatch();
 
   return (
-    <div className="bg-white">
+    <div className="bg-white h-[100vh]">
       <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
         <NetFlixLogo />
 

@@ -19,7 +19,7 @@ export default function UserList({ user, userTransaction }) {
             <button className="text-white border-1  bg-red-600 px-7 py-1 rounded-lg mr-2 ">
               Block
             </button>
-            <Link to={'/adminSeeTransaction'} state={{ userTransaction }}>
+            <Link to={'/admin/transaction'} state={{ userTransaction }}>
               <button className="text-white border-1  bg-green-500 px-3 py-1 rounded-lg ml-5">
                 Transaction
               </button>

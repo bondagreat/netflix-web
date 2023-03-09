@@ -41,10 +41,10 @@ export default function AdminSeeTransactionPage() {
               </Link>
             </div>
             <div className="pl-11 flex flex-col">
-              <Link to="/adminManageAccount" className="text-white mt-2">
+              <Link to="/admin/manageAccount" className="text-white mt-2">
                 Users
               </Link>
-              <Link to="/adminManageMovie" className="text-white mt-2">
+              <Link to="/admin/manageMovie" className="text-white mt-2">
                 Movies
               </Link>
             </div>
@@ -57,7 +57,7 @@ export default function AdminSeeTransactionPage() {
           <div className="flex flex-row justify-between">
             <p className="text-white mt-2 ml-2">Transactions</p>
             <Link
-              to="/adminManageAccount?back=true"
+              to="/admin/manageAccount?back=true"
               className="text-white border-1 mt-2 mr-2 bg-neutral-700 hover:bg-neutral-800 focus:ring-1 ring-white px-7 rounded-lg"
             >
               Back

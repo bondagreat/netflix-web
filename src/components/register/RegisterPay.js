@@ -41,7 +41,8 @@ export default function RegisterPay() {
               plan: plan.id,
             };
             console.log(token);
-            await paymentApi.sendToken(token);
+            const res = await paymentApi.sendToken(token);
+            console.log(res);
           } else {
             setSouce = window.form.omiseSource.value = noti;
             console.log(noti);
@@ -57,7 +58,7 @@ export default function RegisterPay() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white h-[100vh]">
       <div className="h-[10vh] w-11/12 flex justify-between mx-auto">
         <NetFlixLogo />
 

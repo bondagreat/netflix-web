@@ -3,8 +3,33 @@ import MenuItemRight from '../layouts/MenuItemRight';
 import { HomeLogo, SearchIcon } from '../images';
 import { TableMovie } from '../components/adminpages/TableMovie';
 import { Link } from 'react-router-dom';
+import * as adminApi from '../apis/admin-api';
+import { useEffect, useState } from 'react';
+import MovieSearchForm from '../components/adminpages/MovieSearchForm';
 
 export default function AdminManageMoviePage() {
+  const [movies, setMovies] = useState([]);
+  const [showMovie, setShowMovie] = useState([]);
+
+  const updateShowMovie = (searchMovie) => {
+    const movieTemp = movies.filter((el) => {
+      if (!searchMovie) {
+        return null;
+      }
+      return el.name.toLowerCase().includes(searchMovie?.toLowerCase());
+    });
+    setShowMovie(movieTemp);
+  };
+
+  const fetchMovie = async () => {
+    const res = await adminApi.getAllMovie();
+    setMovies(res.data.movie);
+  };
+
+  useEffect(() => {
+    fetchMovie();
+  }, []);
+
   return (
     <>
       <div className=" top-0 left-0 right-0 bg-black h-[100px] ">
@@ -16,6 +41,7 @@ export default function AdminManageMoviePage() {
             <div className="flex items-center justify-end gap-3 mr-10 mt-8">
               <MenuItemRight>
                 <SearchIcon />
+                <MovieSearchForm updateShowMovie={updateShowMovie} />
               </MenuItemRight>
             </div>
           </div>
@@ -33,10 +59,10 @@ export default function AdminManageMoviePage() {
               </Link>
             </div>
             <div className="pl-11 flex flex-col">
-              <Link to="/adminManageAccount" className="text-white mt-2">
+              <Link to="/admin/manageAccount" className="text-white mt-2">
                 Users
               </Link>
-              <Link to="/adminManageMovie" className="text-white mt-2">
+              <Link to="/admin/manageMovie" className="text-white mt-2">
                 Movies
               </Link>
             </div>
@@ -49,7 +75,7 @@ export default function AdminManageMoviePage() {
           <div className="flex flex-row justify-between">
             <p className="text-white mt-2 ml-2">Movies</p>
             <div className=" w-[90%]  overflow-hidden mt-5 m-auto">
-              <TableMovie />
+              <TableMovie showMovie={showMovie} />
             </div>
           </div>
         </div>

@@ -8,12 +8,14 @@ import { NetflixTitleLogo } from '../images';
 import MovieShowcase from '../components/homepages/MovieShowcase';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllMovie } from '../redux/movieSlice';
+import { fetchWatchlist } from '../redux/watchlistSlice';
 
 export default function HomePage() {
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.user.currentProfile);
+
   const [currentMovie, setCurrentMovie] = useState(false);
   const allMovies = useSelector((state) => state.movie.movie);
-
-  const dispatch = useDispatch();
 
   const changeCurrentMovie = () => {
     setCurrentMovie(true);
@@ -24,10 +26,12 @@ export default function HomePage() {
   };
 
   useEffect(() => {
+    console.log(profile);
     dispatch(fetchAllMovie());
-  }, []);
+    dispatch(fetchWatchlist(profile?.id));
+  }, [profile]);
 
-  console.log(allMovies);
+  // console.log(allMovies);
 
   return (
     <>
