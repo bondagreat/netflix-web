@@ -37,7 +37,7 @@ export default function MyListPage() {
         />
       )}
       <div className=" bg-black">
-        <p className="text-white text-3xl mx-10 pt-20 ">My List</p>
+        <p className="text-white text-3xl mx-10 pt-20 mb-4 ">My List</p>
         <div className="">
           <MovieListWithNoCarou
             movieSet={watchlistFetch}

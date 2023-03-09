@@ -31,7 +31,7 @@ export function MovieListWithNoCarou({
           return (
             <div
               key={idx}
-              className="w-full h-[150px] flex mx-auto gap-2 items-center"
+              className="w-full h-[150px] flex mx-auto gap-2 items-center mt-10"
             >
               {item?.map((el, index) => {
                 return (
