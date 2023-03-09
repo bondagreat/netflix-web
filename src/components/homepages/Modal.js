@@ -126,7 +126,11 @@ export function Modal({ closeModal, itemModal, allMovies }) {
           <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
+                <img
+                  className="rounded-t-lg"
+                  src="https://res.cloudinary.com/dfeyolmc9/image/upload/v1677998856/Screen_Shot_2566-03-05_at_13.46.37_yrzvhf.png"
+                  alt=""
+                />
               </div>
               <div className="p-2">
                 <div className="flex justify-between">
@@ -134,7 +138,7 @@ export function Modal({ closeModal, itemModal, allMovies }) {
                     <button className=" border-2 border-gray-500 text-white text-lg px-2">
                       16+
                     </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
+                    <p className="text-yellow-50 text-lg pt-1">2.05</p>
                   </div>
                   <div>
                     <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
@@ -156,7 +160,11 @@ export function Modal({ closeModal, itemModal, allMovies }) {
           <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
+                <img
+                  className="rounded-t-lg"
+                  src="https://res.cloudinary.com/dfeyolmc9/image/upload/v1678005764/Screen_Shot_2566-03-05_at_15.37.51_rguv9x.png"
+                  alt=""
+                />
               </div>
               <div className="p-2">
                 <div className="flex justify-between">
@@ -164,7 +172,7 @@ export function Modal({ closeModal, itemModal, allMovies }) {
                     <button className=" border-2 border-gray-500 text-white text-lg px-2">
                       16+
                     </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
+                    <p className="text-yellow-50 text-lg pt-1">2.30</p>
                   </div>
                   <div>
                     <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
@@ -186,15 +194,19 @@ export function Modal({ closeModal, itemModal, allMovies }) {
           <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
+                <img
+                  className="rounded-t-lg"
+                  src="https://res.cloudinary.com/dfeyolmc9/image/upload/v1678005765/Screen_Shot_2566-03-05_at_15.39.43_o5wqvs.png"
+                  alt=""
+                />
               </div>
               <div className="p-2">
                 <div className="flex justify-between">
                   <div className="flex gap-2 mt-1 pr-2 py-3">
                     <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                      16+
+                      All
                     </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
+                    <p className="text-yellow-50 text-lg pt-1">2.15</p>
                   </div>
                   <div>
                     <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
@@ -216,7 +228,11 @@ export function Modal({ closeModal, itemModal, allMovies }) {
           <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
+                <img
+                  className="rounded-t-lg"
+                  src="https://res.cloudinary.com/dfeyolmc9/image/upload/v1678078897/Screen_Shot_2566-03-06_at_11.58.34_mg0tck.png"
+                  alt=""
+                />
               </div>
               <div className="p-2">
                 <div className="flex justify-between">
@@ -224,7 +240,7 @@ export function Modal({ closeModal, itemModal, allMovies }) {
                     <button className=" border-2 border-gray-500 text-white text-lg px-2">
                       16+
                     </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
+                    <p className="text-yellow-50 text-lg pt-1">2.18</p>
                   </div>
                   <div>
                     <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
@@ -246,15 +262,19 @@ export function Modal({ closeModal, itemModal, allMovies }) {
           <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
+                <img
+                  className="rounded-t-lg"
+                  src="https://res.cloudinary.com/dfeyolmc9/image/upload/v1678078898/Screen_Shot_2566-03-06_at_12.00.42_lsmedw.png"
+                  alt=""
+                />
               </div>
               <div className="p-2">
                 <div className="flex justify-between">
                   <div className="flex gap-2 mt-1 pr-2 py-3">
                     <button className=" border-2 border-gray-500 text-white text-lg px-2">
-                      16+
+                      18+
                     </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
+                    <p className="text-yellow-50 text-lg pt-1">1.50</p>
                   </div>
                   <div>
                     <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
@@ -276,7 +296,11 @@ export function Modal({ closeModal, itemModal, allMovies }) {
           <div className="flex justify-center">
             <div className=" w-[260px] h-[360px] rounded-lg  shadow-lg bg-neutral-800 hover:bg-opacity-60 ">
               <div className="w-full h-[140px] overflow-hidden">
-                <img className="rounded-t-lg" src={img2} alt="" />
+                <img
+                  className="rounded-t-lg"
+                  src="https://res.cloudinary.com/dfeyolmc9/image/upload/v1678091741/Screen_Shot_2566-03-06_at_15.34.29_ncbxuc.png"
+                  alt=""
+                />
               </div>
               <div className="p-2">
                 <div className="flex justify-between">
@@ -284,7 +308,7 @@ export function Modal({ closeModal, itemModal, allMovies }) {
                     <button className=" border-2 border-gray-500 text-white text-lg px-2">
                       16+
                     </button>
-                    <p className="text-yellow-50 text-lg pt-1">2h 1m</p>
+                    <p className="text-yellow-50 text-lg pt-1">2.15</p>
                   </div>
                   <div>
                     <button className="opacity-70 hover:opacity-100 active:opacity-50 pt-2">
