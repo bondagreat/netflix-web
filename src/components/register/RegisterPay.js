@@ -50,6 +50,7 @@ export default function RegisterPay() {
           // window.form.submit();
           console.log(souce);
           // link to signin
+          navigate('/profiles');
         } catch (err) {
           console.log(err);
         }
