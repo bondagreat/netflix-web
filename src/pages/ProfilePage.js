@@ -6,10 +6,11 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { XIcon } from '../images';
 import { fetchProfile } from '../redux/profileSlice';
+import * as AuthApi from '../apis/auth-api';
 
 export default function ProfilePage() {
   const userProfiles = useSelector((state) => state.auth.user?.Profiles);
-  const checkActive = useSelector((state) => state.auth.user?.isActive);
+  // const checkActive = useSelector((state) => state.auth.user?.IsActive);
   const [modal, setModal] = useState(false);
   const [isError, setIsError] = useState(false);
   const [inPin, setInPin] = useState({});
@@ -19,9 +20,13 @@ export default function ProfilePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (checkActive === false) {
-      navigate('/signup/step');
+    async function fetchActive() {
+      const res = await AuthApi.getMe();
+      if (res?.data?.user.isActive === false) {
+        navigate('/signup/step');
+      }
     }
+    fetchActive();
   }, []);
 
   const fromRef = useRef(null);
@@ -59,14 +64,14 @@ export default function ProfilePage() {
 
   const handleChangePin = (e) => {
     setFocusedIndex(e.target.name);
-    if (e.key == 'Backspace') {
+    if (e.key === 'Backspace') {
       if (focusedIndex > 0) {
         const nextIndex = focusedIndex - 1;
         inputRef[nextIndex].current.focus();
         setFocusedIndex(nextIndex);
       }
     } else {
-      if (focusedIndex == 3) {
+      if (focusedIndex === 3) {
         const nextIndex = 0;
         inputRef[nextIndex].current.focus();
         setFocusedIndex(nextIndex);

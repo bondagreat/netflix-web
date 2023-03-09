@@ -73,7 +73,7 @@ export default function LandingPage() {
       }
     } catch (err) {
       // console.log(err);
-      if (err.response.data.message == 'email is already in use') {
+      if (err.response.data.message === 'email is already in use') {
         navigate('/login');
       }
       setError(err.response.data.message);
@@ -84,7 +84,7 @@ export default function LandingPage() {
     <>
       {/* div 1 */}
       <div>
-        <div className="-z-30 absolute h-[100vh] w-[98.8vw] bg-black/60"></div>
+        <div className="-z-30 absolute h-[100vh] w-[100vw] bg-black/60"></div>
         <img
           className=" -z-40 absolute h-[100vh] w-screen "
           src="https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/e251261f-cc87-497a-8672-194e306e76bc/TH-en-20230213-popsignuptwoweeks-perspective_alpha_website_small.jpg"
