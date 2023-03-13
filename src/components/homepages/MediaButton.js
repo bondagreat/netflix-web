@@ -74,7 +74,7 @@ export function MediaButton({
       </div>
       <div className="flex justify-end gap-2 mt-1 pr-2">
         <button className=" border-2 border-gray-100 text-white text-xs px-2">
-          {item.Age.name}
+          {item.Age?.name}
         </button>
         <p className="text-yellow-50 text-xs">{item.length}</p>
       </div>

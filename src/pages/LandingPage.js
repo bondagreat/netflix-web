@@ -65,14 +65,10 @@ export default function LandingPage() {
         setError(result[0].message);
       } else {
         setError('');
-        // startLoading()
         const res = await AuthApi.startEmail(inputEmail);
-        console.log(res);
-        // stopLoading()
         navigate('/signup/regform');
       }
     } catch (err) {
-      // console.log(err);
       if (err.response.data.message === 'email is already in use') {
         navigate('/login');
       }

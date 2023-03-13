@@ -42,8 +42,6 @@ export default function DeleteProfileLock({ id, idx, pin }) {
     }
   };
 
-  console.log(error);
-
   return (
     <>
       <div className="mt-2">
