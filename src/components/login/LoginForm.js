@@ -40,7 +40,7 @@ export default function LoginForm() {
     }
   };
   return (
-    <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-18 mb-10 w-[350px} p-[60px]">
+    <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-18 mb-24 w-[430px} p-[60px]">
       <form>
         <div className="form-group mb-6">
           <label className="form-label inline-block mb-6 text-white text-3xl font-bold">
@@ -51,7 +51,7 @@ export default function LoginForm() {
           <input
             type="email"
             value={inputEmail.email}
-            className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-300  bg-[#444444]    rounded   m-0 mb-3.5 focus:border-transparent focus:ring-0"
+            className="form-control block  w-full  pl-3  pr-24  py-4  text-base  font-normal  text-gray-300  bg-[#444444]    rounded   m-0 mb-3.5 focus:border-transparent focus:ring-0"
             onChange={(e) => changeInputEmail({ email: e.target.value })}
             placeholder="Email or phone number"
           />
@@ -59,7 +59,7 @@ export default function LoginForm() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full pl-3 py-3 text-sm font-normal text-gray-300 bg-[#444444]  rounded m-0 border-transparent focus:border-transparent focus:ring-0"
+            className="w-full pl-3 py-4 text-base font-normal text-gray-300 bg-[#444444]  rounded m-0 border-transparent focus:border-transparent focus:ring-0"
             placeholder="Password"
           />
           <p className="text-red-500 pt-1 text-sm">{error}</p>

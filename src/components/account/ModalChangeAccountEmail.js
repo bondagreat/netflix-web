@@ -17,6 +17,7 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
       const result = await changeEmail(payload);
       console.log(result.data);
       if (result && result.data) {
+        console.log('first');
         setCurrentEmail('');
         setNewEmail('');
         setConfirmpassword('');

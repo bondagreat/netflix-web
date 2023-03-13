@@ -1,12 +1,12 @@
 export default function LoginAdminForm() {
   return (
     <>
-      <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-28 mb-10 w-[350px} p-[60px]">
+      <div className="block p-6 rounded-lg shadow-lg bg-black/60  max-w-xl mt-28 mb-10 w-[430px} p-[60px]">
         <form>
           <div className="form-group mb-6">
             <label
               htmlFor="exampleInputEmail2"
-              className="form-label inline-block mb-2 text-white text-3xl font-bold ml-20"
+              className="form-label inline-block mb-2 text-white text-3xl font-bold ml-24"
             >
               Admin
             </label>
@@ -36,7 +36,7 @@ export default function LoginAdminForm() {
           <div className="flex justify-between items-center mb-1">
             <button
               type="submit"
-              className="w-full  px-6   py-2.5  bg-red-600   text-white   font-medium   text-lg   leading-tight   rounded   shadow-md   transition   duration-150   ease-in-out mt-4"
+              className="w-full  px-6   py-4  bg-red-600   text-white   font-medium   text-lg   leading-tight   rounded   shadow-md   transition   duration-150   ease-in-out mt-4"
             >
               Sign in
             </button>

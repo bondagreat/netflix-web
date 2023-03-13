@@ -37,7 +37,7 @@ export default function UserEditAccountPage() {
   return (
     <>
       <NavBarAccount />
-      <div className="flex-low  ml-[200px] mt-[120px]  mr-10 justify-center w-[1000px] ">
+      <div className="flex-low  bg-white ml-[200px] mt-[120px]  mr-10 justify-center w-[1000px] ">
         {/* <div className="mt-[120px]"> */}
         <div className="flex  mb-4  text-4xl ">
           <h1>Account</h1>{' '}
