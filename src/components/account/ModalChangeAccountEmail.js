@@ -1,15 +1,42 @@
 import { useRef, useState } from 'react';
+import { changeEmail } from '../../apis/auth-api';
 export default function ModalChangeAccountEmail({ show, setClose }) {
-  const handleSubmitForm = () => {};
+  const [currentEmail, setCurrentEmail] = useState();
+  const [newEmail, setNewEmail] = useState();
+  const [confirmPassword, setConfirmpassword] = useState();
+
+  const handleSubmitForm = async (e) => {
+    e.preventDefault();
+    const payload = {
+      currentEmail,
+      newEmail,
+      confirmPassword,
+    };
+    console.log(payload);
+    try {
+      const result = await changeEmail(payload);
+      console.log(result.data);
+      if (result && result.data) {
+        setCurrentEmail('');
+        setNewEmail('');
+        setConfirmpassword('');
+        setClose();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //   const [show, setShow] = useState(false);
-  const cancelButtonRef = useRef(null);
+
+  // const cancelButtonRef = useRef(null);
+
   return (
     <>
       <div
         className={`w-screen h-screen fixed top-0 left-0 bg-black/50 ${
           show ? ' block ' : ' hidden '
         }`}
-        onClick={() => setClose(false)}
       >
         <div className="w-full h-full flex justify-center items-center">
           <div className="block p-10 rounded-lg shadow-lg bg-white w-[700] h-[511] ">
@@ -29,6 +56,8 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
                       className="form-control block  w-full  pl-3  pr-24  py-3  text-sm  font-normal  text-gray-500  bg-white   rounded   m-0 mb-3.5 border-blue-500 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 focus:border-transparent focus:ring-0"
                       id="id_userLoginId01"
                       placeholder="Current Email "
+                      value={currentEmail}
+                      onChange={(e) => setCurrentEmail(e.target.value)}
                     />
                     <input
                       type="email"
@@ -37,6 +66,8 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
                       id="id_userLoginId02"
                       aria-describedby="emailHelp"
                       placeholder="New Email "
+                      value={newEmail}
+                      onChange={(e) => setNewEmail(e.target.value)}
                     />
                     <input
                       type="password"
@@ -44,6 +75,8 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
                       // id="exampleInputEmail2"
                       aria-describedby="password"
                       placeholder="Enter Confirm Password "
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmpassword(e.target.value)}
                     />
                   </div>
                 </div>
@@ -61,9 +94,9 @@ export default function ModalChangeAccountEmail({ show, setClose }) {
                 <button
                   type="button"
                   id="cancel-btn-email"
-                  onClick={handleSubmitForm}
+                  onClick={setClose}
                   className="rounded-md px-6 pt-2.5 pb-2 text-sm font-medium  m-1 bg-[#FFFFFF] hover:bg-[#E50914] hover:ring-[#E50914] text-[#FA0000] hover:text-white hover:ring-white  bold-2 shadow-xl  drop-shadow-xl  mt-1"
-                  ref={cancelButtonRef}
+                  // ref={cancelButtonRef}
                 >
                   Cancel
                 </button>
