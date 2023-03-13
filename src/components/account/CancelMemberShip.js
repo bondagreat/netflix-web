@@ -16,7 +16,7 @@ export default function CancelMemberShip() {
     <>
       <NavBarAccount />
       <div className="flex-col  ml-[200px] mt-[90px]  mr-10 justify-center ">
-        <Link to={{ pathname: '/homepage' }}>
+        <Link to={{ pathname: '/browse' }}>
           <div className="flex mb-6">
             <div className="w-[10px] h-[10px] fill-blue-600 cursor-pointer no-underline hover:underline mx-1 my-1 ">
               <ArrowLeftForm />
