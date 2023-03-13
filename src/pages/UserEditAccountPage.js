@@ -50,7 +50,7 @@ export default function UserEditAccountPage() {
         <div className="flex mx-auto pt-3 h-72">
           <div className="h-full w-full text-lg  text-gray-500 flex flex-col ">
             <h1 className="mb-2">MEMBERSHIP & BILLING</h1>
-            <Link to={{ pathname: '/cancelMember' }}>
+            <Link to={{ pathname: '/member' }}>
               <button className="cursor-pointer text-sm px-9 pt-2 pb-2 w-fit bg-gray-200 hover:bg-slate-50  border-2 border-none text-zinc-900  shadow-xl">
                 Cancel Membership
               </button>
