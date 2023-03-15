@@ -16,14 +16,23 @@ export default function UserEditAccountPage() {
   const [openPassword, setOpenPassword] = useState(false);
   const [openPhone, setOpenPhone] = useState(false);
 
-  const handleOnClickEmail = () => {
+  const handleOpenEmail = () => {
     setOpenEmail(true);
   };
-  const handleOnClickPassword = () => {
+  const handleCloseEmail = () => {
+    setOpenEmail(false);
+  };
+  const handleOpenPassword = () => {
     setOpenPassword(true);
   };
-  const handleOnClickPhone = () => {
+  const handleClosePassword = () => {
+    setOpenPassword(false);
+  };
+  const handleOpenPhone = () => {
     setOpenPhone(true);
+  };
+  const handleClosePhone = () => {
+    setOpenPhone(false);
   };
   return (
     <>
@@ -41,7 +50,7 @@ export default function UserEditAccountPage() {
         <div className="flex mx-auto pt-3 h-72">
           <div className="h-full w-full text-lg  text-gray-500 flex flex-col ">
             <h1 className="mb-2">MEMBERSHIP & BILLING</h1>
-            <Link to={{ pathname: '/cancelMember' }}>
+            <Link to={{ pathname: '/member' }}>
               <button className="cursor-pointer text-sm px-9 pt-2 pb-2 w-fit bg-gray-200 hover:bg-slate-50  border-2 border-none text-zinc-900  shadow-xl">
                 Cancel Membership
               </button>
@@ -76,40 +85,40 @@ export default function UserEditAccountPage() {
               className="text-blue-600 cursor-pointer no-underline hover:underline"
               id="email"
               type="button"
-              onClick={handleOnClickEmail}
+              onClick={handleOpenEmail}
             >
               Change Account Email
-              <ModalChangeAccountEmail
-                show={openEmail}
-                setClose={setOpenEmail}
-              />
             </a>
+            <ModalChangeAccountEmail
+              show={openEmail}
+              setClose={handleCloseEmail}
+            />
             <br className="text-black" />
             <a
               className="block cursor-pointer mt-2 text-blue-600 no-underline hover:underline "
               id="password"
               type="button"
-              onClick={handleOnClickPassword}
+              onClick={handleOpenPassword}
             >
               Change Password
-              <ModalChangeAccountPassword
-                show={openPassword}
-                setClose={setOpenPassword}
-              />
             </a>
+            <ModalChangeAccountPassword
+              show={openPassword}
+              setClose={handleClosePassword}
+            />
             <br />
             <a
               className="block cursor-pointer mt-[-15px] text-blue-600 no-underline hover:underline"
               id="phoneNumber"
               type="button"
-              onClick={handleOnClickPhone}
+              onClick={handleOpenPhone}
             >
               Change Phone Number
-              <ModalChangeAccountPhone
-                show={openPhone}
-                setClose={setOpenPhone}
-              />
             </a>
+            <ModalChangeAccountPhone
+              show={openPhone}
+              setClose={handleClosePhone}
+            />
 
             <br />
 

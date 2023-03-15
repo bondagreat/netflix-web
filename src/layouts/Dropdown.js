@@ -101,7 +101,7 @@ export default function Dropdown() {
               </li>
               <li>
                 <div className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700">
-                  <Link to={'/user/editAccount'}>Account</Link>
+                  <Link to={'/user/account'}>Account</Link>
                 </div>
               </li>
               <li>
@@ -113,7 +113,7 @@ export default function Dropdown() {
                   type="button"
                   onClick={() => {
                     dispatch(logout());
-                    navigate('/');
+                    // navigate('/');
                   }}
                 >
                   Sign out of Netflix

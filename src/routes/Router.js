@@ -114,11 +114,11 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/user/editAccount',
+    path: '/user/account',
     element: <UserEditAccountPage />,
   },
   {
-    path: '/cancelMember',
+    path: '/member',
     element: <CancelMemberShip />,
   },
   {

@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import { NetflixLogo } from '../images';
 
 export default function Brand() {
   return (
-    <button className="px-10">
+    <Link to={'/browse'} className="px-10">
       <NetflixLogo />
-    </button>
+    </Link>
   );
 }

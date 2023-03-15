@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function CancelMemberShip() {
   const navigate = useNavigate();
   function handleClickBack() {
-    navigate('/userEditAccount');
+    navigate('/user/account');
   }
   function handleClickHome() {
     navigate('/homepage');
@@ -16,7 +16,7 @@ export default function CancelMemberShip() {
     <>
       <NavBarAccount />
       <div className="flex-col  ml-[200px] mt-[90px]  mr-10 justify-center ">
-        <Link to={{ pathname: '/homepage' }}>
+        <Link to={{ pathname: '/browse' }}>
           <div className="flex mb-6">
             <div className="w-[10px] h-[10px] fill-blue-600 cursor-pointer no-underline hover:underline mx-1 my-1 ">
               <ArrowLeftForm />
@@ -158,7 +158,7 @@ export default function CancelMemberShip() {
                     className="w-[200px] h-[120px] rounded-md"
                   />
                 </div>
-                <Link to={{ pathname: '/homepage' }}>
+                <Link to={{ pathname: '/browse' }}>
                   <div className="flex justify-center items-center mt-8 ">
                     <button className="bg-gray-200 hover:bg-gray-100 w-[70%] h-8 inline-block text-black font-medium text-lg  ml-1 rounded-sm shadow-lg border border-gray-200">
                       Explore More TV Shows & Movies
@@ -173,7 +173,7 @@ export default function CancelMemberShip() {
                     <div className="flex justify-center text-sm">
                       <p>Your plan will remain the same.</p>
                     </div>
-                    <Link to={{ pathname: '/homepage' }}>
+                    <Link to={{ pathname: '/browse' }}>
                       <div className="flex justify-center space-x-2 mt-3">
                         <button className="bg-blue-600 hover:bg-blue-500 w-[40%] h-8 inline-block text-white font-light text-lg  mr-1 rounded-sm shadow-lg ">
                           Return to Netflix{' '}
